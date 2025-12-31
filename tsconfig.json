@@ -1,0 +1,84 @@
+//编译选项 https://typescript.bootcss.com/compiler-options.html
+{
+  "compilerOptions": {
+    "baseUrl": ".", //+ 拓宽引入非相对模块时的查找路径的。其默认值就是"./"
+    "target": "esnext", //目标版本. 打包模块类型ESNext 控制编译后输出的是什么js版本
+    "useDefineForClassFields": true,
+    "module": "esnext",//指定要使用的模块标准
+    // "moduleResolution": "node", //配置模块的解析规则(分别为classic和node)
+    "moduleResolution": "bundler",
+    "strict": true, // 是否启动严格模式
+    "strictFunctionTypes": false,
+    "jsx": "preserve", // jsx 不转
+    "sourceMap": true,
+    "allowJs": true,  //允许JavaScript和TypeScript混用
+    "resolveJsonModule": true, // 解析json模块
+    "noUnusedLocals": true, //若有未使用的局部变量则抛错。默认false
+    //在严格的null检查模式下，null和undefined值不包含在任何类型里，只允许用它们自己和any来赋值（有个例外，undefined可以赋值到void）
+    "strictNullChecks": true,
+    // "removeComments": true, //删除注释
+    //允许对不包含默认导出的模块使用默认导入。这个选项不会影响生成的代码，只会影响类型检查。
+    "allowSyntheticDefaultImports": true,
+    
+    "forceConsistentCasingInFileNames": true, //禁止对同一个文件的不一致的引用。
+
+    //"isolatedModules": true, // true表示将每个文件作为单独的模块 默认false
+    "esModuleInterop": true,  // 支持es6,commonjs模块
+    "lib": ["esnext", "dom"], // 编译时用的库
+    "skipLibCheck": true, // 跳过类库检测
+    // "outDir": "./dist/",
+    "outDir": "dist",
+    //要包含的类型声明文件名列表
+    //如果不希望自动引入 typeRoots 指定路径下的所有声明模块，那可以使用 types 指定自动引入哪些模块。
+    "types": [
+      "node",
+      "vite/client",
+      // "vue/ref-macros", //3.4 版本中被移除
+      // "vite-plugin-pages/client",
+      //vite-plugin-vue-layouts
+      // "vite-plugin-vue-layouts/client"
+      //如果使用volar，配置指定全局组件类型。
+      "naive-ui/volar",
+
+      //If you want type definition of @intlify/vite-plugin-vue-i18n/messages
+      // "@intlify/vite-plugin-vue-i18n/client",
+
+      //If you want type definition of @intlify/unplugin-vue-i18n/messages, add unplugin-vue-i18n/messages to compilerOptions.types of your tsconfig:
+      //unplugin-vue-i18n
+      "@intlify/unplugin-vue-i18n/messages",
+      
+      //unplugin-vue-define-options
+      "unplugin-vue-define-options/macros-global",
+
+      "vite-plugin-svg-icons/client",
+
+      //"./types"  //可以全局使用项目中types目录下所有声明的类型;也可以放在typeRoots下
+    ],
+    //node_modules和项目types目录下所有所有类型声明是可见的
+    //把types目录添加到类型查找路径，让TypeScript可以查找到自定义类型声明
+    //"node_modules/@types"路径如果这样写项目运行会报错（You need to define an object as the locale message with 'export default'. ）
+    //"node_modules/@types"改为"./node_modules/@types"
+    "typeRoots": ["./node_modules/@types/", "./types", "./node_modules"],
+
+    //模块名到基于baseUrl的路径映射的列表 
+    // 用来将模块路径重新映射到相对于baseUrl定位的其他路径配置
+    //这里可以理解为别名配置
+    "paths": {
+      //ts路径别名
+      "@/*": ["src/*"],
+			"~/*": ["./*"],
+      "#/*": ["types/*"]
+    }
+  },
+  //指定需要包含在typescript项目中的文件或文件匹配路径
+  //TypeScript需要识别的文件
+  "include": [
+    "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue",
+    "types/**/*.d.ts","types/**/*.ts",
+    "build/**/*.ts","build/**/*.d.ts",
+    "mock/**/*.ts",
+    "uno.config.ts",
+    "vite.config.ts","*.d.ts", "src/settings/color.js", "src/utils/props.js", "src/components/rich-editor/image-paste.js", "src/components/quill-editor/image-load.js"],
+  "exclude": ["node_modules", "dist", "**/*.js"]
+  // "references": [{ "path": "./tsconfig.node.json" }]
+}

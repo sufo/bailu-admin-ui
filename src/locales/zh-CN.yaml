@@ -1,0 +1,534 @@
+button:
+  loginOut: 退出系统
+  fullscreen: 全屏
+  add: 新增
+  getSmsCode: 获取验证码
+  confirm: 确定
+  clickRetry: 点击重试
+  clear: 清空
+  allToReaded: 全部已读
+  expendAll: 全部展开
+  collapseAll: 全部折叠
+  edit: 编辑
+  detail: 详情
+  del: 删除
+  toExport: 导出
+  select: 选择
+  submit: 提交
+  exec: 执行
+  okText: '确认'
+  closeText: '关闭'
+  cancelText: '取消'
+  saveText: '保存'
+  delText: '删除'
+  resetText: '重置'
+  searchText: '搜索'
+  queryText: '查询'
+  release: 发布
+  revocation: 撤销
+menu:
+  home: 首页
+  login: 登录
+  sysManagement: 系统管理
+  user: 用户管理
+  dict: 字典管理
+  role: 角色管理
+  dept: 部门管理
+  post: 岗位管理
+  profile: 个人信息
+  errorLogList: 错误日志列表
+  notFound: 未找到
+  except: 错误页面
+status:
+  hsLoad: 加载中...
+  yes: 是
+  no: 否
+  show: 显示
+  hide: 隐藏
+  success: 成功
+  failure: 失败
+api:
+  operationSuccess: '操作成功'
+  operationFailed: '操作失败'
+  errorTip: '错误提示'
+  errorMessage: '操作失败,系统异常！'
+  timeoutMessage: '登录超时,请重新登录！'
+  apiTimeoutMessage: '接口请求超时,请刷新页面重试！'
+  apiRequestFailed: '请求出错，请稍候重试'
+  networkException: '网络异常'
+  networkExceptionMsg: '网络异常，请检查您的网络连接是否正常！'
+  errMsg401: '用户没有权限（令牌、用户名、密码错误）！'
+  errMsg403: '用户得到授权，但是访问是被禁止的！'
+  errMsg404: '网络请求错误,未找到该资源！'
+  errMsg405: '网络请求错误,请求方法未允许！'
+  errMsg408: '网络请求超时！'
+  errMsg429: '请求太频繁，请稍后再试'
+  errMsg500: '服务器错误,请联系管理员！'
+  errMsg501: '网络未实现！'
+  errMsg502: '网络错误！'
+  errMsg503: '服务不可用，服务器暂时过载或维护！'
+  errMsg504: '网络超时！'
+  errMsg505: 'http版本不支持该请求！'
+login:
+  backSignIn: '返回'
+  mobileSignIn: '手机登录'
+  wechatSignIn: '微信登录'
+  qrCodeSignIn: '二维码登录'
+  signIn: '登录'
+  signUp: '注册'
+  forget: '重置密码'
+  socialLoginIn: '第三方登录'
+  #
+  signInTitle: '开箱即用的中后台管理系统'
+  signInDesc: '输入您的个人详细信息开始使用！'
+  policy: '我同意xxx隐私政策'
+  scanSign: '扫码后点击"确认"，即可完成登录'
+  #
+  loginButton: '登录'
+  registerButton: '注册'
+  rememberMe: '记住我'
+  forgetPassword: '忘记密码?'
+  otherSignIn: '其他登录方式'
+  # notify
+  loginSuccessTitle: '登录成功！'
+  loginSuccessDesc: '欢迎回来'
+  # placeholder
+  accountPlaceholder: '请输入用户名'
+  passwordPlaceholder: '请输入密码'
+  smsPlaceholder: '请输入短信验证码'
+  captchaPlaceHolder: '验证码，点击图片刷新'
+  mobilePlaceholder: '请输入手机号码'
+  policyPlaceholder: '勾选后才能注册'
+  diffPwd: '两次输入密码不一致'
+  # 
+  phoneFormatErr: '手机号码格式错误'
+  pwdFormatTip: '密码为{min}-{max}位数字/字符/符号，至少{n}种组合'
+  smsCodeFormatErr: '短信验证码为{n}位数字'
+  smsCodeErr: '短信验证码不正确'
+  captchaFormatErr: '验证码为{n}位数字'
+  requireNumberErr: '必须为数字'
+  captchaErr: '验证码错误'
+  emailFormatErr: '邮箱格式错误'
+  #
+  username: '账号'
+  password: '密码'
+  confirmPassword: '确认密码'
+  email: '邮箱'
+  captcha: '验证码'
+  smsCode: '短信验证码'
+  mobile: '手机号码'
+tips:
+  notEmpty: '不能为空'
+  destoryTokenFailure: '注销Token失败'
+  #
+  cuntDownLtZero: '倒计时的时间应该为一个正整数'
+  isExist: '{v}已被占用'
+  confirmLogout: 您确定要退出登录吗？
+  resetConfigTip: '已重置配置，请重新拷贝！'
+  copyNotSupport: '您的浏览器不支持复制！'
+  confirmRemove: 你确定删除吗?
+  copiedIcon: '复制图标成功！'
+  systemPrompt: '系统提示'
+  tokenExpiredRelogin: '令牌状态已过期，请点击重新登录'
+  imgUploadFomartTip: '文件格式错误，请上传图片类型,如：JPG，PNG后缀的文件。'
+  removeWarn: '此操作将永久删除选中数据，是否继续？'
+  cleanWarn: '此操作将清理所有数据，是否继续？'
+  clear-warn: '此操作将清理所有{v}，是否继续？'
+  multiple: 可多选
+  taskExecImmediately: '立刻执行一次任务(任务名称: {v}), 是否继续?'
+  #update
+  checkUpdateTitle: '新版本可用'
+  checkUpdateDesc: '点击刷新以获取最新版本'
+  
+  route-path: '页面访问路径，如：`user`，如外网地址需内链访问则以`http(s)://`开头'
+  component-path: '访问的组件路径，如：`sys/user/index`，默认在`views`目录下'
+  auth-id: '权限字符，如：'
+  menu-status: '选择停用则路由将不会出现在侧边栏，也不能被访问'
+  external-link: '选择是外链则路由地址需要以`http(s)://`开头'
+  keep-alive: '选择是则会被`keep-alive`缓存'
+
+
+############################################
+countdown:
+  normalText: '获取验证码'
+  sendText: '{0}秒后重新获取'
+common:
+  loadingText: '加载中...'
+  inputText: '请输入'
+  chooseText: '请选择'
+  searchIcon: '搜索图标'
+  toNavigate: '切换'
+  #
+  refresh: '刷新'
+  back: '返回'
+  #
+  light: '亮色主题'
+  dark: '黑暗主题'
+  searchNotData: '暂无搜索结果'
+  themeMode: 主题模式
+  logout: 退出登录
+  warn: 提示
+  switchText: 切换
+  # lockscreen
+  hour: 小时
+  minute: 分钟
+  chargeFull: 已充满  
+  charging: 充电中
+  disconnectPower: 已断开电源
+  dischargingTime: '剩余可使用时间：'
+  chargingTime: '距离电池充满需要：'
+  unlockScreen: 解锁屏幕
+  pwdError: 密码错误
+  loginPwdPlaceHolde: 请输入登录密码
+  relogin: 重新登录
+  enterSys: 进入系统
+  normal: 正常
+  enable: 启用
+  disable: 停用
+  status: 状态
+  createTime: 创建时间
+  action: 操作
+  sort: 排序
+  startDate: 开始日期
+  endDate: 结束日期
+  showSort: 显示排序
+  more: 更多
+  descInfo: 描述信息 
+  visibleStatus: 显示状态
+  remark: 备注
+  male: 男
+  female: 女
+  secret: 保密
+  name: 名称
+  desc: 描述
+  dataVal: 数据值
+  list: 列表
+  log: 日志
+  func: 函数
+  default-val: 默认值
+  fixed: 固定
+  custom: 自定义
+  title: 标题
+  category: 类型
+  content: 内容
+loading:
+  viewMore: 查看更多
+  empty: '暂无数据'
+  networkErrorSubTitle: '抱歉，您的网络连接已断开，请检查您的网络！'
+dt:
+  sec: 秒
+  min: 分钟
+  hour: 小时
+  day: 日
+  mon: 月
+  year: 年
+  week: 
+    label: 周
+    mon: 星期一
+    tue: 星期二
+    wed: 星期三
+    thu: 星期四
+    fri: 星期五
+    sat: 星期六
+    sun: 星期日
+  per-min: 每分钟
+  per-hour: 每小时
+  per-midnight: 每天零点
+  1st-midnight: 每月一号零点
+  last-day-of-month-0: 每月最后一天零点
+  sunday-0: 每周星期日零点
+layout:
+  header:
+    tooltipNotify: '消息通知'
+    tooltipEntryFull: '全屏'
+    tooltipExitFull: '退出全屏'
+    # lock
+    lockScreenPassword: '锁屏密码'
+    lockScreen: '锁定屏幕'
+    lockScreenBtn: '锁定'
+  tabs: 
+    fullContent: '内容全屏'
+    reload: '重新加载'
+    close: '关闭标签页'
+    closeLeft: '关闭左侧标签页'
+    closeRight: '关闭右侧标签页'
+    closeOther: '关闭其它标签页'
+    closeAll: '关闭全部标签页'
+  table:
+    list: 列表
+    density: 密度
+    colSetting: 列设置
+    loose: 宽松
+    compact: 紧凑
+    default: 默认
+    showColumnText: 列展示
+    openCheckbox: 勾选列
+    countPerPage: '{n}条/页'
+    totalText: '共{n}条'
+    index: 序号
+preference:
+  drawerTitle: '项目配置'
+  # theme mode
+  theme:
+    themeMode: '主题模式'
+    themedark: '深色主题'
+    light: "浅色"
+    dark: "深色"
+    followSys: '跟随系统'
+    siderDark: '侧边栏深色'
+    headerDark: '头部深色'
+    footerDark: '底部深色'
+    grayMode: '灰色模式'
+    colorWeak: '色弱模式'
+    # theme color
+    themeColor: '系统主题'
+    traditionalColors: '中国传统颜色'
+    moreColors: '更多颜色'
+  # layout
+  layoutMode: '布局模式'
+  menuVertical: '左侧菜单模式'
+  menuVerticalMix: '左侧菜单混合模式'
+  menuHorizontal: '顶部菜单模式'
+  menuHorizontalMix: '顶部菜单混合模式'
+  
+  #
+  interfaceFunction: '界面功能'
+  autoScreenLock: '自动锁屏'
+  notAutoScreenLock: '不自动锁屏'
+  #
+  scrollMode: '滚动模式'
+  contentScroll: '内容滚动'
+  outerSCroll: '外层滚动'
+  fixedHeader: '固定头部'
+  # topMenu align
+  topMenuAlign: '顶部菜单位置'
+  topMenuAlignLeft: '居左'
+  topMenuAlignRight: '居中'
+  topMenuAlignCenter: '居右'
+  #
+  menuDrag: '侧边菜单拖拽'
+  #
+  tabsCache: '多页签缓存'
+  #
+  minute: '分钟'
+  expandedMenuWidth: '菜单展开宽度'
+  # 
+  interfaceDisplay: '界面显示'
+  breadcrumb: '面包屑'
+  breadcrumbIcon: '面包屑图标'
+  tabs: '标签页'
+  tabsStyle: '多页签风格'
+  chromeStyle: '谷歌风格'
+  buttonStyle: '按钮风格'
+  tabDetail: '标签详情页'
+  # tabsQuickBtn: '标签页快捷按钮'
+  tabsRedoBtn: '标签页刷新按钮'
+  tabsFullBtn: '标签页全屏按钮'
+  sidebar: '左侧菜单'
+  header: '顶栏'
+  footer: '页脚'
+  footerFixed: '固定页脚'
+  footerAlignRight: '页脚居右'
+  fullContent: '全屏内容'
+  watermark: 水印
+  checkUpdate: '定时检查更新'
+  dynamic-title: '动态标题'
+  # transition
+  animation: '动画'
+  switchAnimation: '切换动画'
+  animationType: '动画类型'
+  #
+  operatingTitle: '操作成功'
+  operatingContent: '复制成功,请到 src/settings/projectSetting.ts 中修改配置！'
+  resetSuccess: '重置成功！'
+  copyBtn: '拷贝当前配置'
+  resetBtn: '重置当前配置'
+page:
+  dashboard:
+    lastLoginTime: '上次登录时间：'
+  menu:
+    menuList: 菜单列表
+    name: 菜单名称
+    i18nKey: 国际化key
+    status: 菜单状态
+    type: 菜单类型
+    authTag: 权限标识
+    icon: 图标
+    comPath: 组件路径
+    add: 新增菜单
+    edit: 编辑菜单
+    dir: 目录
+    menu: 菜单
+    button: 按钮
+    parent: 上级菜单
+    routerPath: 路由地址
+    isExternal: 是否外链
+    isCache: 是否缓存
+    bind-api: 绑定接口
+  dept:
+    dept: 部门
+    name: 部门名称
+    namePlaceholder: 请输入部门名称
+    add: 新增部门
+    edit: 编辑部门
+    deptList: 部门列表
+    nameNotEmpty: 部门名称不能为空
+    parentLevel: 上级菜单
+    leader: 负责人
+    telephone: 部门电话
+
+  role:
+    role: 角色
+    name: 角色名称
+    add: 新增角色
+    edit: 编辑角色 
+    roleKey: 角色字符
+    roleList: 角色列表
+    roleVal: 角色值
+    remark: 备注
+    nameNotEmpty: 角色名称不能为空
+    dataScope: 数据权限
+    assign: 分配用户
+    menuPermission: 菜单权限
+    assignDataScope: 分配数据权限
+    permScope: 权限范围
+  user:
+    list: 用户列表
+    name: 用户名
+    password: 密码
+    nickName: 昵称
+    mobile: 手机号
+    sex: 性别
+    belongDept: 所属部门
+    add: 新增用户
+    edit: 编辑用户
+    select: 选择用户
+  post:
+    post: 岗位
+    name: 岗位名称
+    code: 岗位编码
+    desc: 岗位描述
+    add: 新增岗位
+    edit: 编辑岗位  
+  dict:
+    nameOrCode: 字典名称/编码
+    configure: 配置
+    name: 字典名称
+    code: 字典编码
+    list: 字典列表
+  profile:
+    name: 个人简介
+    info: 基本资料
+    editAvatar: 修改头像
+    title: 个人中心
+    general: 基本资料
+    changePwd: 修改密码
+    currentPwd: 原密码
+    currentPwdTip: 请输入原密码
+    newPwd: 新密码
+    newPwdTip: 请输入新密码
+    repeatPwdTip: 确认新密码
+  oper:
+    reqTime: 请求时间
+    reqPath: 请求路径
+    reqMathod: 请求方法
+    operUser: 操作人
+    HttpStatus: 状态码
+    latency: 耗时(毫秒)
+    addr: 地点
+    title: 操作日志
+    client: 客户端
+    browser: 浏览器类型
+    respMsg: 响应信息
+    reqParams: 请求参数
+    respBody: 响应体
+  loginLog:
+    addr: 登录地址
+    username: 用户名称
+    loginTime: 登录时间
+    browser: 浏览器  
+    os: 操作系统
+    status: 登录状态
+    datetime: 登录时间
+    cleanWarn: '此操作将清理所有登录日志数据，是否继续？'
+  onlineUser:
+    loginName: 登录用户
+    forceOut: 强退
+    forceOutWarn: '是否确认强退名称为"{name}"的用户？'
+  server:
+    info: 服务器信息
+    name: 服务器名称
+    arch: 系统架构
+    cores: 核心数
+    ram: 内存
+    ram-total: 总内存
+    ram-used: 已用内存
+    ram-free: 剩余内存
+    ram-usage: 使用率
+    runtime: 运行时
+    compiler: 编译器
+    go-version: go版本
+    disk-path: 盘符路径
+    fsType: 文件系统
+    total: 总共
+    used: 已使用
+    free: 可用
+    usage: 使用率
+    start-time: 启动时间
+    run-time: 运行时长
+    goroutine-num: 协程数
+    disk: 磁盘状态
+  task:
+    name: 任务名称
+    group: 任务组名
+    invokeTarget: 调用目标
+    invokeType: 类型
+    status: 任务状态
+    execStatus: 执行状态
+    parameter: 参数
+    cron: cron表达式
+    nextTime: 下次执行时间
+    preTime: 上次执行时间
+    execTime: 执行时间
+    notify-strategy: 通知策略
+    notify-way: 通知方式
+    edit: 编辑任务
+    create: 创建任务 
+    http-method: http方法
+    timeExpression: 时间表达式
+    cronGen: Cron表达式生成器
+    exec-log: 运行日志
+    log-info: 日志信息
+    detail: 任务详情
+    except: 异常信息
+  notice:
+    notice: 通知
+    announcement: 公告
+    sender:  发送人
+    receiver: 接收者
+    scope: 通知范围
+    send-status: 发布状态
+    channal: 通知方式
+    scheduled-time: 定时发布时间
+    release-time: 发布时间
+    cacel-time: 撤销时间
+    read-flag: 阅读状态
+    read-time: 读取时间
+    scheduled-send: 定时发送
+    published: 已发布
+    unpublished: 未发布
+    revoked: 已撤销
+  msg:
+    notice: 通知
+    to-do: 待办
+    message: 消息
+  file:
+    name: 文件管理
+    click-upload: 点击上传
+data-scope:
+  all: 全部数据权限
+  custome: 自定义数据权限
+  depart: 本部门数据权限
+  depart-and-sub: 本部门及以下数据权限
+  me: 仅本人数据权限
+    

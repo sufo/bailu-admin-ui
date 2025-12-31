@@ -1,0 +1,33 @@
+<!--
+ * @version: 
+ * 
+ * @LastEditTime: 2023-05-17 10:39:17
+ * @Desc: 
+-->
+<template>
+  <div class="px-24px h-44px flex-y-center">
+    <span class="mr-14px flex-y-center">
+      <icon icon="mdi:keyboard-return" class="icon text-20px p-2px mr-6px" />
+      <span>{{$t('button.okText')}}</span>
+    </span>
+    <span class="mr-14px flex-y-center">
+      <icon icon="mdi:arrow-up-thin" class="icon text-20px p-2px mr-5px" />
+      <icon icon="mdi:arrow-down-thin" class="icon text-20px p-2px mr-6px" />
+      <span>{{$t('common.switchText')}}</span>
+    </span>
+    <span class="flex-y-center">
+      <icon icon="mdi:keyboard-esc" class="icon text-20px p-2px mr-6px" />
+      <span>{{$t('button.closeText')}}</span>
+    </span>
+  </div>
+</template>
+
+<script lang="ts" setup>
+defineOptions({ name: 'SearchFooter' });
+</script>
+
+<style lang="scss" scoped>
+.icon {
+  box-shadow: inset 0 -2px #cdcde6, inset 0 0 1px 1px #fff, 0 1px 2px 1px #1e235a66;
+}
+</style>

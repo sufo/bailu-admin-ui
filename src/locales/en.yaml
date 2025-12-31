@@ -1,0 +1,534 @@
+button:
+  loginOut: LoginOut
+  fullscreen: FullScreen
+  add: New
+  getSmsCode: 'obtain sms code'
+  confirm: confrim
+  clear: clear
+  expendAll: 'Expand All'
+  collapseAll: 'Collapse All'
+  edit: 'Edit'
+  detail: 'Detail'
+  del: 'Remove'
+  toExport: Export
+  select: Select
+  submit: Submit
+  exec: Execute
+  okText: 'OK'
+  closeText: 'Close'
+  cancelText: 'Cancel'
+  saveText: 'Save'
+  delText: 'Delete'
+  resetText: 'Reset'
+  searchText: 'Search'
+  queryText: 'Search'
+  release: Release
+  revocation: Revocation
+menu:
+  home: Home
+  login: Login
+  sysManagement: 'System Manage'
+  user: 'User Manage'
+  dict: 'Dict Manage'
+  role: 'Role Manage'
+  dept: 'Dept Manage'
+  post: 'Post Manage'
+  profile: 'Profile'
+  errorLogList: 'Error Log'
+  clickRetry: 'click retry'
+  clear: 'clear'
+  allToReaded: 'mark all read'
+  notFound: 'not found'
+  except: 'Error Page'
+status:
+  hsLoad: Loading...
+  yes: Yes
+  no: No
+  show: Show
+  hide: Hide
+  success: Success
+  failure: Failure
+api:
+  operationSuccess: 'Operation success'
+  operationFailed: 'Operation failed'
+  errorTip: 'Error Tip'
+  errorMessage: 'The operation failed, the system is abnormal!'
+  timeoutMessage: 'Login timed out, please log in again!'
+  apiTimeoutMessage: 'The interface request timed out, please refresh the page and try again!'
+  apiRequestFailed: 'The interface request failed, please try again later!'
+  networkException: 'network anomaly'
+  networkExceptionMsg: 'Please check if your network connection is normal! The network is abnormal'
+  errMsg401: 'The user does not have permission (token, user name, password error)!'
+  errMsg403: 'The user is authorized, but access is forbidden!'
+  errMsg404: 'Network request error, the resource was not found!'
+  errMsg405: 'Network request error, request method not allowed!'
+  errMsg408: 'Network request timed out!'
+  errMsg429: 'Too Many Requests'
+  errMsg500: 'Server error, please contact the administrator!'
+  errMsg501: 'The network is not implemented!'
+  errMsg502: 'Network Error!'
+  errMsg503: 'The service is unavailable, the server is temporarily overloaded or maintained!'
+  errMsg504: 'Network timeout!'
+  errMsg505: 'The http version does not support the request!'
+login:
+  backSignIn: 'Back sign in'
+  mobileSignIn: 'Mobile sign in'
+  wechatSignIn: 'wechat sign in'
+  qrCodeSignIn: 'qrCode sign in'
+  socialLoginIn: 'social media login in'
+  signIn: 'Sign in'
+  signUp: 'Sign up'
+  forget: 'Reset password'
+  #
+  signInTitle: 'Backstage management system'
+  signInDesc: 'Enter your personal details and get started!'
+  policy: 'I agree to the xxx Privacy Policy'
+  scanSign: 'scanning the code to complete the login'
+  #
+  loginButton: 'Sign in'
+  registerButton: 'Sign up'
+  rememberMe: 'Remember me'
+  forgetPassword: 'Forget Password?'
+  otherSignIn: 'Sign in with'
+  # notify
+  loginSuccessTitle: 'Login successful!'
+  loginSuccessDesc: 'Welcome back'
+  # placeholder
+  accountPlaceholder: 'Please input username'
+  passwordPlaceholder: 'Please input password'
+  smsPlaceholder: 'Please input SMS code'
+  mobilePlaceholder: 'Please input mobile'
+  captchaPlaceHolder: 'captcha, click to refresh'
+  policyPlaceholder: 'Register after checking'
+  diffPwd: 'The two passwords are inconsistent'
+  # 
+  phoneFormatErr: 'Mobile phone number format error'
+  pwdFormatTip: 'The password is {min}-{max}digits/characters/symbols, at least {n} combinations'
+  smsCodeFormatErr: 'The SMS verification code must be {n} digits'
+  smsCodeErr: 'Invalid SMS verification code'
+  captchaFormatErr: 'The captcha must be {n} digits'
+  requireNumberErr: 'The captcha must be digits'
+  captchaErr: 'invalid captcha'
+  emailFormatErr: 'E-mail format error'
+  #
+  username: 'Username'
+  password: 'Password'
+  confirmPassword: 'Confirm Password'
+  email: 'Email'
+  captcha: 'Captcha'
+  smsCode: 'SMS code'
+  mobile: 'Mobile'
+tips:
+  notEmpty: 'cant not be empty'
+  destoryTokenFailure: 'failed to destroy token'
+  cuntDownLtZero: 'The countdown time should be a positive integer'
+  isExist: '{v} already taken'
+  confirmLogout: 'Are you sure you want to log out?'
+  resetConfigTip: 'The configuration has been reset, please copy again!'
+  copyNotSupport: 'Your browser does not support copying!'
+  confirmRemove: 'Are you sure to delete it?'
+  copiedIcon: 'Copy icon successfully!'
+  systemPrompt: 'System Prompt'
+  tokenExpiredRelogin: 'The token status has expired, please click to log in again'
+  imgUploadFomartTip: 'The file format is wrong, please upload the image type, such as: JPG, PNG suffix file.'
+  removeWarn: 'This operation will permanently delete the selected data. Do you want to continue?'
+  cleanWarn: 'This operation will clear all data. Do you want to continue?'
+  clear-warn: 'This operation will clear all of {v}. Do you want to continue?{v}'
+  multiple: 'Multiple'
+  taskExecImmediately: 'Execute a task immediately (Task name: {v}). Do you want to continue?'
+  # update
+  checkUpdateTitle: 'New Version Available'
+  checkUpdateDesc: 'Click to refresh and get the latest version'
+
+  route-path: 'Page access path, such as `user`. If an external address requires an internal link, it should begin with `http(s)://`.'
+  component-path: 'The path to the accessed component, such as `sys/user/index`, is in the `views` directory by default.'
+  auth-id: 'Permission characters, such as:'
+  menu-status: 'If you choose to disable it, the route will not appear in the sidebar and will not be accessible.'
+  external-link: 'If you choose an external link, the route address must begin with `http(s)://`.'
+  keep-alive: 'If you select "yes", it will be cached by `keep-alive`.'
+
+countdown: 
+  normalText: 'Get SMS code'
+  sendText: 'Reacquire in {0}s'
+common:
+  loadingText: 'Loading...'
+  #
+  inputText: 'Please enter'
+  chooseText: 'Please choose'
+  searchIcon: 'Search icon'
+  #
+  refresh: 'Refresh'
+  back: 'Back'
+  #
+  light: 'Light'
+  dark: 'Dark'
+  toNavigate: 'to navigate'
+  searchNotData: 'No search results yet'
+  themeMode: 'theme mode'
+  logout: 'login Out'
+  warn: 'warn'
+  switchText: switch
+  #
+  hour: h
+  minute: m
+  rechargeFull: 'Fully charged'  
+  recharging: 'Charging'
+  disconnectPower: 'Disconnect the power'
+  dischargingTime: 'Remaining usable time:'
+  chargingTime: 'Distance to full battery required:'
+  unlockScreen: 'Unlock Screen'
+  pwdError: 'Incorrect password'
+  loginPwdPlaceHolde: 'Please input login password'
+  relogin: 'Re-login'
+  enterSys: 'Enter'
+  normal: Normal
+  enable: Enable
+  disable: Disable
+  status: 'Status'
+  createTime: 'Create time'
+  action: 'Action'
+  sort: 'Sort'
+  startDate: 'Start Date'
+  endDate: 'End Date'
+  showSort: 'Sort'
+  more: 'More'
+  descInfo: 'Description'
+  visibleStatus: 'Visibility'
+  remark: Remark
+  male: 'Male'
+  female: 'Female'
+  secret: 'Secret'
+  name: 'Name'
+  desc: 'Description'
+  dataVal: 'Value'
+  list: 'List'
+  log: 'Log'
+  func: 'Function'
+  default-val: 'Default value'
+  fixed: 'Fixed'
+  custom: Custom
+  title: Title
+  category: Category
+  content: Content
+loading:
+  viewMore: 'view more'
+  empty: 'empty'
+  networkErrorSubTitle: 'Sorry, your network connection has been disconnected, please check your network!'
+dt:
+  sec: Second
+  min: Minute
+  hour: Hour
+  day: Day
+  mon: Month
+  year: Year
+  week: 
+    label: week
+    mon: Mon
+    tue: Tue
+    wed: Wed
+    thu: Thu
+    fri: Fri
+    sat: Set
+    sun: Sun
+  per-min: 'Per minute'
+  per-hour: 'Per hour'
+  per-midnight: 'Every day at 0:00'
+  1st-midnight: '0:00 on the first day of every month'
+  last-day-of-month-0: '00:00 on the last day of each month'
+  sunday-0: 'Every Sunday at midnight'
+
+layout:
+  header: 
+    #
+    tooltipErrorLog: 'Error log'
+    tooltipLock: 'Lock screen'
+    tooltipNotify: 'Notification'
+    #
+    tooltipEntryFull: 'Full Screen'
+    tooltipExitFull: 'Exit Full Screen'
+    # lock
+    lockScreenPassword: 'Lock screen password'
+    lockScreen: 'Lock screen'
+    lockScreenBtn: 'Locking'
+  tabs: 
+    fullContent: 'content full screen'
+    reload: 'Refresh current'
+    close: 'Close current'
+    closeLeft: 'Close Left'
+    closeRight: 'Close Right'
+    closeOther: 'Close Other'
+    closeAll: 'Close All'
+  table:
+    list: List
+    density: Density
+    colSetting: 'Column setting'
+    loose: Loose
+    compact: Compact
+    default: Default
+    showColumnText: 'Column display'
+    openCheckbox: 'Selection Column'
+    countPerPage: '{n} per page'
+    totalText: 'Total is {n}'
+    index: Index
+preference:
+  drawerTitle: 'Configuration'
+  theme:
+    themeMode: 'Theme mode'
+    themedark: 'Dark theme'
+    light: "Light"
+    dark: "Dark"
+    followSys: 'Follow the system'
+    siderDark: 'Sidebar dark'
+    headerDark: 'Header dark'
+    footerDark: 'Footer dark'
+    grayMode: 'Gray mode'
+    colorWeak: 'Color Weak Mode'
+    # theme color
+    themeColor: 'Theme color'
+    traditionalColors: 'Chinese traditional colors'
+    moreColors: 'more colors'
+
+  # layout
+  layoutMode: 'Layout mode'
+  menuVertical: 'Left menu mode'
+  menuVerticalMix: 'Left menu mode'
+  menuHorizontal: 'Top Menu Mix mode'
+  menuHorizontalMix: 'Top menu mixed mode'
+  #
+  interfaceFunction: 'Interface function'
+  autoScreenLock: 'Auto screen lock'
+  notAutoScreenLock: 'Not auto lock'
+  contentScroll: 'content scrolling'
+  # 
+  scrollMode: 'scroll mode'
+  outerSCroll: 'overall scroll'
+  fixedHeader: 'Fixed header'
+  #  topMenu align
+  topMenuAlign: 'top menu align'
+  topMenuAlignLeft: 'Left'
+  topMenuAlignRight: 'Center'
+  topMenuAlignCenter: 'Right'
+  menuDrag: 'Drag Sidebar'
+  #
+  tabsCache: 'Multi-tab caching'
+  #
+  minute: 'minute'
+  expandedMenuWidth: 'Expanded menu width'
+  # 
+  interfaceDisplay: 'Interface display'
+  breadcrumb: 'Breadcrumbs'
+  breadcrumbIcon: 'Breadcrumbs Icon'
+  tabs: 'Tabs'
+  tabsStyle: 'Tabs style'
+  chromeStyle: 'Chrome style'
+  buttonStyle: 'Button style'
+  tabDetail: 'Tab Detail'
+  # tabsQuickBtn: 'Tabs quick button',
+  tabsRedoBtn: 'Tabs redo button'
+  tabsFullBtn: 'Tabs full screen button'
+  sidebar: 'Sidebar'
+  header: 'Header'
+  footer: 'Footer'
+  footerFixed: 'Footer fixed'
+  footerAlignRight: 'footer right'
+  fullContent: 'Full content'
+  watermark: 'Watermark'
+  checkUpdate: 'Periodic update check'
+  dynamic-title: 'Dynamic Title'
+  # transition
+  animation: 'Animation'
+  switchAnimation: 'Switch animation'
+  animationType: 'Animation type'
+  #
+  operatingTitle: 'Successful!'
+  operatingContent: 'The copy is successful, please go to src/settings/projectSetting.ts to modify the configuration!'
+  resetSuccess: 'Successfully reset!'
+  copyBtn: 'copy'
+  resetBtn: 'reset'
+page:
+  dashboard:
+    lastLoginTime: 'Last login: '
+  menu:
+    menuList: 'Menu list'
+    name: 'Menu Name'
+    i18nKey: 'I18n Key'
+    status: 'Menu Status'
+    type: 'Menu type'
+    authTag: 'Authority ID'
+    icon: 'Icon'
+    comPath: 'Component path'
+    add: 'Add menu'
+    edit: 'Edit menu'
+    dir: Direcroty
+    menu: Menu
+    button: Button
+    parent: 'Parent menu'
+    routerPath: 'Router path'
+    isExternal: 'External link'
+    isCache: 'Cache'
+    bind-api: 'Binding API'
+  dept:
+    dept: 'Department'
+    name: 'Department Name'
+    namePlaceholder: 'Department name'
+    add: 'Add Department'
+    edit: 'Edit Department'
+    deptList: 'Department List'
+    nameNotEmpty: 'Name must be nonempty'
+    parentLevel: 'Superior department'
+    leader: 'Person in charge'
+    telephone: 'Telephone'
+  role:
+    role: Role
+    name: 'Role Name'
+    add: 'Add Role'
+    edit: 'Edit Role'
+    roleKey: 'Role Key'
+    roleList: 'Role List'
+    roleVal: 'Role Value'
+    remark: Remark
+    nameNotEmpty: 'Name must be nonempty'
+    dataScope: 'Data Scope'
+    assign: 'Assign'
+    menuPermission: 'Menu Permission'
+    assignDataScope: 'Data scope assignment'
+    permScope: 'Permission scope'
+  user:
+    list: 'User List'
+    name: 'Name'
+    password: 'Password'
+    nickName: 'Nick Name'
+    mobile: 'Modile Phone'
+    sex: 'Sex'
+    belongDept: 'Department'
+    add: 'Add User'
+    edit: 'Edit User'
+    select: 'Select User'
+  post:
+    post: 'Post Name'
+    name: 'Post Name'
+    code: 'Post Code'
+    desc: 'Description'
+    add: 'Add Post'
+    edit: 'Edit Post'
+  dict:
+    nameOrCode: 'Name/Code'
+    configure: 'Configure'
+    name: 'Dictionary Name'
+    code: 'Dictionary Code'
+    list: 'Dict List'
+  profile:
+    name: 'Profile'
+    info: 'Information'
+    editAvatar: 'Edit Avatar'
+    title: 'Personal Center'
+    general: 'General Information'
+    changePwd: 'Change Password'
+    currentPwd: 'Current Password'
+    currentPwdTip: 'Please input current password'
+    newPwd: 'New Password'
+    newPwdTip: 'Please input new password'
+    repeatPwdTip: 'repeat new Password'
+  oper:
+    reqTime: 'Request Time'
+    reqPath: 'Request Path'
+    reqMathod: 'Request Method'
+    operUser: Operator
+    HttpStatus: Status
+    latency: 'Time Consuming(ms)'
+    addr: Address
+    title: 'Operation Log'
+    client: Client
+    browser: 'Browser Engin'
+    respMsg: 'Response Message'
+    reqParams: 'Request Params'
+    respBody: 'Response Body'
+  loginLog:
+    addr: Address
+    username: Username
+    loginTime: 'Login time' 
+    browser: 'Browser'
+    os: 'OS'
+    status: 'Login Status'
+    datetime: 'Login Time'
+    cleanWarn: 'This operation will clear all login log data, do you want to continue?'
+  onlineUser:
+    loginName: Username
+    forceOut: 'Force Logout'
+    forceOutWarn: 'Do you confirm to force quit the user named {name}?'
+  server:
+    info: Server
+    name: 'Server Name'
+    arch: Arch
+    cores: Cores
+    ram: RAM
+    ram-total: Toal
+    ram-used: Used
+    ram-free: Free
+    ram-usage: Usage
+    runtime: Runtime
+    compiler: Compiler
+    go-version: 'Go Version'
+    disk-path: Path
+    fsType: 'File System'
+    total: Total
+    used: Used
+    free: Free
+    usage: Usage
+    start-time: 'Start-Up Time'
+    run-time: 'Running Time'
+    goroutine-num: 'Go Routine Num'
+    disk: 'Disk State'
+  task:
+    name: Name
+    group: Group
+    invokeTarget: 'Invoke Target'
+    invokeType: 'Invoke Type'
+    status: 'Task Status'
+    execStatus: 'Execution Status'
+    parameter: Parameter
+    cron: 'Cron Expression'
+    nextTime: 'Next Time'
+    preTime: 'Pre Time'
+    execTime: 'Execute Time'
+    notify-strategy: 'Notify Strategy'
+    notify-way: 'Notify Way'
+    edit: 'Edit Task'
+    create: 'Create Task'
+    http-method: 'Http Method'
+    timeExpression: 'Time Expression'
+    cronGen: 'Crontab Expression Generate'
+    exec-log: 'Excute Log'
+    log-info: 'Log Info'
+    detail: 'Task Detail'
+    except: 'Except Info'
+  notice:
+    notice: Notice
+    announcement: Anouncement
+    sender:  Sender
+    receiver: Receiver
+    scope: 'Send Scope'
+    send-status: 'Send Status'
+    channal: 'Notify Way'
+    scheduled-time: 'Scheduled release time'
+    release-time: 'Release time'
+    cacel-time: 'Cancel Time'
+    read-flag: 'Read Status'
+    read-time: 'Reading time'
+    scheduled-send: 'Scheduled Send'
+    published: Published
+    unpublished: Unpublished
+    revoked: Revoked
+  msg:
+    notice: Notice
+    to-do: To-do
+    message: Message
+  file:
+    name: 文件管理
+    click-upload: 'Click Upload'
+data-scope:
+  all: All data Access
+  custome: Custom Data Access
+  depart: Current Department Data Access
+  depart-and-sub: Current Department and Sub-departments Data Access
+  me: Personal Data Access Only

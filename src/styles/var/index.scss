@@ -1,0 +1,36 @@
+// less
+// @import (reference) 'breakpoint.less';
+// @import (reference) 'variables.less';
+@forward "breakpoint";
+
+$namespace: bailu;
+
+// tabs
+$tab-height: 44px;
+
+// headers
+$header-height: 56px;
+$header-fixed-z-index: 5;
+
+$footer-height: 32px;
+
+$side-drag-z-index: 200;
+
+/**
+* vw适配
+* 750设计稿宽度
+*/
+@function px2vw($px) {
+  @return $px * 100vw / 750;
+}
+
+//font-size: 62.5%
+@function px2rem($px, $base-font-size: 10px) {
+  @return ($px / $base-font-size) * 1rem;
+}
+
+//导出给js使用
+:export {
+  footerHeight: $footer-height;
+  headerHeight: $header-height;
+}

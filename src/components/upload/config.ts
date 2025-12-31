@@ -1,0 +1,74 @@
+export const options = {
+  // 尺寸
+  size: 120,
+  // 云端上传路径前缀
+  prefixPath: "app/base",
+  // 规则
+  rules: [
+    {
+      name: "图片",
+      type: "image",
+      color: "#67C23A",
+      exts: ["bmp", "jpg", "jpeg", "png", "tif", "gif", "svg", "webp"]
+    },
+    {
+      name: "视频",
+      type: "video",
+      color: "#826aec",
+      exts: ["avi", "wmv", "mpg", "mpeg", "mov", "rm", "ram", "swf", "flv", "mp4"]
+    },
+    {
+      name: "音频",
+      type: "audio",
+      color: "#826aec",
+      exts: ["mp3", "wav", "wma", "mp2", "flac", "midi", "ra", "ape", "aac", "cda"]
+    },
+    {
+      name: "文档",
+      type: "word",
+      color: "#53B7F4",
+      exts: ["doc", "dot", "wps", "wpt", "docx", "dotx", "docm", "dotm"]
+    },
+    {
+      name: "表格",
+      type: "excel",
+      color: "#53D39C",
+      exts: ["xls", "xlt", "et", "xlsx", "xltx", "xlsm", "xltm"]
+    },
+    {
+      name: "演示",
+      type: "ppt",
+      color: "#F56C6C",
+      exts: [
+        "ppt",
+        "pptx",
+        "pptm",
+        "ppsx",
+        "ppsm",
+        "pps",
+        "potx",
+        "potm",
+        "dpt",
+        "dps"
+      ]
+    },
+    {
+      name: "PDF",
+      type: "pdf",
+      exts: ["pdf"],
+      color: "#8f3500"
+    },
+    {
+      name: "压缩文件夹",
+      type: "rar",
+      color: "#FFC757",
+      exts: ["rar", "zip", "7z"]
+    },
+    {
+      name: "文件",
+      type: "file",
+      color: "#909399",
+      exts: []
+    }
+  ]
+}

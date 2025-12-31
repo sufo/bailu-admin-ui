@@ -1,0 +1,9 @@
+
+/**
+  * 导出给js使用
+  * 解决在js文件到如变量使用 [vite] Internal server error: [sass] Module loop: this module is already being loaded.
+**/
+:export {
+  footerHeight: $footer-height;
+  headerHeight: $header-height;
+}

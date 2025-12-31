@@ -7,25 +7,6 @@ export default defineConfig({
   },
   presets: [
     presetUno({ dark: 'class' }),
-    // presetIcons({
-    //   extraProperties: {
-    //     display: 'inline-flex',
-    //     'vertical-align': 'middle',
-    //     'align-items': 'center'
-    //     // ...
-    //   },
-    //   collections: {
-    //     // 'ant-design': () =>
-    //     //   import('@iconify-json/ant-design/icons.json').then(i => i.default),
-    //     carbon: () => import('@iconify-json/carbon/icons.json').then(i => i.default),
-    //   }
-    //   // a helper to load icons from the file system
-    //   // files under `./assets/icons` with `.svg` extension will be loaded as it's file name
-    //   // you can also provide a transform callback to change each icon (optional)
-    //   // 'my-yet-other-icons': FileSystemIconLoader('./assets/icons', svg =>
-    //   //   svg.replace(/#fff/, 'currentColor')
-    //   // )
-    // })
   ],
   shortcuts: {
     'wh-full': 'w-full h-full',
@@ -86,20 +67,21 @@ export default defineConfig({
       error_pressed: 'var(--error-color-pressed)',
       error_active: 'var(--error-color-active)',
       //bg: 'var(--background)'// '#18181c'
+      dark: '#18181c',
     },
     //修改了默认字体大小（16px->4px），所以这里定制字体，在原来基础上 ×4
     fontSize: {
       'xs': '3rem',
       'sm': '3.5rem',
       'tiny': '3.5rem',
-       'base': '4rem',
-       'lg': '4.5rem',
-       'xl': '5rem',
-       '2xl': '6rem',
+      'base': '4rem',
+      'lg': '4.5rem',
+      'xl': '5rem',
+      '2xl': '6rem',
       '3xl': '7.5rem',
       '4xl': '9rem',
-       '5xl': '12rem',
-       '6xl': '16rem',
+      '5xl': '12rem',
+      '6xl': '16rem',
       '7xl': '20rem',
     }
   }

@@ -5,7 +5,7 @@
  * @Desc: 
 -->
 <template>
-  <header v-bind="$attrs" v-if="theme.header.visible" :class="headerClass"  v-show="!hide">
+  <header v-bind="$attrs" v-if="theme.header.visible" :class="headerClass" v-show="!hide">
     <app-logo v-if="theme.app.showLogo && showLogo && !isMobile" 
       :show-title="true" class="h-full flex-x-center"  :img-class="'w-32px h-32px'"/>
     <div v-if="!showHeaderMenu" class="flex-1-hidden flex-y-center h-full">

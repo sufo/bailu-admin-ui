@@ -24,7 +24,7 @@ const app = useAppStore()
 
 const layoutCls = computed(()=>{
   return [
-    prefixCls,'transition-all-300',
+    prefixCls,'transition-all-300', 'shadow-sm',
     {[`${prefixCls}_collapsed`]: app.siderCollapse},
   ]
 })

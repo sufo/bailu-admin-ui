@@ -59,9 +59,9 @@ const {doLogin} = useUserStore()
 const formRules = useFormRule()
 const loginForm = reactive({
   // username: 'bailu',
-  // password: '123546',
+  // password: '123456',
   username: 'bailu',
-  password: '123546',
+  password: '123456',
   captchaId: '',
   imgCode: ''
 })

@@ -5,6 +5,7 @@
         :show-feedback="false" :grid="{yGap:10}"/>
     <bailu-table tbKey="operTable" 
       :request="request"
+      :afterRequest="afterRequest"
       ref="tableRef"
       :row-key="row=>row.id"
       adaptive
@@ -34,7 +35,7 @@ defineOptions({name: 'Operation'})
 const {prefixCls} = useDesign("oper")
 const {isMobile} = storeToRefs(useContext())
 const tableRef = ref()
-const { formItems, columns, request, handler, row, showDrawer } = useOper(tableRef)
+const { formItems, columns, request, afterRequest, handler, row, showDrawer } = useOper(tableRef)
 
 const onSearch = async (formModel:Recordable, done: ()=>void)=>{
   tableRef.value.setPagination({page:1})

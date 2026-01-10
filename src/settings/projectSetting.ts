@@ -141,6 +141,8 @@ const setting: Settings = {
   useErrorHandle: false,
   //  Is it possible to embed iframe pages
   canEmbedIFramePage: true,
+
+  timeTemplate: "YYYY-MM-DD HH:mm:ss"
 }
 
 export default setting

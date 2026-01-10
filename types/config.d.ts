@@ -64,6 +64,8 @@ interface Settings {
   //  Is it possible to embed iframe pages
   canEmbedIFramePage: boolean;
  
+  //datetime template
+  timeTemplate: string;
   //[x: string]: any; //动态添加属性  //导致DeepPartial<Settings>传值类型问题
 }
 
@@ -126,6 +128,7 @@ interface AppPreference{
   enableCheckUpdate: boolean;
   /** 检查更新轮询时间（分钟）*/
   checkUpdateInterval: number;
+
 }
 
 

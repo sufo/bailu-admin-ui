@@ -86,7 +86,7 @@ const bindProps:ComputedRef<BaseFormProps> = computed(()=>({
 } as BaseFormProps))
 
 async function fetchDepts(){
-  const res = await deptApi.index({})
+  const res = await deptApi.index<Dept[]>({})
   depts.value = res
 }
 

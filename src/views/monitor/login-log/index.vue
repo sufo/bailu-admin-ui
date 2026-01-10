@@ -5,6 +5,7 @@
         :show-feedback="false" :grid="{yGap:10,cols:'3 m:4 l:5 xl:6'}"/>
     <bailu-table tbKey="loginLogTable"
       :request="request"
+      :afterRequest="afterRequest"
       ref="tableRef"
       v-model:checked-row-keys="checkedRowKeys"
       :row-key="row=>row.id"
@@ -35,7 +36,7 @@ import { BailuTable } from '@/components/table';
 defineOptions({name: 'LoginLog'})
 const {prefixCls} = useDesign("login-log")
 const tableRef = ref()
-const { formItems, columns, request, handler,checkedRowKeys} = useLoginLog(tableRef)
+const { formItems, columns, request, afterRequest, handler,checkedRowKeys} = useLoginLog(tableRef)
 const {t} = useI18n()
 
 const onSearch = async (formModel:Recordable, done: ()=>void)=>{

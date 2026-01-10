@@ -6,6 +6,7 @@
       :show-feedback="false" :grid="{yGap:10}"/>
     <bailu-table tbKey="menuTable" 
       :request="request"
+      :afterRequest="afterRequest"
       ref="tableRef"
       :row-key="row=>row.id"
       adaptive
@@ -33,7 +34,7 @@ import { useAsyncRouteStore } from '@/store/modules';
 defineOptions({name:"Menu"})
 const { prefixCls } = useDesign('menu')
 const tableRef = ref()
-const { formItems, columns, request, handler, menuModalProps, fetchApis} = useMenu(tableRef)
+const { formItems, columns, request, afterRequest, handler, menuModalProps, fetchApis} = useMenu(tableRef)
 
 const onSearch = async (formModel:Recordable, done: ()=>void)=>{
   await tableRef.value.loadData({...formModel})

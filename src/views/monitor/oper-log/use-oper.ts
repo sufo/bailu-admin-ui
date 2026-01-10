@@ -5,10 +5,12 @@ import { NTag } from 'naive-ui'
 import { TableAction } from '@/components/table'
 import { operationApi } from '@/api/admin'
 import dayjs from 'dayjs';
+import { usePreferenceStore } from '@/store/modules';
 
 export function useOper(tableRef: Ref){
 
   const {t} = useI18n();
+  const preference = usePreferenceStore()
 
   const formItems: ComputedRef<Array<FormItemProps>> = computed(()=>[
     {field: 'path', component: 'NInput', label: t('page.oper.reqPath')},
@@ -76,7 +78,7 @@ export function useOper(tableRef: Ref){
     },
   ]);
 
-  async function request<T>(params: Recordable):Promise<void|Operation[]>{
+  async function request<T>(params: Recordable):Promise<void|PagesResult<Operation[]>>{
     try{
       const {dateRange, ...rest} = params
       if(unref(dateRange)&&unref(dateRange).length==2){
@@ -108,10 +110,19 @@ export function useOper(tableRef: Ref){
   };
 
 
+  async function afterRequest(data: Operation[]): Promise<void|Operation[]>{
+      data.forEach(item=>{
+        item.createdAt = dayjs.utc(item.createdAt).local().format(preference.timeTemplate)
+      })
+      return data
+  }
+
+
   return {
     formItems,
     columns,
     request,
+    afterRequest,
     showDrawer,
     handler,
     row,

@@ -6,7 +6,7 @@
       <div class="ml-8px h-12px w-12px bg-green-500 rounded-full"></div>
   </div>
   <ul>
-    <li><span>{{$t('page.oper.reqTime')}}:</span> <p>{{ createdAt }}</p></li>
+    <li><span>{{$t('page.oper.reqTime')}}:</span> <p>{{ createdTime }}</p></li>
     <li><span>{{$t('page.oper.operUser')}}:</span> <p>{{ operName }}</p></li>
     <li><span>{{$t('page.oper.reqPath')}}:</span> <p>{{ path }}</p></li>
     <li><span>{{$t('common.status')}}:</span> <p>{{ respCode===0?$t('status.success'):$t('status.failure') }}</p></li>
@@ -24,12 +24,17 @@
 </template>
 <script setup lang="ts">
 import {useDesign} from '@/hooks'
+import { usePreferenceStore } from '@/store/modules';
+import dayjs from 'dayjs';
 
 const {prefixCls} = useDesign('oper-detail')
+const preference = usePreferenceStore()
 
 defineOptions({ name: 'OperDetail' });
 
-defineProps<Operation>()
+const props = defineProps<Operation>()
+
+const createdTime = computed(()=>dayjs.utc(props.createdAt).local().format(preference.timeTemplate))
 </script>
 
 <style lang="scss">

@@ -3,9 +3,10 @@ import { TableColumn} from '@/components/table/types';
 import { NTag } from 'naive-ui'
 import { loginLogApi } from '@/api/admin'
 import dayjs from 'dayjs';
+import { usePreferenceStore } from '@/store/modules';
 
 export function useLoginLog(tableRef: Ref){
-
+  const preference = usePreferenceStore()
   const {t} = useI18n();
   const checkedRowKeys = ref<Array<string | number>>([])
 
@@ -41,7 +42,7 @@ export function useLoginLog(tableRef: Ref){
     {key: 'loginTime', align:'center', hide:false, width:160,  title:t('page.loginLog.loginTime')},
   ]);
 
-  async function request<T>(params: Recordable):Promise<void|LoginLog[]>{
+  async function request<T>(params: Recordable):Promise<void|PagesResult<LoginLog[]>>{
     try{
       const {dateRange, ...rest} = params
       if(unref(dateRange)&&unref(dateRange).length==2){
@@ -72,11 +73,19 @@ export function useLoginLog(tableRef: Ref){
     }
   };
 
+  async function afterRequest(data: LoginLog[]): Promise<void|LoginLog[]>{
+      data.forEach(item=>{
+        item.loginTime = dayjs.utc(item.loginTime).local().format(preference.timeTemplate)
+      })
+      return data
+  }
+
 
   return {
     formItems,
     columns,
     request,
+    afterRequest,
     handler,
     checkedRowKeys
   }

@@ -177,7 +177,7 @@ function renderLabel({option}:{option:TreeSelectOption}){
 
 async function fetchMenus(){
   const res = await menuApi.getMenusExcludeButton({})
-  console.log('menus', res)
+  // console.log('menus', res)
   menus.value = res
 }
 

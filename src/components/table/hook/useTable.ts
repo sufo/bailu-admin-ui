@@ -96,7 +96,9 @@ export function useTable(tableRef:Ref<any>,
       const res = await request(params);
       //是否返回原生响应头
       //TODO
-
+      console.log("--------------------------------------")
+      console.log("request->result:", res)
+      console.log("--------------------------------------")
       //Result
       const result = isResult(res)?(res as Result)[apiSetting.data]:res;
       let data = []

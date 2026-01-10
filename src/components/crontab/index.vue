@@ -11,7 +11,7 @@
         {{ $t('page.task.timeExpression') }}
       </div>
       <table class="cron-table" cellspacing="5">
-        <thead><th v-for="t in tabs" :key="t.name">{{ t.tab }}</th><th>{{ $t('page.task.cron') }}</th></thead>
+        <thead><tr><th v-for="t in tabs" :key="t.name">{{ t.tab }}</th><th>{{ $t('page.task.cron') }}</th></tr></thead>
         <tbody>
           <tr><td v-for="(value,key) of cronMap" :key="key">{{ value }}</td><td>{{ cronExpression }}</td></tr>
         </tbody>

@@ -87,7 +87,7 @@ export function useCron(tableRef: Ref, isMobile=ref(false)){
 
   ]); 
 
-  async function request<T>(params: Recordable):Promise<void|Task[]>{
+  async function request<T>(params: Recordable):Promise<void|PagesResult<Task[]>>{
     try{
       return await taskApi.index(params)
     }catch(e){

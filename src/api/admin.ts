@@ -70,7 +70,7 @@ export function unLock(username: string, password: string) {
 export const userApi = {
   //首页列表
   index: (params: Recordable) => {
-    return http.get<User[]>({ url: "/user", params })
+    return http.get<PagesResult<User[]>>({ url: "/user", params })
   },
   status: (id: number | string, status: number | string) => {
     return http.patch({ url: "/user/status", data: { id, status } });
@@ -207,8 +207,8 @@ export const deptApi = {
 
 export const roleApi = {
 
-  index: (params: Recordable) => {
-    return http.get<Role[]>({ url: "/role", params })
+  index: <T=PagesResult<Role[]>> (params: Recordable) => {
+    return http.get<T>({ url: "/role", params })
   },
   remove: (roleId: number | string) => {
     return http.delete({ url: `/role/${roleId}` })
@@ -234,7 +234,7 @@ export const roleApi = {
 /**===========================post=================================== */
 export const postApi = {
   index: (params: Recordable) => {
-    return http.get<Post[]>({ url: "/post", params })
+    return http.get<PagesResult<Post[]>>({ url: "/post", params })
   },
   remove: (id: number | string) => {
     return http.delete({ url: `/post/${id}` })
@@ -251,7 +251,7 @@ export const postApi = {
 /**字典 */
 export const dictApi = {
   index: (params: Recordable) => {
-    return http.get<Dict[]>({ url: "/dict", params })
+    return http.get<PagesResult<Dict[]>>({ url: "/dict", params })
   },
   remove: (code: string) => {
     return http.delete({ url: `/dict/${code}` })
@@ -265,7 +265,7 @@ export const dictApi = {
 
   //items
   dictItems: (code: string, params: Recordable) => {
-    return http.get<DictItem[]>({ url: `/dict/${code}` })
+    return http.get<PagesResult<DictItem[]>>({ url: `/dict/${code}` })
   },
   itemCreate: (data: Recordable) => {
     return http.post({ url: "/dictItem", data })
@@ -286,7 +286,7 @@ export const dictApi = {
 //operation record
 export const operationApi = {
   index: (params: Recordable) => {
-    return http.get<Operation[]>({ url: "/oper", params })
+    return http.get<PagesResult<Operation[]>>({ url: "/oper", params })
   },
   remove: (ids: number | string) => {
     return http.delete({ url: `/oper/${ids}` })
@@ -296,7 +296,7 @@ export const operationApi = {
 
 export const loginLogApi = {
   index: (params: Recordable) => {
-    return http.get<LoginLog[]>({ url: "/loginLog", params })
+    return http.get<PagesResult<LoginLog[]>>({ url: "/loginLog", params })
   },
   remove: (ids: string) => {
     return http.delete({ url: `/loginLog/${ids}` })
@@ -307,7 +307,7 @@ export const loginLogApi = {
 
 export const onlineApi = {
   index: (params: Recordable) => {
-    return http.get<OnlineUser[]>({ url: "/online", params })
+    return http.get<PagesResult<OnlineUser[]>>({ url: "/online", params })
   },
   kickout: (ids: string) => {
     return http.delete({ url: `/online/${ids}` })
@@ -316,7 +316,7 @@ export const onlineApi = {
 
 export const noticeApi = {
   index: (params: Recordable) => {
-    return http.get<Notice[]>({ url: "/notice", params })
+    return http.get<PagesResult<Notice[]>>({ url: "/notice", params })
   },
   create: (params: Notice) => {
     return http.post({ url: "/notice", data: params })
@@ -337,7 +337,7 @@ export const serverInfoApi = {
 
 export const taskApi = {
   index: (params: Recordable) => {
-    return http.get<Task[]>({ url: "/task", params })
+    return http.get<PagesResult<Task[]>>({ url: "/task", params })
   },
   create: (params: Recordable) => {
     return http.post({ url: "/task", data: params })
@@ -365,7 +365,7 @@ export const taskApi = {
 
   //tasklog
   logs: (taskId: number, params: Recordable) => {
-    return http.get<TaskLog[]>({ url: `/task/${taskId}/logs`, params })
+    return http.get<PagesResult<TaskLog[]>>({ url: `/task/${taskId}/logs`, params })
   },
   removeLogs: (ids: string) => {
     return http.delete({ url: `task/log/${ids}` })
@@ -377,7 +377,7 @@ export const taskApi = {
 /** mine */
 export const msgApi = {
   unreadList: (params: Recordable) => {
-    return http.get<Message[]>({ url: "/mine/message/unread", params })
+    return http.get<PagesResult<Message[]>>({ url: "/mine/message/unread", params })
   },
   remove: (msgType: MessageType, ids: string) => {
     return http.delete({ url: `/mine/${msgType}/${ids}` })

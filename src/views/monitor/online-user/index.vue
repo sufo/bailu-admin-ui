@@ -5,6 +5,7 @@
         :show-feedback="false" :grid="{yGap:10,cols:'2 m:3'}"/>
     <bailu-table tbKey="onlineUserTable"
       :request="request"
+      :afterRequest="afterRequest"
       ref="tableRef"
       :row-key="row=>row.id"
       adaptive hasIndexCol
@@ -21,7 +22,7 @@ import { BailuTable } from '@/components/table';
 defineOptions({name: 'OnlineUser'})
 const {prefixCls} = useDesign("online-user")
 const tableRef = ref()
-const { formItems, columns, request, handler} = useOnlineUser(tableRef)
+const { formItems, columns, request, afterRequest, handler} = useOnlineUser(tableRef)
 
 const onSearch = async (formModel:Recordable, done: ()=>void)=>{
   tableRef.value.setPagination({page:1})

@@ -5,10 +5,12 @@ import { TableColumn} from '@/components/table/types';
 import { NTag } from 'naive-ui';
 import { TableAction } from '@/components/table';
 import { deptApi } from '@/api/admin';
+import dayjs from 'dayjs';
+import { usePreferenceStore } from '@/store/modules';
 
 
 export function useDept(tableRef: Ref){
-  
+  const preference = usePreferenceStore()
   const { t } = useI18n() 
   const formItems: ComputedRef<Array<FormItemProps>> = computed(()=>[
     {field: 'name', component: 'NInput',label: t('page.dept.name')},
@@ -28,8 +30,8 @@ export function useDept(tableRef: Ref){
         )
       }
     },
-    {key: 'createdAt', align:'center', hide:false, title:t('common.createTime')},
-    {key: 'action', align:'center', width:100, hide:false, fixed:'right', title:t('common.action'),
+    // {key: 'createdAt', align:'center', hide:false, title:t('common.createTime')},
+    {key: 'action', align:'center', width:120, hide:false, fixed:'right', title:t('common.action'),
       render(row){
         return h(
           'div',
@@ -61,6 +63,7 @@ export function useDept(tableRef: Ref){
     },
   ])
 
+  //不分页
   async function request<T>(formModel: Recordable):Promise<void|Dept[]>{
     try{
       return await deptApi.index(formModel)
@@ -101,10 +104,18 @@ export function useDept(tableRef: Ref){
     }
   }
 
+  async function afterRequest(data: Dept[]): Promise<void|Dept[]>{
+      data.forEach(item=>{
+        item.createdAt = dayjs.utc(item.createdAt).local().format(preference.timeTemplate)
+      })
+      return data
+  }
+
   return {
     formItems,
     columns,
     request,
+    afterRequest,
     modalProps,
     handler,
   }

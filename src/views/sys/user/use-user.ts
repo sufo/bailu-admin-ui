@@ -72,7 +72,7 @@ export function useUser(tableRef: Ref, formModel: Ref<Recordable>, depts: Ref, i
       key: 'status', hide: false, align: 'center', width: 80, title: t('common.status'),
       render(row) {
         row.loading = false;
-        return h(
+        return row.id != '1' ? h(
           NSwitch,
           {
             rubberBand: false,
@@ -82,7 +82,7 @@ export function useUser(tableRef: Ref, formModel: Ref<Recordable>, depts: Ref, i
             'unchecked-value': 2,
             "onUpdate:value": (val) => handler("ENABLE", row, val)
           },
-        )
+        ) : undefined
       }
     },
     {
@@ -142,7 +142,7 @@ export function useUser(tableRef: Ref, formModel: Ref<Recordable>, depts: Ref, i
     },
   ]);
 
-  async function request<T>(params: Recordable): Promise<void | User[]> {
+  async function request<T>(params: Recordable): Promise<void | PagesResult<User[]>> {
     try {
       const mergeParams = Object.assign(formModel.value ?? {}, params)
       return await userApi.index(mergeParams)

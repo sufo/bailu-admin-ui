@@ -50,7 +50,6 @@ const transform: AxiosTransform = {
     const code = data[apiSetting.code] as number
     const msg = data[apiSetting.msg] as string
     const result = data[apiSetting.data]
-
     //请求成功
     const success = Reflect.has(data, apiSetting.code) && code === ResultCode.SUCCESS
     //成功提示信息处理

@@ -86,6 +86,7 @@ declare interface MenuVo {
   isFrame?: boolean;
   hide?: boolean;
   permission?: string;
+  createdAt: string;
   apis?: MenuApi[];
 }
 

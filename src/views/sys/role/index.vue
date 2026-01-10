@@ -17,6 +17,7 @@
         
     <bailu-table tbKey="roleTable" 
       :request="request"
+      :afterRequest="afterRequest"
       ref="tableRef"
       :row-key="row=>row.id"
       adaptive
@@ -46,7 +47,7 @@ defineOptions({name: 'Role'})
 const {prefixCls} = useDesign("role")
 const tableRef = ref()
 const formModel = ref()
-const { formItems, columns, request, handler, modalProps, scopeModalProps} = useRole(tableRef, formModel)
+const { formItems, columns, request, afterRequest, handler, modalProps, scopeModalProps} = useRole(tableRef, formModel)
 
 const onSearch = async (formModel:Recordable, done: ()=>void)=>{
   await tableRef.value.loadData({...formModel})

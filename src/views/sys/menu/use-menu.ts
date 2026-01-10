@@ -15,6 +15,8 @@ import { Icon } from '@/components/icon';
 import { NTag } from 'naive-ui';
 import { enableOrDisableOpt } from '@/constants/options'
 import { TreeSelectOption } from 'naive-ui/lib';
+import dayjs from 'dayjs';
+import { usePreferenceStore } from '@/store/modules';
 
 // export interface MenuModalProps {
 //   show?:boolean;
@@ -25,6 +27,7 @@ import { TreeSelectOption } from 'naive-ui/lib';
 
 export function useMenu(tableRef: Ref) {
   const { t } = useI18n()
+  const preference = usePreferenceStore()
   // const {hasEveryPermission} = usePermission()
   const formItems: ComputedRef<Array<FormItemProps>> = computed(() => [
     { field: 'name', component: 'NInput', label: t('page.menu.name') },
@@ -63,7 +66,7 @@ export function useMenu(tableRef: Ref) {
         )
       }
     },
-    { key: 'createdAt', align: 'center', hide: false, title: t('common.createTime') },
+    // { key: 'createdAt', align: 'center', hide: false, title: t('common.createTime') },
     {
       key: 'action', align: 'center', width: 100, hide: false, fixed: 'right', title: t('common.action'),
       render(row) {
@@ -115,6 +118,13 @@ export function useMenu(tableRef: Ref) {
     }
   }
 
+  async function afterRequest(data: MenuVo[]): Promise<void|MenuVo[]>{
+      data.forEach(item=>{
+        item.createdAt = dayjs.utc(item.createdAt).local().format(preference.timeTemplate)
+      })
+      return data
+  }
+
   const show = ref(false)
   const menuModalProps: Ref<ModalProps<MenuVo, TreeSelectOption[]>> =
     ref({ show: false, isEdit: false, ['onUpdate:show']: (show: boolean) => menuModalProps.value['show'] = show })
@@ -158,6 +168,7 @@ export function useMenu(tableRef: Ref) {
     formItems,
     columns,
     request,
+    afterRequest,
     menuModalProps,
     handler,
     fetchApis

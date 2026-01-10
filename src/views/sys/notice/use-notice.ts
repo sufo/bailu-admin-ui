@@ -4,9 +4,12 @@ import { noticeApi } from "@/api/admin";
 import TableAction from "@/components/table/TableAction.vue";
 import { NTag } from "naive-ui";
 import {getSendStatusOpts, ifOptions, getNoticeOpts} from '@/constants/options'
+import dayjs from "dayjs";
+import { usePreferenceStore } from "@/store/modules";
 
 export function useNotice(tableRef:Ref,isMobile=ref(false)){
   const {t} = useI18n();
+  const preference = usePreferenceStore()
   const types= ['default','success','warning'] as const
   const checkedRowKeys = ref<Array<string | number>>([])
 
@@ -132,18 +135,27 @@ export function useNotice(tableRef:Ref,isMobile=ref(false)){
     }
   };
 
-  async function request<T>(formModel: Recordable):Promise<void|Notice[]>{
+  async function request<T>(formModel: Recordable):Promise<void|PagesResult<Notice[]>>{
     try{
       return await noticeApi.index(formModel)
+      
     }catch(e){
       return Promise.reject(e)
     } 
   };
 
+  async function afterRequest(data: Notice[]): Promise<void|Notice[]>{
+      data.forEach(item=>{
+        item.createdAt = dayjs.utc(item.createdAt).local().format(preference.timeTemplate)
+      })
+      return data
+  }
+
   return {
     formItems,
     columns,
     request,
+    afterRequest,
     modalProps,
     handler,
     checkedRowKeys

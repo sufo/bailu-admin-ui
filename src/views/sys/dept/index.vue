@@ -7,7 +7,7 @@
  * @Desc: 
 -->
 <template>
-  <div :class="prefixCls" class="flex-col h-full">
+  <div :class="prefixCls" class="flex flex-col h-full">
     <search-form labelPlacement="left"
         @submit="onSearch" :formItems="formItems"
         :show-feedback="false" :grid="{yGap:10, xGap:30}"
@@ -60,11 +60,3 @@ async function onSuccess(){
 }
 
 </script>
-{/* <style lang="scss">
-$prefix: '#{$namespace}-dept';
-.#{$prefix}{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-</style> */}

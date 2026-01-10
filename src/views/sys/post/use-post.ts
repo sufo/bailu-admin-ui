@@ -4,10 +4,13 @@ import { TableColumn} from '@/components/table/types';
 import { NTag } from 'naive-ui'
 import { TableAction } from '@/components/table'
 import { postApi } from '@/api/admin'
+import dayjs from 'dayjs';
+import { usePreferenceStore } from '@/store/modules';
 
 export function usePost(tableRef: Ref){
 
   const {t} = useI18n();
+  const preference = usePreferenceStore()
 
   const formItems: ComputedRef<Array<FormItemProps>> = computed(()=>[
     {field: 'name', component: 'NInput', label: t('page.post.name')},
@@ -33,7 +36,7 @@ export function usePost(tableRef: Ref){
         )
       }
     },
-    {key: 'createdAt', align:'center', hide:false, title:t('common.createTime')},
+    // {key: 'createdAt', align:'center', hide:false, title:t('common.createTime')},
     {key: 'action', align:'center', width:100, hide:false, fixed:'right', title:t('common.action'),
       render(row:any){
         return h( //id==1为超管，超管不能对其进行任何操作
@@ -96,7 +99,7 @@ export function usePost(tableRef: Ref){
     }
   };
 
-  async function request<T>(formModel: Recordable):Promise<void|Post[]>{
+  async function request<T>(formModel: Recordable):Promise<void|PagesResult<Post[]>>{
     try{
       return await postApi.index(formModel)
     }catch(e){
@@ -104,10 +107,18 @@ export function usePost(tableRef: Ref){
     } 
   };
 
+  async function afterRequest(data: Post[]): Promise<void|Post[]>{
+      data.forEach(item=>{
+        item.createdAt = dayjs.utc(item.createdAt).local().format(preference.timeTemplate)
+      })
+      return data
+  }
+
   return {
     formItems,
     columns,
     request,
+    afterRequest,
     modalProps,
     handler,
   }

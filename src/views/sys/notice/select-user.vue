@@ -101,7 +101,7 @@ const show = computed({
 });
 
 
-async function request<T>(params: Recordable):Promise<void|User[]>{
+async function request<T>(params: Recordable):Promise<void|PagesResult<User[]>>{
     try{
       return await userApi.index(params)
     }catch(e){

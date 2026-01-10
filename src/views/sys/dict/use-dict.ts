@@ -90,7 +90,7 @@ export function useDict(tableRef: Ref){
     }
   };
 
-  async function request<T>(formModel: Recordable):Promise<void|Dict[]>{
+  async function request<T>(formModel: Recordable):Promise<void|PagesResult<Dict[]>>{
     try{
       return await dictApi.index(formModel)
     }catch(e){

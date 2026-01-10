@@ -10,9 +10,11 @@ import { FormItemProps } from '@/components/form/types';
 import { TableColumn } from '@/components/table/types';
 import { onlineApi } from '@/api/admin'
 import { TableAction } from '@/components/table'
+import dayjs from 'dayjs';
+import { usePreferenceStore } from '@/store/modules';
 
 export function useOnlineUser(tableRef: Ref) {
-
+  const preference = usePreferenceStore()
   const { t } = useI18n();
 
   const formItems: ComputedRef<Array<FormItemProps>> = computed(() => [
@@ -55,7 +57,7 @@ export function useOnlineUser(tableRef: Ref) {
     },
   ]);
 
-  async function request<T>(params: Recordable): Promise<void | OnlineUser[]> {
+  async function request<T>(params: Recordable): Promise<void | PagesResult<OnlineUser[]>> {
     try {
       return await onlineApi.index(params)
     } catch (e) {
@@ -75,11 +77,19 @@ export function useOnlineUser(tableRef: Ref) {
     }
   };
 
+  async function afterRequest(data: OnlineUser[]): Promise<void|OnlineUser[]>{
+      data.forEach(item=>{
+        item.loginTime = dayjs.utc(item.loginTime).local().format(preference.timeTemplate)
+      })
+      return data
+  }
+
 
   return {
     formItems,
     columns,
     request,
+    afterRequest,
     handler,
   }
 }

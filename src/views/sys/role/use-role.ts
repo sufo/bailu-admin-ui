@@ -31,7 +31,7 @@ export function useRole(tableRef: Ref, formModel: Ref<Recordable>){
 
   const columns: ComputedRef<Array<TableColumn<Role>>> = computed(()=>[
     {key: 'sort', hide:false, align:'center', width:70, title: t('layout.table.index'),render: (_, index) => {return index + 1}},
-    {key: 'name', hide:false, align:'center', width:140, title:t('page.role.name')},
+    {key: 'name', hide:false, align:'center', minWidth:140, title:t('page.role.name')},
     {key: 'roleKey', hide:false, align:'center', width:140, title:t('page.role.roleVal')},
     {key: 'status', hide:false, align:'center', width:80, title:t('common.status'),
       render(row){
@@ -51,9 +51,9 @@ export function useRole(tableRef: Ref, formModel: Ref<Recordable>){
         )
       }
     },
-    {key: 'createdAt', align:'center', hide:false, title:t('common.createTime')},
-    {key: 'remark', align:'left', hide:false, title:t('page.role.remark')},
-    {key: 'action', align:'center', width:100, hide:false, fixed:'right', title:t('common.action'),
+    // {key: 'createdAt', align:'center', hide:false, title:t('common.createTime')},
+    {key: 'remark', align:'center', hide:false, minWidth:100,  title:t('page.role.remark')},
+    {key: 'action', align:'center', minWidth:100, hide:false, fixed:'right', title:t('common.action'),
       render(row:any){
         return row.id!='1'?h( //id==1为超管，超管不能对其进行任何操作
           'div',
@@ -93,7 +93,7 @@ export function useRole(tableRef: Ref, formModel: Ref<Recordable>){
     },
   ])
 
-  async function request<T>(params: Recordable):Promise<void|Role[]>{
+  async function request<T>(params: Recordable):Promise<void|PagesResult<Role[]>>{
     try{
       const mergeParams = Object.assign(formModel.value??{}, params)
       const {dateRange, ...rest} = mergeParams
@@ -163,10 +163,18 @@ export function useRole(tableRef: Ref, formModel: Ref<Recordable>){
     }
   }
 
+  async function afterRequest(data: Role[]): Promise<void|Role[]>{
+      data.forEach(item=>{
+        item.createdAt = dayjs.utc(item.createdAt).local().format(preference.timeTemplate)
+      })
+      return data
+  }
+
   return {
     formItems,
     columns,
     request,
+    afterRequest,
     modalProps,
     handler,
     roleMenus,

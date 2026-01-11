@@ -35,7 +35,7 @@ export function setupVitePlugins(metaEnv: ImportMetaEnv, isBuild: boolean): Plug
         ]
       }
     }),
-    
+
     vueJsx(),
 
   ];
@@ -51,7 +51,7 @@ export function setupVitePlugins(metaEnv: ImportMetaEnv, isBuild: boolean): Plug
   vitePlugins.push(appLoadingPlugin(isBuild, metaEnv))
 
   //HMR 一般用在测试环境
-  !isBuild && vitePlugins.push(hmrPlugin());
+  // !isBuild && vitePlugins.push(hmrPlugin());
 
   // vite-plugin-html
   vitePlugins.push(htmlPlugin(metaEnv, isBuild));

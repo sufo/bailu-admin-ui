@@ -1,11 +1,4 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-12 14:25:58
- * @Desc: 
- */
+
 import { http } from '@/http/index'
 import { UserState } from '@/store/modules'
 import { AppRouteRecordRaw } from '#/route'
@@ -207,7 +200,7 @@ export const deptApi = {
 
 export const roleApi = {
 
-  index: <T=PagesResult<Role[]>> (params: Recordable) => {
+  index: <T = PagesResult<Role[]>>(params: Recordable) => {
     return http.get<T>({ url: "/role", params })
   },
   remove: (roleId: number | string) => {

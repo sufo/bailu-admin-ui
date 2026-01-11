@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-06 11:08:42
- * @Desc: 
--->
 <template>
   <n-config-provider
     :theme="theme.naiveTheme"

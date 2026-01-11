@@ -30,55 +30,27 @@
         <n-date-picker v-model="date" :type="(dateType as DatePickerType)" />
       </template>
     </n-tabs>
-		
-    
-
-			<!-- <ul class="sales-rank__list">
-				<li>
-					<span>1</span>
-					<span>北京市朝阳区三里屯路</span>
-					<span>323201</span>
-				</li>
-				<li>
-					<span>2</span>
-					<span>北京市朝阳区建国路-华贸购物中心</span>
-					<span>278442</span>
-				</li>
-				<li>
-					<span>3</span>
-					<span>北京市朝阳区朝阳北路</span>
-					<span>202368</span>
-				</li>
-				<li>
-					<span>4</span>
-					<span>北京市东城区王府井大街</span>
-					<span>156320</span>
-				</li>
-				<li>
-					<span>5</span>
-					<span>北京市西城区西单北大街-大悦城</span>
-					<span>98852</span>
-				</li>
-			</ul> -->
+			
 	</div>
 </template>
 
 <script lang="ts" setup>
 import dayjs from "dayjs";
-import { DatePickerType } from "naive-ui/es/date-picker/src/config";
+// import { DatePickerType } from "naive-ui/es/date-picker/src/config";
+type DatePickerType = 'date' | 'datetime' | 'daterange' | 'datetimerange' | 'month' | 'year' | 'quarter' | 'monthrange' | 'quarterrange' | 'yearrange' | 'week';
 
 // 日期
 const date = ref(dayjs().format("YYYY-MM-DD"));
 
 // 类型
-const dateType = ref("day");
+const dateType = ref("date");
 
 // 选项
 const options = reactive({
 	type: [
 		{
 			label: "今日",
-			value: "day"
+			value: "date"
     },
 		{
 			label: "本周",

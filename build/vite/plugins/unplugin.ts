@@ -5,7 +5,7 @@ import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import AutoImport from 'unplugin-auto-import/vite'
 // import DefineOptions from 'unplugin-vue-define-options/dist/vite'
-import DefineOptions from 'unplugin-vue-define-options/vite'
+// import DefineOptions from 'unplugin-vue-define-options/vite'
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 // import path from 'path'
 // import { fileURLToPath } from 'url'
@@ -42,7 +42,7 @@ export default () => {
     }),
 
     //处理<script setup> name问题
-    DefineOptions(),
+    // DefineOptions(),
 
     //unplugin-vue-i18n
     // VueI18nPlugin({ include: 'src/locales/**' }) // Internal server error: You need to define an object as the locale message with 'export default'.

@@ -9,7 +9,8 @@ import App from './App.vue'
 import { setupStore } from './store'
 // Register icon sprite
 import 'virtual:svg-icons-register'
-import { setupRouter } from './router'
+import { setupRouter, router } from './router'
+import { setupRouteGuard } from '@/router/guard'
 import { setupDirectives } from '@/directives'
 import { setupI18n } from "@/locales/i18n"
 import { setupAxios } from '@/http'
@@ -32,6 +33,7 @@ async function bootstrap() {
   setupI18n(app);
 
   //路由和路由守卫
+  setupRouteGuard(router);
   await setupRouter(app);
 
   //configura directive

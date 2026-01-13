@@ -16,7 +16,10 @@ import { subscribeStore } from './store/subscribe';
 import { zhCN, dateZhCN, enUS, dateEnUS} from 'naive-ui'
 import {useGlobalEvents} from '@/hooks'
 import { useCheckUpdateNotify } from './plugins/check-update';
-import {addThemeColorCssVars} from '@/store/modules/preference/helper'
+import {addThemeColorCssVars} from '@/store/modules/preference'
+import { emitter } from '@/utils/emitter'
+import { EventEnum } from '@/constants/enum'
+import { useUserStore } from '@/store/modules/user'
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 const localeInfo = useLocaleStore()
@@ -46,6 +49,14 @@ const dateLocale = computed(() => {
 
 //添加css变量
 addThemeColorCssVars();
+
+function bindEvents() {
+  emitter.on(EventEnum.AUTH_ERROR, (force) => {
+    const userStore = useUserStore();
+    userStore.logout(force as boolean);
+  });
+}
+bindEvents();
 //
 subscribeStore()
 useGlobalEvents()

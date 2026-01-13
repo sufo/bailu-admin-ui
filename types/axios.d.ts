@@ -1,6 +1,6 @@
 
 
-import { AxiosRequestConfig, AxiosResponse} from 'axios'
+import { AxiosRequestConfig, AxiosResponse } from 'axios'
 // import {table,apiSetting} from '@/settings/apiSetting'
 // import { InternalAxiosRequestConfig } from 'axios'
 
@@ -119,7 +119,7 @@ export declare type ResultType<T = any> = Result<T> | T
 // }
 
 export declare interface Result<T = any> {
-  [key:string] : string|number|T
+  [key: string]: string | number | T
 }
 
 // export interface PagesResult<T = any> extends Result {

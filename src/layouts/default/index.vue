@@ -69,13 +69,13 @@ const isContentScroll = computed(() => preference.app.scrollMode === 'content');
 
 
 //SSE
-const userStore = useUserStore()
-useEventSource(`${import.meta.env.VITE_API_URL}/stream?token=${userStore.getToken}`,{
-    onopen:(e)=>{console.log("open")},
-    onmessage:(data)=>{
-      console.log(data)
-    }
-})
+// const userStore = useUserStore()
+// useEventSource(`${import.meta.env.VITE_API_URL}/stream?token=${userStore.getToken}`,{
+//     onopen:(e)=>{console.log("open")},
+//     onmessage:(data)=>{
+//       console.log(data)
+//     }
+// })
 
 
 </script>

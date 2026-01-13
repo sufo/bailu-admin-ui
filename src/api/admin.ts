@@ -1,6 +1,6 @@
 
 import { http } from '@/http/index'
-import { UserState } from '@/store/modules'
+
 import { AppRouteRecordRaw } from '#/route'
 import { UploadFileParams } from '~/types/axios';
 import { AxiosRequestConfig, AxiosProgressEvent } from 'axios'

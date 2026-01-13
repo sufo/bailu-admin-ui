@@ -18,5 +18,3 @@ export function setupStore(app: App<Element>) {
 export { store };
 //存在循环导入
 // export * from './modules';
-
-export * from './subscribe';

@@ -4,8 +4,7 @@ import settings from '@/settings/projectSetting'
 import { cloneDeep } from 'lodash-es'
 import { GlobalThemeOverrides } from "naive-ui";
 import { addColorAlpha, getColorPalette } from "@/utils/color";
-import usePreferenceStore from ".";
-import themeSettings from '@/settings/projectSetting';
+
 
 
 /** 初始化主题配置 */
@@ -96,23 +95,3 @@ export function clearThemeSettings() {
   storage.remove(ThemeCacheKey.THEME_SETTINGS);
 }
 
-
-//添加主题色到html
-export function addThemeColorCssVars () {
-  const preference = usePreferenceStore()
-  const settings = preference.getSetting
-  const defaultColor = themeSettings.theme.themeColor;
-  const themeColor =  settings?.theme.themeColor||defaultColor;
-  const minWidth = settings?.layout.minWidth==0?'unset':settings?.layout.minWidth
-  //html style
-  // const cssVars = `--primary-color: ${themeColor};--min-body-width: ${minWidth}`;
-  // document.documentElement.style.cssText = cssVars;
-  //css :root
-  setVariables({'--primary-color':themeColor,"--min-body-width":`${minWidth}px`})
-}
-
-/**css变量添加到:root */
-function setVariables(vars:Recordable<string>){
-  const root = document.querySelector(':root') as HTMLElement;
-  Object.entries(vars).forEach(v => root?.style.setProperty(v[0], v[1]));
-}

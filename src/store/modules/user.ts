@@ -5,25 +5,13 @@ import { DEFAULT_CACHE_TIME } from "@/utils/storage"
 import { defineStore } from 'pinia';
 import { store } from "@/store"
 import { getUserInfo, login, smsLogin, logoutApi, register } from '@/api/admin'
-import { router } from '@/router';
+
 import { Page } from '@/constants/enum';
-import { useAsyncRouteStore } from './route';
+
 import { rsa } from '@/utils/rsa'
 import { i18n } from '@/locales/i18n'
-export interface UserState {
-  /** 用户信息 */
-  userInfo: Nullable<UserInfo>;
-  /** 用户token */
-  token?: string;
 
-  // refreshToken?: string,
 
-  //token过期时长  秒
-  expires: number,
-
-  // roleList: UserRole[];
-  lastUpdTime: number;
-}
 
 
 /**
@@ -119,7 +107,10 @@ export const useUserStore = defineStore('app-user', {
       this.setToken('');
       this.setUserInfo(null);
       storage.removes(ACCESS_TOKEN, USER_INFO)
-      toLogin && router.replace(Page.BASE_LOGIN)
+      if (toLogin) {
+        const { router } = await import('@/router');
+        router.replace(Page.BASE_LOGIN)
+      }
     },
 
     //登录
@@ -138,9 +129,8 @@ export const useUserStore = defineStore('app-user', {
     },
 
     async afterLogin() {
+      const { useAsyncRouteStore } = await import('./route');
       const asyncRouteStore = useAsyncRouteStore()
-      //这个要加await，否则跳转会找不到页面，因为路由还没加进去
-      await asyncRouteStore.initRoute()
       // console.log(this.userInfo)
       // 登录成功弹出欢迎提示
       window.$notification?.success({
@@ -148,12 +138,14 @@ export const useUserStore = defineStore('app-user', {
         content: `${i18n.global.t('login.loginSuccessDesc')}，${this.userInfo?.username}!`,
         duration: 3000
       });
-
+      const { router } = await import('@/router');
       let path = this.userInfo?.homePath || Page.BASE_HOME
       const { query } = router.currentRoute.value;
       if (query?.redirect) {
         path = (query.redirect as string);
       }
+      //这个要加await，否则跳转会找不到页面，因为路由还没加进去
+      await asyncRouteStore.initRoute(this.userInfo?.homePath || Page.BASE_HOME)
       await router.replace(path)
     },
 
@@ -187,6 +179,7 @@ export const useUserStore = defineStore('app-user', {
         //网络请求 获取userinfo和token
         await register(params)
         //注册成功跳转到登录页面
+        const { router } = await import('@/router');
         await router.replace(Page.BASE_LOGIN)
       } catch (error) {
         return Promise.reject(error)

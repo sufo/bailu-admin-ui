@@ -1,14 +1,17 @@
 import { AxiosTransform, CreateAxiosOptions, RequestOptions, Result } from '#/axios'
 import { AxiosResponse } from 'axios'
 import { ResultCode, RequestMethod, ContentType } from '@/constants/enum'
-import { useUserStore } from '@/store/modules/user'
+import { storage } from '@/utils/storage'
+import { ACCESS_TOKEN } from '@/constants/consts'
+import { emitter } from '@/utils/emitter'
+import { EventEnum } from '@/constants/enum'
 import { isUrl, isString, setObjToUrlParams, deepMerge } from '@/utils/util'
 import { joinTimestamp } from './helper'
 import { checkStatus } from './checkStatus'
 import { DAxios } from './Axios'
 import type { App } from 'vue'
 import { i18n } from '@/locales/i18n'
-import { useLocaleStoreWithOut } from '@/store/modules'
+import { useLocaleStoreWithOut } from '@/store/modules/locale'
 import { apiSetting } from '@/settings/apiSetting'
 /**
  * @description: 数据处理，方便区分多种处理方式
@@ -71,8 +74,8 @@ const transform: AxiosTransform = {
     switch (code) {
       case ResultCode.TIMEOUT:
         _msg = errorMsgText || i18n.global.t('api.timeoutMessage');
-        const userStore = useUserStore();
-        userStore.logout(true);
+        _msg = errorMsgText || i18n.global.t('api.timeoutMessage');
+        emitter.emit(EventEnum.AUTH_ERROR, true);
         break;
       default:
         _msg = errorMsgText || msg || i18n.global.t('api.operationFailed')
@@ -140,8 +143,8 @@ const transform: AxiosTransform = {
   */
   requestInterceptor: (config, options) => {
     //请求之前处理config
-    const userStore = useUserStore()
-    const token = userStore.getToken
+    //请求之前处理config
+    const token = storage.get(ACCESS_TOKEN)
     if (token && (config as Recordable).requestOptions?.withToken !== false) {
       // jwt token
       (config as Recordable).headers.Authorization = options.authenticationScheme

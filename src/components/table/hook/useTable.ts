@@ -1,19 +1,19 @@
-import { TableColumn, TableProps} from "../types";
+import { TableColumn, TableProps } from "../types";
 import { apiSetting } from "@/settings/apiSetting";
-import {isBoolean,isFunction} from 'lodash-es'
+import { isBoolean, isFunction } from 'lodash-es'
 import { isResult } from "@/http/helper";
 import type { Result } from "~/types/axios";
 import type { PaginationProps } from "naive-ui";
 
-export function useTable(tableRef:Ref<any>,
+export function useTable(tableRef: Ref<any>,
   tableProps: TableProps,
-  getPagination:Ref<PaginationProps|boolean>,
-  setPagination:(pagination:PaginationProps)=>void,
+  getPagination: Ref<PaginationProps | boolean>,
+  setPagination: (pagination: PaginationProps) => void,
   loadingRef: Ref<boolean>,
   tableDataRef: Ref<Recordable[]>,
-  columnsRef:Ref<TableColumn[]>,
-  emit: EmitType){
-  
+  columnsRef: Ref<TableColumn[]>,
+  emit: EmitType) {
+
   //记录查询条件  
   let formModel: Recordable;
 
@@ -24,15 +24,15 @@ export function useTable(tableRef:Ref<any>,
     return rowKey
       ? rowKey
       : () => {
-          return 'key';
-        };
+        return 'key';
+      };
   });
 
   const getScrollX = computed(() => {
     let width = 0;
     //是否存在勾选框，存在+60
-    const index = unref(columnsRef).findIndex(c=>c.type==='selection')
-    if (index!==-1) {
+    const index = unref(columnsRef).findIndex(c => c.type === 'selection')
+    if (index !== -1) {
       width += 60;
     }
 
@@ -53,15 +53,15 @@ export function useTable(tableRef:Ref<any>,
   });
 
   //load data
-  async function loadData(opt?:any){
+  async function loadData(opt?: any) {
     //处理查询条件
-    if(opt===undefined){//没有传查询条件则使用上一次的
+    if (opt === undefined) {//没有传查询条件则使用上一次的
       opt = formModel
-    }else{
+    } else {
       formModel = opt //传入查询条件则记录当前查询条件
     }
 
-    try{
+    try {
       loadingRef.value = true;
       const { request, pagination, beforeRequest, afterRequest } = tableProps;
       if (!request) return;
@@ -73,7 +73,7 @@ export function useTable(tableRef:Ref<any>,
         listField,
       } = apiSetting.table
 
-      let pageParams:Recordable = {}
+      let pageParams: Recordable = {}
       const { page = 1, pageSize = 10 } = unref(getPagination) as PaginationProps;
       const hasPagination = (isBoolean(pagination) && pagination) || !!unref(getPagination)
       if (hasPagination) {
@@ -82,7 +82,7 @@ export function useTable(tableRef:Ref<any>,
       } else {
         pageParams = {};
       }
-      
+
       // console.log("formModel", formModel)
       let params = {
         ...pageParams,
@@ -96,15 +96,13 @@ export function useTable(tableRef:Ref<any>,
       const res = await request(params);
       //是否返回原生响应头
       //TODO
-      console.log("--------------------------------------")
-      console.log("request->result:", res)
-      console.log("--------------------------------------")
+
       //Result
-      const result = isResult(res)?(res as Result)[apiSetting.data]:res;
+      const result = isResult(res) ? (res as Result)[apiSetting.data] : res;
       let data = []
-      if(hasPagination){
+      if (hasPagination) {
         data = result[listField] ? result[listField] : [];
-      }else{
+      } else {
         data = result
       }
       if (afterRequest && isFunction(afterRequest)) {
@@ -112,7 +110,7 @@ export function useTable(tableRef:Ref<any>,
         data = (await afterRequest(data)) || data;
       }
       dataSource.value = data
-      if(hasPagination){
+      if (hasPagination) {
         const pagesCount = result[pagesField];
         // const currentPage = result[pageField];
         const totalCount = result[countField];
@@ -128,22 +126,22 @@ export function useTable(tableRef:Ref<any>,
         }
       }
 
-    }catch(err){
+    } catch (err) {
       console.error(err);
       emit("fetch-err", err)
       dataSource.value = []
-    }finally{
+    } finally {
       loadingRef.value = false;
       // console.log("loadingRef",loadingRef.value)
     }
   }
 
-  function setTableData(values:Recordable[]) {
+  function setTableData(values: Recordable[]) {
     dataSource.value = values;
   }
 
   //重新从第一页开始查询
-  function query(){
+  function query() {
     setPagination({ page: 1 });
     loadData()
   }

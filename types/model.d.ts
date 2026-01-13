@@ -28,6 +28,22 @@ declare interface UserInfo {
   permissions: string[]; //权限列表
 }
 
+declare interface UserState {
+  /** 用户信息 */
+  userInfo: Nullable<UserInfo>;
+  /** 用户token */
+  token?: string;
+
+  // refreshToken?: string,
+
+  //token过期时长  秒
+  expires: number,
+
+  // roleList: UserRole[];
+  lastUpdTime: number;
+}
+
+
 declare interface RoleInfo {
   roleName: string;
   value: string;

@@ -8,7 +8,7 @@ import { useUserStoreWidthOut } from "@/store/modules/user";
 import { i18n } from "@/locales/i18n";
 import setting from "@/settings/projectSetting";
 import { Page } from "@/constants/enum";
-import { useAsyncRouteStore } from "@/store/modules";
+import { useAsyncRouteStore } from "@/store/modules/route";
 import { ROOT_ROUTE } from "../routes";
 
 const ROOT_PATH = ROOT_ROUTE.path;
@@ -206,7 +206,7 @@ export function createPermissionGuard(router: Router) {
 
     //初始化路有
     try {
-      await asyncRouteStore.initRoute()
+      await asyncRouteStore.initRoute(userStore.getUserInfo?.homePath || Page.BASE_HOME)
     } catch (err) {
       console.log('initRoute', err)
       next()

@@ -13,7 +13,7 @@
  */
 import { RouteRecordRaw, createRouter, createWebHashHistory, createWebHistory } from "vue-router";
 import type { App } from "vue";
-import { setupRouteGuard } from './guard'
+
 import { basicRoutes } from './routes'
 import { scrollBehavior } from '@/router/helper/scroll'
 
@@ -51,7 +51,6 @@ export function resetRouter() {
 
 export async function setupRouter(app: App<Element>) {
   app.use(router);
-  setupRouteGuard(router)
   await router.isReady()
 }
 

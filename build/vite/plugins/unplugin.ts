@@ -16,7 +16,7 @@ export default () => {
     Components({
       // 配置需要默认导入的自定义组件文件夹，该文件夹下的所有组件都会自动 import
       //dirs: ['src/components'], 
-      dts: true, // enabled by default if `typescript` is installed
+      dts: false, // enabled by default if `typescript` is installed
       //配置naive ui 按需自动加载组件
       //注意，这种方法并不会处理函数 API，比如 useMessage，用户仍需要手动导入对应 API，例如 import { useMessage } from 'naive-ui'。
       resolvers: [NaiveUiResolver()],

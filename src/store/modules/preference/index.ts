@@ -16,6 +16,27 @@ import { deepMerge } from "@/utils/util"
 import { store } from "@/store"
 import { usePreferredColorScheme } from '@vueuse/core'
 import { colord } from 'colord'
+import themeSettings from '@/settings/projectSetting'
+
+/**css变量添加到:root */
+function setVariables(vars: Recordable<string>) {
+  const root = document.querySelector(':root') as HTMLElement;
+  Object.entries(vars).forEach(v => root?.style.setProperty(v[0], v[1]));
+}
+
+//添加主题色到html
+export function addThemeColorCssVars() {
+  const preference = usePreferenceStore()
+  const settings = preference.getSetting
+  const defaultColor = themeSettings.theme.themeColor;
+  const themeColor = settings?.theme.themeColor || defaultColor;
+  const minWidth = settings?.layout.minWidth == 0 ? 'unset' : settings?.layout.minWidth
+  //html style
+  // const cssVars = `--primary-color: ${themeColor};--min-body-width: ${minWidth}`;
+  // document.documentElement.style.cssText = cssVars;
+  //css :root
+  setVariables({ '--primary-color': themeColor, "--min-body-width": `${minWidth}px` })
+}
 
 export const usePreferenceStore = defineStore('app-setting-store', {
   state: (): Settings => initThemeSetting(),

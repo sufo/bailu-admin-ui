@@ -6,7 +6,8 @@
  * @LastEditTime: 2023-10-18 20:36:59
  * @Desc: 
  */
-import { useUserStore } from '@/store/modules/user'
+import { emitter } from '@/utils/emitter'
+import { EventEnum } from '@/constants/enum'
 import { i18n } from '@/locales/i18n';
 //网络请求状态码处理
 export function checkStatus(
@@ -15,7 +16,6 @@ export function checkStatus(
   errorMsgMode: 'modal' | 'message' | 'none' = 'message'
 ): void {
   const t = i18n.global.t;
-  const userStore = useUserStore();
   let errMessage = '';
 
   switch (status) {
@@ -27,9 +27,6 @@ export function checkStatus(
     // 在登录成功后返回当前页面，这一步需要在登录页操作。
     case 401:
       errMessage = msg || t('api.errMsg401');
-      userStore.setToken('');  //不加这个会循环调用logout
-      // console.log("401")
-      // //window.$dialogk可能为null
       if (window.$dialog)
         window.$dialog?.warning({
           title: t('tips.systemPrompt'),
@@ -37,10 +34,10 @@ export function checkStatus(
           positiveText: t('button.okText'),
           // negativeText: t('button.cancelText'),
           onPositiveClick: () => {
-            userStore.logout(true)
+            emitter.emit(EventEnum.AUTH_ERROR, true);
           },
           // onNegativeClick: () => {
-          //   userStore.logout(true)
+          //   // userStore.logout(true)
           // }
         })
 

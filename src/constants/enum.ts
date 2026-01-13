@@ -93,4 +93,9 @@ export enum RoleEnum {
 
   // tester
   TEST = 'test',
+
+}
+
+export enum EventEnum {
+  AUTH_ERROR = 'auth-error'
 }

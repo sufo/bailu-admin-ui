@@ -1,13 +1,13 @@
 import { defineStore } from "pinia";
 import { deepMerge } from "@/utils/util"
 import { store } from '@/store';
-import { useUserStore } from "./user";
+
 import { Page } from '@/constants/enum'
 import { menuApi } from "@/api/admin";
 import { AppRouteRecordRaw } from "~/types/route";
 import { asyncImportRoute, transformRouteToMenu, flatAsyncRoutes } from "@/router/helper/helpers";
 import { RouteRecordRaw } from 'vue-router';
-import { router } from '@/router';
+
 import { NOT_FOUND } from "@/router/routes";
 
 export const EXCEPTION_COMPONENT = () => import('@/views/exception.vue');
@@ -59,15 +59,12 @@ export const useAsyncRouteStore = defineStore("app-async-route", {
       this.isDynamicAddedRoute = added;
     },
 
-    async buildRoutes(): Promise<AppRouteRecordRaw[]> {
-      const userStore = useUserStore()
-
+    async buildRoutes(homePath: string = Page.BASE_HOME): Promise<AppRouteRecordRaw[]> {
       /**
        * @description 根据设置的首页path，修正routes中的affix标记（固定首页）
        * */
       const patchHomeAffix = (routes: AppRouteRecordRaw[]) => {
         if (!routes || routes.length === 0) return;
-        let homePath: string = userStore.getUserInfo?.homePath || Page.BASE_HOME;
         function patcher(routes: AppRouteRecordRaw[], parentPath = '') {
           if (parentPath) parentPath = parentPath + '/';
           routes.forEach((route: AppRouteRecordRaw) => {
@@ -118,10 +115,11 @@ export const useAsyncRouteStore = defineStore("app-async-route", {
     },
 
     //route处理
-    async initRoute() {
+    async initRoute(homePath: string = Page.BASE_HOME) {
 
       if (!this.isDynamicAddedRoute) {
-        const routes = await this.buildRoutes()
+        const { router } = await import('@/router');
+        const routes = await this.buildRoutes(homePath)
         console.log("routes", routes)
         //@ts-ignore
         routes.forEach(r => {
@@ -160,3 +158,5 @@ export const useAsyncRouteStore = defineStore("app-async-route", {
 export function useAsyncRouteStoreWidthOut() {
   return useAsyncRouteStore(store);
 }
+
+

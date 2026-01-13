@@ -5,8 +5,8 @@ import { ThemeCacheKey } from '@/constants/enum';
 import { toTabRoute } from '@/router/helper/helpers';
 import { Page } from '@/constants/enum';
 import { PAGE_EXCEPT_NAME, REDIRECT_NAME, PAGE_NOT_FOUND_NAME } from '@/router/routes';
-import { useUserStore } from '@/store/modules';
-import { useGo, useRouterPush } from '@/hooks';
+
+import { useGo, useRouterPush } from '@/hooks/common/usePage';
 
 function handleGotoPage(router: Router) {
   const go = useGo(router);
@@ -40,6 +40,7 @@ export interface TabState {
 
 //本地存储tabs
 const persist = projectSetting.tab.persist;
+
 
 export const useTabStore = defineStore("app-tabs-store", {
   state: (): TabState => ({
@@ -192,9 +193,9 @@ export const useTabStore = defineStore("app-tabs-store", {
      * @param active  Whether to activate the added tab
      * @returns 
      */
-    addTab(route: RouteLocationNormalized,active: boolean=false) {
+    addTab(route: RouteLocationNormalized, active: boolean = false) {
       const tab = toTabRoute(route);
-      const { path, name, fullPath} = tab;
+      const { path, name, fullPath } = tab;
       // 404  The page does not need to add a tab
       if (
         path === Page.ERROR_PAGE ||
@@ -206,12 +207,12 @@ export const useTabStore = defineStore("app-tabs-store", {
       }
 
       // Existing pages, do not add tabs repeatedly
-      const tabHasExits = this.tabs.some(tab=>tab.fullPath === fullPath);
-      if(!tabHasExits){
+      const tabHasExits = this.tabs.some(tab => tab.fullPath === fullPath);
+      if (!tabHasExits) {
         this.tabs.push(tab);
         this.updateCacheTab();
       }
-      if(active){
+      if (active) {
         this.setActiveTab(tab.fullPath)
       }
     },
@@ -223,7 +224,7 @@ export const useTabStore = defineStore("app-tabs-store", {
           return;
         }
         const index = this.tabs.findIndex((item) => item.fullPath === fullPath);
-        if(index !== -1) {
+        if (index !== -1) {
           const delTabs = this.tabs.splice(index, 1);
           //删除对应的keep-alive缓存
           this.cachePages.delete(delTabs[0].name as string)
@@ -248,9 +249,10 @@ export const useTabStore = defineStore("app-tabs-store", {
       if (index === 0) {
         // There is only one tab, then jump to the homepage, otherwise jump to the right tab
         if (this.tabs.length === 1) {
+          const { useUserStore } = await import('@/store/modules/user');
           const { getUserInfo } = useUserStore();
           toTarget = getUserInfo?.homePath || Page.BASE_HOME;
-          activePath = toTarget
+          activePath = toTarget as string
         } else {
           //  Jump to the right tab
           const page = this.tabs[index + 1];

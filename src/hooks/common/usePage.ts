@@ -1,9 +1,9 @@
 
 import type { RouteLocationRaw, Router } from "vue-router"
 import { LoginModule, Page } from '@/constants/enum'
-import { isString,isUrl } from "@/utils/util";
-import { useRouter } from 'vue-router';
-import { router as globalRouter } from '@/router';
+import { isString, isUrl } from "@/utils/util";
+import { useRouter, useRoute } from 'vue-router';
+
 import { PAGE_ROOT_NAME } from "@/router/routes";
 import { PAGE_LOGIN_NAME } from "@/router/routes";
 
@@ -34,21 +34,40 @@ export function useGo(_router?: Router) {
  * 路由跳转
  * @param inSetup - 是否在vue页面/组件的setup里面调用，在axios里面无法使用useRouter和useRoute
  */
+/**
+ * 路由跳转
+ * @param inSetup - 是否在vue页面/组件的setup里面调用，在axios里面无法使用useRouter和useRoute
+ */
 export function useRouterPush(inSetup = true) {
-  const router =  inSetup ? useRouter() : globalRouter;
-  const route = globalRouter.currentRoute;
+  const setupRouter = inSetup ? useRouter() : undefined;
+  const setupRoute = inSetup ? useRoute() : undefined;
 
-  /**
-   * 路由跳转
-   * @param to - 需要跳转的路由
-   * @param newTab - 是否在新的浏览器Tab标签打开
-   */
-  function routerPush(to: RouteLocationRaw, newTab = false) {
+  async function getRouter() {
+    if (inSetup) {
+      return setupRouter;
+    }
+    const { router } = await import('@/router');
+    return router;
+  }
+
+  async function getRoute() {
+    if (inSetup) {
+      return setupRoute;
+    }
+    const { router } = await import('@/router');
+    return router.currentRoute.value;
+  }
+
+  // Rewrite to async to handle dynamic import
+  async function routerPush(to: RouteLocationRaw, newTab = false) {
+    const router = await getRouter();
+    if (!router) return;
+
     if (newTab) {
       const routerData = router.resolve(to);
       window.open(routerData.href, '_blank');
       return Promise.resolve();
-    }else if(isUrl(to as string)){
+    } else if (isUrl(to as string)) {
       window.open(to as string, '_blank');
       return Promise.resolve();
     }
@@ -56,15 +75,16 @@ export function useRouterPush(inSetup = true) {
   }
 
   /** 返回上一级路由 */
-  function routerBack() {
-    router.go(-1);
+  async function routerBack() {
+    const router = await getRouter();
+    router?.go(-1);
   }
 
   /**
    * 跳转首页
    * @param newTab - 在新的浏览器标签打开
    */
-  function toHome(newTab = false) {
+  async function toHome(newTab = false) {
     routerPush({ name: PAGE_ROOT_NAME }, newTab);
   }
 
@@ -73,13 +93,14 @@ export function useRouterPush(inSetup = true) {
    * @param loginModule - 展示的登录模块
    * @param redirectUrl - 重定向地址(登录成功后跳转的地址),默认undefined表示取当前地址为重定向地址
    */
-  function toLogin(loginModule?: LoginModuleKey, redirectUrl?: string) {
+  async function toLogin(loginModule?: LoginModuleKey, redirectUrl?: string) {
     const module: LoginModuleKey = loginModule || Object.keys(LoginModule)[0] as LoginModuleKey;
     const routeLocation: RouteLocationRaw = {
       name: PAGE_LOGIN_NAME,
       params: { module }
     };
-    const redirect = redirectUrl || route.value.fullPath;
+    const route = await getRoute();
+    const redirect = redirectUrl || route?.fullPath;
     Object.assign(routeLocation, { query: { redirect } });
     routerPush(routeLocation);
   }
@@ -88,23 +109,18 @@ export function useRouterPush(inSetup = true) {
    * 登录页切换其他模块
    * @param module - 切换后的登录模块
    */
-  function toLoginModule(module: LoginModuleKey) {
-    const { query } = route.value;
+  async function toLoginModule(module: LoginModuleKey) {
+    const route = await getRoute();
+    const { query } = route!;
     routerPush({ name: PAGE_LOGIN_NAME, params: { module }, query });
   }
-
-  //vue-router 4.1.4 (2022-08-22)  params传递参数失效，采用query
-  // function toLoginModule(module: LoginModuleKey) {
-  //   const { query } = route.value;
-  //   const q = Object.assign({}, query, {module})
-  //   router.push({name: "login", query:q, })
-  // }
 
   /**
    * 登录成功后跳转重定向的地址
    */
-  function toLoginRedirect() {
-    const { query } = route.value;
+  async function toLoginRedirect() {
+    const route = await getRoute();
+    const { query } = route!;
     if (query?.redirect) {
       routerPush(query.redirect as string);
     } else {

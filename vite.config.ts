@@ -131,6 +131,10 @@ export default defineConfig(({ command, mode }) => {
     plugins: setupVitePlugins(metaEnv, isBuild),
     optimizeDeps: {
       // include: ['@iconify/iconify'],
+      include: [
+        "crypto-js/aes",
+        "vue-i18n",
+      ],
       exclude: ['vue-demi'],
     },
   }

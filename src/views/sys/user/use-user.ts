@@ -3,13 +3,13 @@ import { enableOrDisableOpt, sexOptions } from '@/constants/options'
 import { FormItemProps } from '@/components/form/types';
 import { TableColumn } from '@/components/table/types';
 import { NButton, NInput, NPopconfirm, NSwitch } from 'naive-ui';
-import { TableAction } from '@/components/table';
 import { userApi } from '@/api/admin';
 import { NTag, TreeOverrideNodeClickBehavior } from 'naive-ui';
 import { rsa } from '@/utils/rsa';
 import { withDirectives, resolveDirective, computed } from 'vue';
 import { findNode } from '@/utils/tree';
-import { Icon } from '@/components/icon'
+import TableAction from '@/components/table/TableAction.vue'
+import Icon from '@/components/icon/src/Icon.vue'
 
 export function useUser(tableRef: Ref, formModel: Ref<Recordable>, depts: Ref, isMobile: Ref = ref(false)) {
 

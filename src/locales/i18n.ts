@@ -1,4 +1,6 @@
 
+import en from './en.yaml'
+import zhCN from './zh-CN.yaml'
 import type { App } from 'vue'
 import { createI18n, I18nOptions } from 'vue-i18n'
 // import messages from '@intlify/vite-plugin-vue-i18n/messages'
@@ -7,8 +9,8 @@ import { createI18n, I18nOptions } from 'vue-i18n'
  * All i18n resources specified in the plugin `include` option can be loaded
  * at once using the import syntax
  */
-import messages from '@intlify/unplugin-vue-i18n/messages'
-import { localeSetting } from '@/settings/localeSetting'
+// import messages from '@intlify/unplugin-vue-i18n/messages'
+import { localeSetting, LOCALE } from '@/settings/localeSetting'
 import storage from '@/utils/storage'
 import { LOCALE_KEY } from '@/constants/consts'
 // function getYaml() {
@@ -37,7 +39,10 @@ function createI18nOptions(): I18nOptions {
     // If set to `true`, then properties and methods prefixed with `$` are injected into Vue Component.
     globalInjection: true,
     fallbackLocale: fallback,
-    messages,
+    messages: {
+      [LOCALE.ZH_CN]: zhCN,
+      [LOCALE.EN_US]: en
+    },
     availableLocales,
     sync: true, //If you don’t want to inherit locale from global scope, you need to set sync of i18n component option to false.
     silentTranslationWarn: true, // true - warning off

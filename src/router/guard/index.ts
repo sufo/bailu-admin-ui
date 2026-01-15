@@ -193,34 +193,41 @@ export function createPermissionGuard(router: Router) {
         await userStore.reqUserInfo();
         console.log('reqUserInfo', 'success')
       } catch (err) {
-        console.log('reqUserInfo-err', err)
+        console.warn('reqUserInfo-err', err)
+        // If getting user info fails, we might not want to redirect to login immediately if we have a token, 
+        // but typically we do. Ensuring we don't loop if we are already at login is handled by the whitelist.
         next(redirectData(to));
         return;
       }
     }
+
     //如果已处理动态路由
     if (asyncRouteStore.isDynamicAddedRoute) {
       next()
       return;
     }
 
-    //初始化路有
+    //初始化路由
     try {
       await asyncRouteStore.initRoute(userStore.getUserInfo?.homePath || Page.BASE_HOME)
     } catch (err) {
-      console.log('initRoute', err)
-      next()
-      return
+      console.warn('initRoute failed', err)
+      // If initRoute fails, we proceed. It might result in 404.
     }
 
     if (to.name === Page.NOT_FOUND) {
       // 动态添加路由后，此处应当重定向到fullPath，否则会加载404页面内容
-      next({ path: to.fullPath, replace: true, query: to.query });
-    } else {
-      const redirectPath = (from.query.redirect || to.path) as string;
-      const redirect = decodeURIComponent(redirectPath);
-      const nextData = to.path === redirect ? { ...to, replace: true } : { path: redirect };
-      next(nextData);
+      // Ensure we only redirect if we successfully added routes, to avoid infinite loops if the route truly doesn't exist
+      if (asyncRouteStore.isDynamicAddedRoute) {
+        next({ path: to.fullPath, replace: true, query: to.query });
+        return;
+      }
     }
+
+    // Normal navigation
+    const redirectPath = (from.query.redirect || to.path) as string;
+    const redirect = decodeURIComponent(redirectPath);
+    const nextData = to.path === redirect ? { ...to, replace: true } : { path: redirect };
+    next(nextData);
   })
 }

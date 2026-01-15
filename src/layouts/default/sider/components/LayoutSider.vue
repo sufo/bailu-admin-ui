@@ -60,6 +60,7 @@ const activeKey = computed(() => (route.meta?.activeMenu ? route.meta.activeMenu
 const expandedKeys = ref<string[]>([]);
 
 function handleUpdateMenu(_key: string, item: MenuOption) {
+  debugger
   const menuItem = item as App.Menu;
   routerPush(menuItem.path);
   if(isMobile.value){

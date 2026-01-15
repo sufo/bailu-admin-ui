@@ -1,6 +1,7 @@
 html {
-   /* 1单位 = 0.25rem = 1px */
-  font-size: 4px;  /* 1rem = 4px  方便unocss计算：在unocss中 1字体单位 = 0.25rem，相当于 1等份 = 1px */
+  /* 1单位 = 0.25rem = 1px */
+  font-size: 4px;
+  /* 1rem = 4px  方便unocss计算：在unocss中 1字体单位 = 0.25rem，相当于 1等份 = 1px */
   /* font-size: 62.5%; // 即 10px(16*62.5%); */
 }
 
@@ -30,7 +31,7 @@ body {
 }
 
 html.color-weak,
-body.color-weak{
+body.color-weak {
   filter: invert(80%);
 }
 
@@ -40,7 +41,7 @@ body.gray-mode {
   filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
 }
 
-body{
+body {
   font-size: 16px;
 }
 
@@ -95,15 +96,17 @@ input[type=number] {
    display: inline-block;
 } */
 
-.n-card-header .n-card-header__extra{
-    font-size:18px !important;
+.n-card-header .n-card-header__extra {
+  font-size: 18px !important;
 }
-.n-card-header .n-card-header__extra>svg{
+
+.n-card-header .n-card-header__extra>svg {
   cursor: pointer;
 }
 
-.n-notification-container .n-notification .n-notification-main
-.n-notification-main-footer{justify-content: end;}
+.n-notification-container .n-notification .n-notification-main .n-notification-main-footer {
+  justify-content: end;
+}
 
 
 @layer components {
@@ -115,17 +118,21 @@ input[type=number] {
     border-radius: 0.375rem;
     outline-style: solid;
     outline-width: 1px;
-    padding:0.25rem;
+    padding: 0.25rem;
     outline-color: #E3E3E7;
   }
 
   .outline-box::after {
     /* @apply absolute left-1/2 top-1/2 z-20 h-0 w-[1px] rounded-sm opacity-0 outline outline-2 outline-transparent transition-all duration-300 content-[""]; */
     position: absolute;
-    left: 50%;top: 50%;z-index: 20;
-    height: 0;width: 1px;
+    left: 50%;
+    top: 50%;
+    z-index: 20;
+    height: 0;
+    width: 1px;
     border-radius: 0.125rem;
-    opacity: 0;outline-style: solid;
+    opacity: 0;
+    outline-style: solid;
     outline-width: 2px;
     outline-color: transparent;
     transition-property: all;
@@ -149,11 +156,15 @@ input[type=number] {
   .outline-box:not(.outline-box-active):hover::after {
     /* @apply outline-primary left-0 top-0 h-full w-full p-1 opacity-100; */
     outline-color: var(--primary-color);
-    left: 0;top: 0;height: 100%;width: 100%;
-    padding: 0.25rem;opacity: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0.25rem;
+    opacity: 1;
   }
 
-  .dark .outline-box:not(.outline-box-active){
+  .dark .outline-box:not(.outline-box-active) {
     outline-color: #36363A;
   }
 }

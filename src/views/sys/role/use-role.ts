@@ -7,7 +7,7 @@ import { TableAction } from '@/components/table';
 import { roleApi, menuApi } from '@/api/admin';
 import dayjs from 'dayjs';
 import { usePreferenceStore } from '@/store/modules';
-import { usePermission } from '@/hooks'
+import { usePermission } from '@/hooks/business/usePermission'
 import { useIconRender } from '@/components/icon'
 
 export function useRole(tableRef: Ref, formModel: Ref<Recordable>) {

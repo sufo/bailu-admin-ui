@@ -16,6 +16,7 @@ import type { App } from "vue";
 
 import { basicRoutes } from './routes'
 import { scrollBehavior } from '@/router/helper/scroll'
+import { setupRouteGuard } from "./guard"
 
 const { VITE_PUBLIC_PATH } = import.meta.env;
 const VITE_HASH_ROUTE = (import.meta.env.VITE_HASH_ROUTE as unknown as string) !== 'false';
@@ -51,6 +52,7 @@ export function resetRouter() {
 
 export async function setupRouter(app: App<Element>) {
   app.use(router);
+  setupRouteGuard(router);
   await router.isReady()
 }
 

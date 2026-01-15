@@ -3,21 +3,21 @@ import { TagOption } from '@/components/custom/dynamic-tags/types';
 import { usePagination } from '@/components/table/hook';
 import { PaginationProps } from 'naive-ui/lib';
 import { apiSetting } from '@/settings/apiSetting';
-import { usePermission } from '@/hooks';
-import type {UploadCustomRequestOptions,UploadFileInfo} from 'naive-ui'
-export function useFileManager(){
+import { usePermission } from '@/hooks/business/usePermission'
+import type { UploadCustomRequestOptions, UploadFileInfo } from 'naive-ui'
+export function useFileManager() {
 
   const categories = ref<TagOption[]>([]);
   const cid = ref();
   const fileUpdRef = ref()
   const files = ref<FileInfo[]>([]);
-  const {t} = useI18n()
+  const { t } = useI18n()
   const {
-          pageField,
-          sizeField,
-          countField,
-          pagesField,
-          listField,
+    pageField,
+    sizeField,
+    countField,
+    pagesField,
+    listField,
   } = apiSetting.table;
 
   const permission = usePermission()
@@ -26,30 +26,30 @@ export function useFileManager(){
 
     canCreate: permission.hasPermission('files:category:create'),
 
-    menuProps:  {show: permission.hasPermission('files:category:edit')},
+    menuProps: { show: permission.hasPermission('files:category:edit') },
 
-    fetch: async ()=>{
-      try{
+    fetch: async () => {
+      try {
         const result = await fileApi.category()
         categories.value = result
         //默认选中第一个文件分类
-        if(result && result.length >0){
+        if (result && result.length > 0) {
           cid.value = result[0].value
         }
-      }catch(e){
+      } catch (e) {
         return ""
       }
     },
-  
-    save: async (tag:TagOption)=>{
-      try{
+
+    save: async (tag: TagOption) => {
+      try {
         const result = await fileApi.categorySave(tag)
         return result
-      }catch(e){
+      } catch (e) {
         return null
       }
     },
-  
+
     // async function categoryEdit(tag: TagOption) {
     //   try{
     //     const result = await fileApi.categoryCreate(tag)
@@ -58,34 +58,35 @@ export function useFileManager(){
     //     return null
     //   }
     // }
-  
-    remove: async (v:TagOption,index:number) => {
-      try{
+
+    remove: async (v: TagOption, index: number) => {
+      try {
         await fileApi.categoryRemove(v.value)
-        categories.value.splice(index,1)
-      }catch(e){
+        categories.value.splice(index, 1)
+      } catch (e) {
         return null
       }
     },
-  
-    change: (tag: TagOption)=>{
+
+    change: (tag: TagOption) => {
       cid.value = tag.value
     }
 
   };
 
-  const {getPagination,setPagination} = usePagination({pageSlot:6,pageSize:20, showQuickJumper:false, showSizePicker:false,
-    'onUpdate:page':(_page:number)=>{
+  const { getPagination, setPagination } = usePagination({
+    pageSlot: 6, pageSize: 20, showQuickJumper: false, showSizePicker: false,
+    'onUpdate:page': (_page: number) => {
       fetchFiles()
     },
-    size:'large'
-  },ref(true),t);
+    size: 'large'
+  }, ref(true), t);
 
-  async function fetchFiles(){
+  async function fetchFiles() {
     const { page = 1, pageSize = 20 } = unref(getPagination) as PaginationProps;
-    
-    try{
-      const result = await fileApi.index({cid:cid.value, [pageField]:page, [sizeField]:pageSize})
+
+    try {
+      const result = await fileApi.index({ cid: cid.value, [pageField]: page, [sizeField]: pageSize })
       const data = result[listField] ? result[listField] : [];
       const pagesCount = result[pagesField];
       const totalCount = result[countField];
@@ -95,30 +96,31 @@ export function useFileManager(){
         itemCount: totalCount,
       });
       files.value = data
-    }catch(e){
+    } catch (e) {
       setPagination({
-        page: page==1?1:page-1
+        page: page == 1 ? 1 : page - 1
       })
     }
   }
 
-  async function refeshFiles(){
-    setPagination({page: 1});
+  async function refeshFiles() {
+    setPagination({ page: 1 });
     fetchFiles()
   }
 
-  async function cusRequest({file,onFinish,onError,onProgress}:UploadCustomRequestOptions){
-    try{
-      const res = await fileApi.create({files:file.file as File, filename: file.name},
-        ({progress})=>{
-          onProgress({percent:Math.ceil(progress??0)
+  async function cusRequest({ file, onFinish, onError, onProgress }: UploadCustomRequestOptions) {
+    try {
+      const res = await fileApi.create({ files: file.file as File, filename: file.name },
+        ({ progress }) => {
+          onProgress({
+            percent: Math.ceil(progress ?? 0)
+          })
         })
-      })
-      console.log("cusRequest",res)
+      console.log("cusRequest", res)
       onFinish()
-    }catch(error){
+    } catch (error) {
       onError()
-    }finally{
+    } finally {
       fileUpdRef.value.clear()
     }
   }
@@ -177,14 +179,14 @@ export function useFileManager(){
   //   }
   // }
 
-  function onFinish(options: { file: UploadFileInfo, event?: Event }){
-    
+  function onFinish(options: { file: UploadFileInfo, event?: Event }) {
+
   }
 
 
   watch(
     cid,
-    (val)=>{fetchFiles()}
+    (val) => { fetchFiles() }
   )
 
   categoryApi.fetch()
@@ -194,7 +196,7 @@ export function useFileManager(){
     categoryApi,
     files,
     fetchFiles,
-    getPagination,setPagination,
+    getPagination, setPagination,
     refeshFiles,
     cusRequest,
     fileUpdRef,

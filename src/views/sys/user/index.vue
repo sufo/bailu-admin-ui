@@ -40,7 +40,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import {useDesign, usePermission} from '@/hooks'
+import {useDesign} from '@/hooks/common/useDesign'
+import {usePermission} from '@/hooks/business/usePermission'
 import {useUser} from './use-user'
 import { BailuTable } from '@/components/table';
 import UserModal from './UserModal.vue';

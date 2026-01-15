@@ -1,43 +1,44 @@
 <div align="center">
-	<img src="./public/favicon.svg" width="160" />
-	<h1>Bailu Admin</h1>
+  <img src="./public/favicon.svg" width="160" />
+  <h1>Bailu Admin</h1>
   <span>English | <a href="./README.zh-CN.md">中文</a></span>
 </div>
 
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
-
 ## Introduction
 
-[`bailu`](https://github.com/sufo/bailu-admin) is a clean, elegant, beautiful and powerful admin template, based on the latest front-end technology stack, including Vue3, Vite5, TypeScript, Pinia and UnoCSS. `bailuAdmin` provides you with a one-stop admin solution, no additional configuration, and out of the box. It is also a best practice for learning cutting-edge technologies quickly.
+[`bailu-admin-ui`](https://github.com/sufo/bailu-admin-ui) is a powerful admin frontend project based on the latest front-end technology stack, including **Vue3**, **Vite7**, **TypeScript**, **Pinia**, **UnoCSS**, and **Naive UI**. 
+
+[Back-end](https://github.com/sufo/bailu-admin).
 
 
 ## Features
 
-- **Cutting-edge technology application**: using the latest popular technology stack such as Vue3, Vite5, TypeScript, Pinia and UnoCSS.
-- **TypeScript**: support strict type checking to improve code maintainability.
-- **Rich theme configuration**: built-in a variety of theme configurations, perfectly integrated with UnoCSS.
-- **Built-in internationalization solution**: easily realize multi-language support.
-- **Flexible permission routing**: support both front-end static routing and back-end dynamic routing.
-- **Rich page components**: built-in a variety of pages and components, including 403, 404, 500 pages, as well as layout components, tag components, theme configuration components, etc.
-- **Mobile adaptation**: perfectly support mobile terminal to realize adaptive layout.
-
-
+- **Cutting-edge Technology**: Built with the latest popular tech stack: Vue3, Vite7, TypeScript, Pinia, UnoCSS, and Naive UI.
+- **TypeScript**: Full TypeScript support with strict type checking for better maintainability.
+- **Modern UI Framework**: Uses Naive UI for a high-quality component library.
+- **Atomic CSS**: Integrated with UnoCSS for high-performance and flexible styling.
+- **Rich Theme Configuration**: Built-in diverse theme configurations, seamlessly integrated with UnoCSS.
+- **Internationalization**: Built-in i18n solution to easily support multiple languages.
+- **Flexible Routing**: Supports both front-end static routing and back-end dynamic routing with permission controls.
+- **Rich Components**: Includes various built-in pages and components such as 403, 404, 500 pages, layout components, and more.
+- **Mobile Adaptation**: Fully responsive design with perfect support for mobile devices.
 
 ## Usage
 
-**Environment Preparation**
+**Prerequisites**
 
-Make sure your environment meets the following requirements:
+Ensure your environment meets the following requirements:
 
-- **git**: you need git to clone and manage project versions.
-- **NodeJS**: >=18.12.0, recommended 18.19.0 or higher.
-- **pnpm**: >= 8.7.0, recommended 8.14.0 or higher.
+- **git**: Required for version control.
+- **Node.js**: >=18.12.0 (Recommended: 18.19.0 or higher).
+- **pnpm**: >= 8.7.0 (Recommended: 8.14.0 or higher).
 
 **Clone Project**
 
 ```bash
-git clone https://github.com/xxxx/bailu-admin.git
+git clone https://github.com/bailujs/bailu-admin.git
 ```
 
 **Install Dependencies**
@@ -45,7 +46,7 @@ git clone https://github.com/xxxx/bailu-admin.git
 ```bash
 pnpm i
 ```
-> Since this project uses the pnpm monorepo management method, please do not use npm or yarn to install dependencies.
+> Note: This project uses pnpm for dependency management. Please do not use npm or yarn.
 
 **Start Project**
 
@@ -59,20 +60,19 @@ pnpm dev
 pnpm build
 ```
 
-
 ## Browser Support
 
-It is recommended to use the latest version of Chrome in development for a better experience.
+Recommended to use the latest version of Chrome for the best development experience.
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png" alt="IE" width="24px" height="24px"  />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt=" Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) |
-| --- | --- | --- | --- | --- |
-| not support | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt=" Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) |
+| --- | --- | --- | --- |
+| Last 2 versions | Last 2 versions | Last 2 versions | Last 2 versions |
 
-## OpenSource Author
+## Author
 
 [sufo](https://github.com/sufo)
 
-
 ## License
 
-This project is based on the [MIT © 2022 bailu](./LICENSE) protocol, for learning purposes only, please retain the author's copyright information for commercial use, the author does not guarantee and is not responsible for the software.
+This project is licensed under the [MIT](./LICENSE) License.
+Copyright © 2026 bailu.

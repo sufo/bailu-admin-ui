@@ -4,10 +4,9 @@
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import AutoImport from 'unplugin-auto-import/vite'
-// import DefineOptions from 'unplugin-vue-define-options/dist/vite'
 // import DefineOptions from 'unplugin-vue-define-options/vite'
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
-// import path from 'path'
+import path from 'path'
 // import { fileURLToPath } from 'url'
 export default () => {
   return [
@@ -46,7 +45,13 @@ export default () => {
 
     //unplugin-vue-i18n
     // VueI18nPlugin({ include: 'src/locales/**' }) // Internal server error: You need to define an object as the locale message with 'export default'.
-    VueI18nPlugin({ include: 'src/locales/**.yaml' })
+    // VueI18nPlugin({ include: 'src/locales/**.yaml' })
+    VueI18nPlugin({
+      include: [path.resolve(process.cwd(), 'src/locales/**.yaml')],
+      fullInstall: false,
+      // 如果使用了组合式 API，确保这个也开启了
+      compositionOnly: true,
+    })
     //include: resolve(dirname(fileURLToPath(import.meta.url)), '../../../src/locales/**.yaml')
     // VueI18nPlugin({ include: path.resolve(__dirname, '../../../src/locales/**.yaml') })
   ]

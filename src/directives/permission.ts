@@ -7,7 +7,7 @@
  * @Desc: 权限指令
  */
 import type { App, Directive } from 'vue';
-import { usePermission } from '@/hooks';
+import { usePermission } from '@/hooks/business/usePermission'
 
 
 /**

@@ -163,7 +163,7 @@ $prefix : '#{$namespace}-base-table-action';
 
   .n-button {
     width:auto;
-    padding:0 1rem;
+    padding:0 4px;
     .n-button__icon{margin-right: 0.25rem;}
   }
 }

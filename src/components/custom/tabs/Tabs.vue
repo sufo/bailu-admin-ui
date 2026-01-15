@@ -1,8 +1,8 @@
 <template>
   <div :class=classNames>
     <slot name="leftExtra"></slot>
-    <div ref="bsWrapperRef" :class="`scroll-wrap h-full flex-1-hidden px-16 ${tabsWrap}`">
-      <div ref="tabRef" class="inline-flex h-full pr-18px">
+    <div ref="bsWrapperRef" :class="`scroll-wrap h-full flex-1-hidden px-[16px] ${tabsWrap}`">
+      <div ref="tabRef" class="inline-flex h-full pr-[18px]">
         <slot v-bind="tabProps"></slot>
       </div>
     </div>

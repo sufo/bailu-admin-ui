@@ -27,15 +27,15 @@
         @click="modelValue = theme.name">
         <div
          :class="activeClass(theme.name)"
-         class=" outline-box flex-center py-16">
-          <component :is="theme.icon" class="mx-30 size-20" />
+         class=" outline-box flex-center py-[16px]">
+          <component :is="theme.icon" class="mx-[30px] size-[20px]" />
         </div>
-        <div class="text-muted-foreground mt-16 text-center text-xs">
+        <div class="text-muted-foreground mt-[16px] text-center text-xs">
           {{ nameView(theme.name) }}
         </div>
       </div>
     </div>
-    <switch-item class="mt-24" v-model="prefer.menu.inverted" :disabled="modelValue=='dark'">{{$t('preference.theme.siderDark')}}</switch-item>
+    <switch-item class="mt-[24px]" v-model="prefer.menu.inverted" :disabled="modelValue=='dark'">{{$t('preference.theme.siderDark')}}</switch-item>
     <setting-item :label="$t('preference.theme.headerDark')" :disabled="modelValue=='dark'">
       <n-switch :value="prefer.header.inverted" @update:value="prefer.setHeaderInverted" />
     </setting-item>

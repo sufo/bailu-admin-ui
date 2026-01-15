@@ -69,20 +69,6 @@ export default defineConfig({
       //bg: 'var(--background)'// '#18181c'
       dark: '#18181c',
     },
-    //修改了默认字体大小（16px->4px），所以这里定制字体，在原来基础上 ×4
-    fontSize: {
-      'xs': '3rem',
-      'sm': '3.5rem',
-      'tiny': '3.5rem',
-      'base': '4rem',
-      'lg': '4.5rem',
-      'xl': '5rem',
-      '2xl': '6rem',
-      '3xl': '7.5rem',
-      '4xl': '9rem',
-      '5xl': '12rem',
-      '6xl': '16rem',
-      '7xl': '20rem',
-    }
+
   }
 });

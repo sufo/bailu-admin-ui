@@ -1,5 +1,5 @@
 <template>
-  <tool-tip class="w-36 h-30" :tooltip-content="$t('layout.tabs.reload')" placement="bottom-end" @click="handleRefresh">
+  <tool-tip class="w-[36px] h-[30px]" :tooltip-content="$t('layout.tabs.reload')" placement="bottom-end" @click="handleRefresh">
     <icon icon="mdi:refresh" :size="22" :spin="loading" />
   </tool-tip>
 </template>

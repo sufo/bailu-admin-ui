@@ -20,11 +20,11 @@
           <n-input @input="debounceSearch" clearable :placeholder="$t('common.searchIcon')"/>
         </template>
         <scroll-view ref="scrollViewRef">
-          <ul class="flex flex-wrap px-8">
+          <ul class="flex flex-wrap px-[8px]">
             <li v-for="(icon,index) in curIcons" :key="index" 
               :class="{'border-primary':icon===selectedIcon}"
               @click="handleClick(icon)"
-              class="p-2 w-1/8 cursor-pointer flex-center mr-4 mt-4 border border-solid hover:border-primary_hover">
+              class="p-[2px] w-1/8 cursor-pointer flex-center mr-[4px] mt-[4px] border border-solid hover:border-primary_hover">
               <icon :icon="icon" :style="{fontSize: '18px'}"/>
             </li>
           </ul>

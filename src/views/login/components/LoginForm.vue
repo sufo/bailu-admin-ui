@@ -19,7 +19,7 @@
     <n-form-item path="imgCode">
       <n-input class="flex-1 rounded-r-none" v-model:value="loginForm.imgCode" clearable :placeholder="$t('login.captchaPlaceHolder')">
         <template #prefix><icon icon="ri:shield-keyhole-line"/></template></n-input>
-      <img :src="captcha" @click="getCode" class="h-full w-120">
+      <img :src="captcha" @click="getCode" class="h-full w-30">
     </n-form-item>
   
     <n-space :vertical="true" :size="24">
@@ -35,7 +35,7 @@
       <n-button>{{$t('login.qrCodeSignIn')}}</n-button>
       <n-button @click="$emit('update:active','REGISTER')">{{$t('login.signUp')}}</n-button>
     </n-space>
-    <n-divider dashed class="text-12 color-#303133 dark:color-#ffffff">{{$t('login.socialLoginIn') }}</n-divider>
+    <n-divider dashed class="text-[12px] color-#303133 dark:color-#ffffff">{{$t('login.socialLoginIn') }}</n-divider>
     <n-space class="social" justify="space-evenly">
       <icon icon="mdi:wechat" size="20"/><icon icon="ion:logo-alipay"/>
       <icon icon="mdi:google"/><icon icon="mdi:twitter"/>

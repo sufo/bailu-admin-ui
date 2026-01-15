@@ -1,6 +1,6 @@
 <template>
   <!-- <dark-mode-container class="mt-8 flex-col sm:flex-1-hidden" v-bind="$attrs" :inverted="theme.isDark"> -->
-  <dark-mode-container class="mt-8 flex-col flex-1-hidden" v-bind="$attrs" :inverted="theme.isDark">
+  <dark-mode-container class="mt-[8px] flex-col flex-1-hidden" v-bind="$attrs" :inverted="theme.isDark">
    <!-- <n-card :title="title" :bordered="false" size="small" class="sm:flex-1-hidden">
     <template #header-extra> -->
       <table-bar v-if="!hideToolbar"

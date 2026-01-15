@@ -26,7 +26,7 @@
       <template #header>
         <Icon icon="carbon:cloud-monitoring" :style="{fontSize:'18px'}"/>&nbsp;{{ $t('page.server.info') }}
       </template>
-      <div class="px-20">
+      <div class="px-[20px]">
         <n-list-item>
           <span>{{ $t('page.server.name') }}</span><span>{{ data?.servInfo.name}}</span>
           <span>{{ $t('page.loginLog.os') }}</span><span>{{ data?.servInfo.os}}</span>
@@ -42,7 +42,7 @@
       <template #header>
         <Icon icon="fa6-brands:golang" :style="{fontSize:'18px'}"/>&nbsp;{{ $t('page.server.runtime') }}
       </template>
-      <div class="px-20">
+      <div class="px-[20px]">
         <n-list-item>
           <span>{{ $t('page.server.go-version') }}</span><span>{{ data?.runtime.goVersion}}</span>
           <span>{{ $t('page.server.compiler') }}</span><span>{{ data?.runtime.compiler}}</span>
@@ -61,7 +61,7 @@
       <template #header>
         <Icon icon="carbon:vmdk-disk" :style="{fontSize:'18px'}"/>&nbsp;{{ $t('page.server.disk') }}
       </template>
-      <div class="px-20">
+      <div class="px-[20px]">
         <n-list-item>
           <span class="!flex-[2_2_0%]">{{ $t('page.server.disk-path') }}</span><span>{{ $t('page.server.fsType') }}</span>
           <span>{{ $t('page.server.total') }}</span><span>{{ $t('page.server.free') }}</span>

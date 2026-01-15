@@ -7,7 +7,7 @@
     </div>
     <n-modal v-model:show="show"
       :mask-closable="false"
-      class="profile-avatar-modal min-w-400 max-w-800 w-90% overflow-hidden"
+      class="profile-avatar-modal min-w-[400px] max-w-[800px] w-[90%] overflow-hidden"
       :title="$t('page.profile.editAvatar')"
       preset="card">
         <div class="grid grid-cols-[repeat(auto-fill,minmax(368px,1fr))]" >

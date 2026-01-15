@@ -181,7 +181,6 @@ export function useUser(tableRef: Ref, formModel: Ref<Recordable>, depts: Ref, i
         // options: unref(depts),
       }
     } else if (operType === 'DELETE') {
-      debugger
       const res = await userApi.remove(row!.id)
       if (res) {
         //重新刷新当前页

@@ -6,12 +6,12 @@
             <div class="flex-y-center space-x-[16px]">
                 <div class="relative">
                     <img :src="userInfo.avatar" class="w-[64px] h-[64px] rounded-2xl shadow-inner" alt="Avatar">
-                    <span class="absolute -bottom-1 -right-1 w-5 h-5 bg-success border-4 border-white dark:border-success rounded-full"></span>
+                    <span class="absolute -bottom-[1px] -right-[1px] w-[5px] h-[5px] bg-success border-[4px] border-white dark:border-success rounded-full"></span>
                 </div>
                 <div>
                     <div class="flex-y-center gap-[16px]">
                         <h1 class="text-2xl font-bold text-slate-800 dark:text-gray-100">中午好，{{ userInfo.username }}</h1>
-                        <span class="px-2 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-primary text-xs font-bold rounded-lg tracking-wide uppercase">bailu</span>
+                        <span class="px-[8px] py-[2px] bg-blue-50 dark:bg-blue-900/30 text-primary text-xs font-bold rounded-lg tracking-wide uppercase">bailu</span>
                     </div>
                     <div class="flex-y-center mt-[16px] text-slate-400 dark:text-gray-400 text-xs space-x-3">
                         <span class="flex-y-center"><svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>{{ $t('page.dashboard.lastLoginTime') }}{{ lastTime }}</span>

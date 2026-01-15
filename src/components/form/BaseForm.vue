@@ -8,7 +8,7 @@
           <div class="label-wrap">
             <n-tooltip trigger="hover" :style="item.labelTipStyle" to="body">
               <template #trigger>
-                <icon icon="ri:question-fill" color="var(--n-label-text-color)" class="text-gray-400 cursor-pointer pr-4px text-18"/>
+                <icon icon="ri:question-fill" color="var(--n-label-text-color)" class="text-gray-400 cursor-pointer pr-[4px] text-[18px]"/>
               </template>
               {{ item.labelTip }}
             </n-tooltip>

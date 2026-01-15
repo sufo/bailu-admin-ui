@@ -1,8 +1,8 @@
 <template>
-<div :class="prefixCls" class="flex-y-center justify-between w-full h-[56px] px-16px">
+<div :class="prefixCls" class="flex-y-center justify-between w-full h-[56px] px-[16px]">
   <slot name="title"><h2 class="text-unset truncate flex-1 font-bold color-#000" v-if="title">{{ title }}</h2></slot>
   <div class="flex-y-center">
-    <div class="flex mr-16 actions gap-x-12px gap-y-8px" v-if="hasBtnSlot">
+    <div class="flex mr-[16px] actions gap-x-[12px] gap-y-[8px]" v-if="hasBtnSlot">
         <slot name="toolbar" />
     </div>
     <!-- <tool-tip v-if="canExpand" @click="toggleExpand" 
@@ -46,19 +46,19 @@
     <template #header>
       <div>
         <n-checkbox
-          class="!-mr-1" :label="$t('layout.table.showColumnText')"
+          class="!-mr-[1px]" :label="$t('layout.table.showColumnText')"
           v-model:checked="checkAll"
           :indeterminate="indeterminate"
           @update:checked="onCheckAllChange"/>
         <n-checkbox
-          class="!-mr-1" :label="$t('layout.table.openCheckbox')"
+          class="!-mr-[1px]" :label="$t('layout.table.openCheckbox')"
           v-model:checked="selection" @update:checked="onSelection"/>
         <n-button text type="primary" @click="onReset">{{$t('button.resetText')}}</n-button>
       </div>
     </template>
-    <div class="grid gap-x-4 grid-cols-[auto_minmax(150px,1fr)_repeat(2,auto)] items-center" v-for="col in colsData" :key="col.key" :class="{'col-draggble':!col.fixed}">
-      <icon class="cursor-pointer" icon="clarity:drag-handle-line"/>
-      <n-checkbox class="ml-10px" :checked="!col.hide" @update:checked="handlerCheckColumn(col)" :label="(col.title as string)" />
+    <div class="grid gap-x-[4 grid-cols-[auto_minmax(150px,1fr)_repeat(2,auto)] items-center" v-for="col in colsData" :key="col.key" :class="{'col-draggble':!col.fixed}">
+      <icon class="cursor-pointer" icon="clarity:drag-handle-line" size="20"/>
+      <n-checkbox :checked="!col.hide" @update:checked="handlerCheckColumn(col)" :label="(col.title as string)" />
       <icon :class="[`${prefixCls}__fixed-left`,{active:col.fixed==='left',disabled: col.hide}]" icon="radix-icons:pin-left" @click="pin('left',col)"/>
       <icon :class="[`${prefixCls}__fixed-right`, {active:col.fixed==='right',disabled: col.hide}]" icon="radix-icons:pin-right"  @click="pin('right',col)"/>
     </div>

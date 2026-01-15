@@ -3,19 +3,19 @@
     :class="{
       'pointer-events-none opacity-50': disabled,
     }"
-    class="hover:bg-accent my-1 flex w-full items-center justify-between rounded-md"
+    class="hover:bg-accent my-[1px] flex w-full items-center justify-between rounded-md"
     @click="handleClick">
     <span class="flex items-center text-sm">
       <slot></slot>
 
       <n-tooltip v-if="slots.tip" side="bottom">
         <template #trigger>
-          <Icon size="12" icon="bx:help-circle" class="ml-4 size-12 cursor-help" />
+          <Icon size="12" icon="bx:help-circle" class="ml-[4px] size-[12px] cursor-help" />
         </template>
         <slot name="tip"></slot>
       </n-tooltip>
     </span>
-    <span v-if="$slots.shortcut" class="ml-auto mr-8 text-xs opacity-60">
+    <span v-if="$slots.shortcut" class="ml-auto mr-[8px] text-xs opacity-60">
       <slot name="shortcut"></slot>
     </span>
     <n-switch v-model:value="checked" @click.stop />

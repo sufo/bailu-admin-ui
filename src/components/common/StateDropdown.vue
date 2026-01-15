@@ -84,7 +84,7 @@ export default defineComponent({
     const nDropdown = ref()
     // @ts-ignore
     const hIcon = (v,i:number): VNodeChild => {
-        const tNode = h('div', { class: 'flex-1 z-1 mr-8px' }, v.label)
+        const tNode = h('div', { class: 'flex-1 z-1 mr-[8px]' }, v.label)
         let nodes:VNodeChild[] = [tNode]
         if (state.value.show && clickIndex.value===i)
             nodes.push(h(Icon as Component, { class: 'z-1', ...(state.value) }))
@@ -94,7 +94,7 @@ export default defineComponent({
         return h(
             'div',
             {
-                class: 'drop-item flex-center cursor-pointer px-16px py-6px',
+                class: 'drop-item flex-center cursor-pointer px-[16px] py-[6px]',
                 onClick: () => { 
                   if(state.value.show){
                     nDropdown.value.doUpdateShow(false);

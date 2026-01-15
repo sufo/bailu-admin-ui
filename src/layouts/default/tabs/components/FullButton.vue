@@ -1,5 +1,5 @@
 <template>
-  <tool-tip class="w-36 h-30" :tooltip-content="$t('layout.tabs.fullContent')" placement="bottom-end" @click="handleFold">
+  <tool-tip class="w-[36px] h-[30px]" :tooltip-content="$t('layout.tabs.fullContent')" placement="bottom-end" @click="handleFold">
     <Icon :icon="getIcon" />
   </tool-tip>
 </template>

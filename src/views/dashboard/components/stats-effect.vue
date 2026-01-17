@@ -1,10 +1,3 @@
-<!--
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-11 15:33:08
- * @Desc: 
--->
 <template>
 	<div class="stats-effect">
 		<div class="card">

@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-10-18 20:36:59
- * @Desc: 
- */
 import { emitter } from '@/utils/emitter'
 import { EventEnum } from '@/constants/enum'
 import { i18n } from '@/locales/i18n';

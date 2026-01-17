@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-10-15 17:16:10
- * @Desc: 
--->
 <template>
 	<div class="category-ratio">
 		<div class="category-ratio__header">

@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-09-24 17:54:52
- * @Desc: 
- */
 import type { Result } from "~/types/axios";
 import { apiSetting } from "@/settings/apiSetting";
 

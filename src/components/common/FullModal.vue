@@ -1,11 +1,4 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-09-03 14:08:33
- * @Desc: 
--->
+
 <!--modal增加全屏切换按钮-->
 <template>
 <n-modal

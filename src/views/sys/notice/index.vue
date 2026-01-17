@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-08-29 17:56:10
- * @Desc: 
--->
 <template>
   <div :class="prefixCls" class="flex-col h-full">
     <search-form labelPlacement="left"

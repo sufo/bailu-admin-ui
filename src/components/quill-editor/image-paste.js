@@ -1,13 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-09-04 11:31:06
- * @Desc: 
- */
-
-
 export class ImagePaste {
   constructor(quill, config = {}) {
     this.quill = quill;

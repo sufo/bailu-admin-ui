@@ -1,11 +1,4 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-11-03 14:03:25
- * @Desc: 
--->
+
 <template>
   <Tab :class="[$attrs.class,props.closable?'tab-dragable':'tab-affix']" :style="[$attrs.style, cssVars]" v-bind="bindProps" @click="onTabClick">
     <template #prefix>

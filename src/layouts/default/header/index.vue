@@ -1,9 +1,3 @@
-<!--
- * @version: 
- * 
- * @LastEditTime: 2023-11-03 10:57:03
- * @Desc: 
--->
 <template>
   <header v-bind="$attrs" v-if="theme.header.visible" :class="headerClass" v-show="!hide">
     <app-logo v-if="theme.app.showLogo && showLogo && !isMobile" 

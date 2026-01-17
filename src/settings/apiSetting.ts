@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-10-18 11:32:23
- * @Desc: 
- */
 export const apiSetting = {
   code: 'code',
   msg: 'msg',

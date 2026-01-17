@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-19 18:35:52
- * @Desc: 
- */
 import { AppRouteRecordRaw } from "~/types/route";
 import { LAYOUT, EXCEPTION_COMPONENT, PARENT_VIEW, getParentLayout } from "../routes";
 import { warn } from '@/utils/log'

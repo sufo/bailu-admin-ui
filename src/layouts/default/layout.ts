@@ -1,9 +1,3 @@
-/*
- * @version: 
- * 
- * @LastEditTime: 2023-05-22 15:59:55
- * @Desc: 
- */
 import usePreferenceStore from "@/store/modules/preference";
 import { useContext } from "@/store/useContext";
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';

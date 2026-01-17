@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-06 11:12:11
- * @Desc: 
- */
 import type { App } from 'vue'
 import { createPinia } from 'pinia'
 

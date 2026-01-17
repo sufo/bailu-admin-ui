@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-11-16 16:37:01
- * @Desc: 
--->
 <!--icon pick-->
 <template>
   <n-input-group :class="prefixCls">

@@ -1,11 +1,4 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-20 17:30:26
- * @Desc: 
- */
+
 import { isFunction } from '@/utils/util'
 import { BaseFormProps, FormItemProps } from './types'
 import { FormInst } from 'naive-ui'

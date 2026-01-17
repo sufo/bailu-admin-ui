@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamouTableActionr@Gmail.com
- * @LastEditTime: 2024-03-11 15:43:51
- * @Desc: table action列封装处理
--->
 <template>
   <div :class="prefixCls" @click="onCellClick">
     <!--默认前置插槽-->

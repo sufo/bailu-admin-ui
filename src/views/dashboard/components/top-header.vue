@@ -10,10 +10,10 @@
                 </div>
                 <div>
                     <div class="flex-y-center gap-[16px]">
-                        <h1 class="text-2xl font-bold text-slate-800 dark:text-gray-100">中午好，{{ userInfo.username }}</h1>
+                        <h1 class="text-2xl font-bold text-slate-800 dark:text-gray-100">{{ greeting }}，{{ userInfo.username }}</h1>
                         <span class="px-[8px] py-[2px] bg-blue-50 dark:bg-blue-900/30 text-primary text-xs font-bold rounded-lg tracking-wide uppercase">bailu</span>
                     </div>
-                    <div class="flex-y-center mt-[16px] text-slate-400 dark:text-gray-400 text-xs space-x-3">
+                    <div class="flex-y-center mt-[16px] text-slate-400 dark:text-gray-400 text-xs space-x-[3px]">
                         <span class="flex-y-center"><svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>{{ $t('page.dashboard.lastLoginTime') }}{{ lastTime }}</span>
                         <span class="hidden md:inline">IP: {{ loginLog?.ip }} ({{ loginLog?.addr}})</span>
                     </div>
@@ -28,9 +28,9 @@
         </div>
 
         <div class="flex flex-col md:flex-row items-center gap-[16px] w-full md:w-auto">
-            <div class="text-right pr-[24px] md:border-r border-slate-200/60 dark:border-gray-700">
+            <div class="text-right pr-[24px] md:border-r border-slate-200/60 dark:border-gray-700 flex md:block">
                 <p class="text-xl font-black text-slate-800 dark:text-gray-100 tracking-tighter">{{ dateStr }}</p>
-                <p class="text-xs font-medium text-slate-400 dark:text-gray-400 mt-[8px]">{{ weekStr }} · {{ lunarStr }}</p>
+                <p class="text-xs font-medium text-slate-400 dark:text-gray-400 mt-[8px] ml-[8px] md:ml-[0px]">{{ weekStr }} · {{ lunarStr }}</p>
                 <p class="text-xs text-primary font-bold bg-blue-50 dark:bg-blue-900/20 inline-block px-[8px] py-[2px] rounded-full mt-[8px]">{{ term }}</p>
             </div>
 
@@ -76,7 +76,7 @@ import { loginLogApi } from '@/api/admin';
 import { LunarUtils } from '@/utils/lunar';
 import {usePreferenceStore} from '@/store/modules'
 
-
+const {t} = useI18n();
 const userStore = useUserStore();
 const userInfo = computed(() => userStore.getUserInfo);
 const brief = computed(() => userInfo.value.profile || '“ 日子像一条缓慢流淌的河，情绪偶尔泛起，却很快归于平稳。回头看时才发现，那些真正留下痕迹的，并不是某个耀眼的时刻，而是无数个平凡却被认真度过的瞬间。 ”');
@@ -104,6 +104,17 @@ const term = computed(() => {
    const info = lunarInfo.value;
 //    return `${info.ganzhiYear}年 · ${info.animal}`;
     return `${LunarUtils.getLunarTerm()||(info.ganzhiYear+"年")} ${info.lunarDate}`;
+});
+
+const greeting = computed(() => {
+    const hour = currentDate.value.hour();
+    if (hour < 6) return t('greeting.early-morning');
+    if (hour < 9) return t('greeting.morning');
+    if (hour < 12) return t('greeting.noon');
+    if (hour < 14) return t('greeting.afternoon');
+    if (hour < 17) return t('greeting.evening');
+    if (hour < 19) return t('greeting.night');
+    return t('greeting.night');
 });
 
 const preference = usePreferenceStore()

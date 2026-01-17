@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-05-17 11:57:36
- * @Desc: 
- */
 import { computed } from 'vue';
 import { smsCode } from '@/api/admin';
 import useBoolean from '../common/useBoolean';

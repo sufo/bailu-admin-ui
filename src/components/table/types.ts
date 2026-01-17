@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-03-11 11:51:12
- * @Desc: 
- */
 import {
   DataTableProps, DataTableColumn, dataTableProps as naiveDataTableProps,
   ButtonProps, buttonProps,

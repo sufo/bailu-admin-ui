@@ -1,12 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-18 09:42:17
- * @Desc: 
- */
-
 import { VNode } from "vue";
 import { RouteLocationNormalized, RouteRecordNormalized } from "vue-router";
 

@@ -1,7 +1,7 @@
 <template>
 <n-form :class="prefixCls" ref="formRef" :model="registerForm" :rules="rules" size="large" :show-label="false">
   <n-form-item path="phone">
-    <vue-tel-input invalidMsg="isdjosijd" class="n-input" :styleClasses="stateBorder" @on-input="telInputCheck" v-model="registerForm.phone" :input-options="inputOptions"></vue-tel-input>
+    <vue-tel-input invalidMsg="isdjosijd" class="n-input" :styleClasses="stateBorder" v-model="registerForm.phone" :input-options="inputOptions" @validate="telInputCheck"></vue-tel-input>
     <template #feedback><span class="c-[#f5222d]">{{ phoneFeedback }}</span><div class="n-input__state-border"></div></template>
     <!-- <n-input v-model:value="registerForm.phone" maxlength="11" :placeholder="$t('login.mobile')" clearable>
         <template #prefix><icon icon="ep:iphone"/></template></n-input> -->
@@ -70,19 +70,35 @@ let isFirst = false
 
 //国际手机号校验
 //@ts-ignore
-const telInputCheck = (number: String, phoneObject:any)=>{
-  //第一次不做校验，避免一进入页面就出现错误信息
+//const telInputCheck = (number: String, phoneObject:any)=>{
+//   //第一次不做校验，避免一进入页面就出现错误信息
+//   if(!isFirst){isFirst=true;return}
+//   registerForm.dialCode = phoneObject?(phoneObject.country.dialCode||""):""
+//   const err = formRules.phoneExtValidator(registerForm.phone, toRef(registerForm, 'dialCode'))
+//   if(err){
+//     //设置错误信息
+//     phoneFeedback.value = err.message
+//     //设置border
+//     stateBorder.value = 'state-border';
+//   }
+//   else {phoneFeedback.value = '';stateBorder.value = '';}
+// }
+const telInputCheck = (state) => {
   if(!isFirst){isFirst=true;return}
-  registerForm.dialCode = phoneObject?(phoneObject.country.dialCode||""):""
-  const err = formRules.phoneExtValidator(registerForm.phone, toRef(registerForm, 'dialCode'))
-  if(err){
-    //设置错误信息
-    phoneFeedback.value = err.message
-    //设置border
-    stateBorder.value = 'state-border';
+  const isValid = state.valid;
+  if(isValid){
+    phoneFeedback.value = ""
+    stateBorder.value = '';
+    registerForm.dialCode = state.countryCallingCode
   }
-  else {phoneFeedback.value = '';stateBorder.value = '';}
-}
+  else {
+    phoneFeedback.value = t('login.phoneFormatErr')
+    stateBorder.value = 'state-border';
+    registerForm.dialCode = ""
+  }
+  // console.log('国际格式:', state);
+};
+
 //手机号空校验
 const telEmptyCheck =()=>{
   if(!registerForm.phone){

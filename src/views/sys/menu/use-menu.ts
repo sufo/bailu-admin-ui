@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-18 11:35:06
- * @Desc: 
- */
 import { useI18n } from 'vue-i18n';
 import { TableColumn } from '@/components/table/types';
 import { TableAction } from '@/components/table'
@@ -118,11 +110,11 @@ export function useMenu(tableRef: Ref) {
     }
   }
 
-  async function afterRequest(data: MenuVo[]): Promise<void|MenuVo[]>{
-      data.forEach(item=>{
-        item.createdAt = dayjs.utc(item.createdAt).local().format(preference.timeTemplate)
-      })
-      return data
+  async function afterRequest(data: MenuVo[]): Promise<void | MenuVo[]> {
+    data.forEach(item => {
+      item.createdAt = dayjs.utc(item.createdAt).local().format(preference.timeTemplate)
+    })
+    return data
   }
 
   const show = ref(false)

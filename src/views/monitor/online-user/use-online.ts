@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-18 12:08:06
- * @Desc: 
- */
 import { FormItemProps } from '@/components/form/types';
 import { TableColumn } from '@/components/table/types';
 import { onlineApi } from '@/api/admin'
@@ -77,11 +69,11 @@ export function useOnlineUser(tableRef: Ref) {
     }
   };
 
-  async function afterRequest(data: OnlineUser[]): Promise<void|OnlineUser[]>{
-      data.forEach(item=>{
-        item.loginTime = dayjs.utc(item.loginTime).local().format(preference.timeTemplate)
-      })
-      return data
+  async function afterRequest(data: OnlineUser[]): Promise<void | OnlineUser[]> {
+    data.forEach(item => {
+      item.loginTime = dayjs.utc(item.loginTime).local().format(preference.timeTemplate)
+    })
+    return data
   }
 
 

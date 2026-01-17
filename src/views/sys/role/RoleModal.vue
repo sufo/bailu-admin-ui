@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-03-08 16:59:46
- * @Desc: 
--->
 <template>
   <full-modal v-model:show="show"
     :style="modalStyle" 

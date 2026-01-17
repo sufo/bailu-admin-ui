@@ -1,17 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-11 17:33:55
- * @Desc: 
- */
-
-/**
- * 
- *  主要解决defineProps无法使用导入类型的问题
- * 
- */
 // export const iconProps = {
 //   // icon name
 //   name: {

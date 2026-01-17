@@ -1,12 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-09-12 13:57:06
- * @Desc: 
- */
-
 export interface EventSrouceOptions extends EventSourceInit {
   onopen?: (e: Event) => void;
   onmessage?: (data: any) => void;

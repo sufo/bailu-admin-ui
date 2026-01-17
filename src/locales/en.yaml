@@ -532,3 +532,10 @@ data-scope:
   depart: Current Department Data Access
   depart-and-sub: Current Department and Sub-departments Data Access
   me: Personal Data Access Only
+greeting: 
+  early-morning: Morning
+  morning: Morning
+  noon: Afternoon
+  afternoon: Afternoon
+  evening: Evening
+  night: Evening

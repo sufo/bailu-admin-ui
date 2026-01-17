@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-09-11 17:23:03
- * @Desc: 
- */
 import { useEventListener } from '@vueuse/core';
 import { useTabStore, usePreferenceStore } from '@/store/modules';
 

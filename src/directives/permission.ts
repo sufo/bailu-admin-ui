@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-02-20 20:10:24
- * @Desc: 权限指令
- */
 import type { App, Directive } from 'vue';
 import { usePermission } from '@/hooks/business/usePermission'
 

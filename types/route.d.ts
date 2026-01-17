@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-05-24 11:31:33
- * @Desc: 
- */
 /** 权限路由相关类型 */
 import type { Component } from 'vue';
 import type { RouteMeta, RouteRecord, RouteRecordRaw } from 'vue-router'

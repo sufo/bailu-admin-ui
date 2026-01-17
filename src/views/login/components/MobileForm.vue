@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-06-06 15:01:17
- * @Desc: 
--->
 <template>
   <n-form :class="prefixCls" ref="formRef" v-model="loginForm" :rules="rules" size="large" :show-label="false">
     <n-form-item path="phone">

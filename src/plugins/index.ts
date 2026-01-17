@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-11
- * @Desc: 
- */
 import type { App } from 'vue';
 import VueEcharts from 'vue-echarts'
 import { setupDayjs } from './dayjs';

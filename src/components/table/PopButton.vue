@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-03-11 15:03:09
- * @Desc: 
--->
 <template>
   <n-button v-if="!action.popConfirm" v-bind="action">
     <template #icon v-if="action.icon">

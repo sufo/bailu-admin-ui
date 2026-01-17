@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-11 15:47:40
- * @Desc: 
--->
 <template>
 	<div class="stats-user">
 		<div class="card">

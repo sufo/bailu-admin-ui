@@ -1,12 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-21 09:01:27
- * @Desc: 
--->
-
 <template>
   <main v-watermark="watermark"
     class="flex flex-col flex-grow transition-150 flex-1 h-0 overflow-hidden">

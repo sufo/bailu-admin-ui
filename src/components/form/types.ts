@@ -1,11 +1,4 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-03-07 11:14:07
- * @Desc: 
- */
+
 import { Component, PropType } from 'vue';
 // import { ExtractPublicPropTypes } from 'naive-ui/es/_utils';
 import { FormProps, formProps, ButtonProps, FormItemGiProps, GridProps as NGridProps, SpaceProps, GridItemProps } from 'naive-ui';

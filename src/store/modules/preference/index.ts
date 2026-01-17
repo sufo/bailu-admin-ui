@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-06-06 12:34:40
- * @Desc: 当前应用设置
- */
 import { defineStore } from 'pinia'
 import { darkTheme } from 'naive-ui'
 import {

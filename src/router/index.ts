@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-20 10:02:12
- * @Desc: 
- */
 
 /**
  * vite-plugin-pages

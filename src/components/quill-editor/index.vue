@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-09-05 17:32:38
- * @Desc: 
--->
 <template>
   <div :class="prefixCls">
     <vue-quill-editor v-model:content="content" :options="options" content-type="html" />

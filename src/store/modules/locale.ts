@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-06 11:25:10
- * @Desc: 
- */
 import { LOCALE_KEY } from "@/constants/consts";
 import storage from "@/utils/storage";
 import { localeSetting } from '@/settings/localeSetting'

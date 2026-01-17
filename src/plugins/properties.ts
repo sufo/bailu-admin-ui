@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-08-30 23:13:40
- * @Desc: 
- */
 import type { App } from 'vue'
 
 const omit = (obj: Recordable = {}, keys: Array<string | number>) => {

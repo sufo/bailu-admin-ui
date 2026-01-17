@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-20 15:46:58
- * @Desc: 
--->
 <template>
 <div>
   <!---增加这一层div是为了解决n-scrollbar会产生两个div，导致transition警告--->

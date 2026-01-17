@@ -531,4 +531,12 @@ data-scope:
   depart: 本部门数据权限
   depart-and-sub: 本部门及以下数据权限
   me: 仅本人数据权限
+greeting: 
+  early-morning: 凌晨好
+  morning: 早上好
+  noon: 中午好
+  afternoon: 下午好
+  evening: 傍晚好
+  night: 晚上好
+
     

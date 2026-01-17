@@ -1,9 +1,3 @@
-<!--
- * @version: 
- * 
- * @LastEditTime: 2023-05-17 10:39:17
- * @Desc: 
--->
 <template>
   <div class="px-24px h-44px flex-y-center">
     <span class="mr-14px flex-y-center">

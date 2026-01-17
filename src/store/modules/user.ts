@@ -178,9 +178,10 @@ export const useUserStore = defineStore('app-user', {
       try {
         //网络请求 获取userinfo和token
         await register(params)
-        //注册成功跳转到登录页面
-        const { router } = await import('@/router');
-        await router.replace(Page.BASE_LOGIN)
+        // //注册成功跳转到登录页面
+        // const { router } = await import('@/router');
+        // await router.replace(Page.BASE_LOGIN)
+        return Promise.resolve()
       } catch (error) {
         return Promise.reject(error)
       }

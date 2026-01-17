@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-10-12 14:23:44
- * @Desc: 
- */
 import { isVNode, Fragment, Comment, Text, h } from 'vue';
 import isPlainObject from 'lodash-es/isPlainObject';
 

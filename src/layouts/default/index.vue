@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-09-19 18:03:48
- * @Desc: 
--->
 <template>
   <div :style="cssVars" :class="[prefixCls,'relative flex flex-col h-full',{'overflow-y-auto':isWrapperScroll}]"
       :id="isWrapperScroll ? SCROLL_ID : undefined" v-bind="lockEvents">
@@ -42,10 +34,9 @@ import LayoutContent from './content/index.vue'
 import LayoutFooter from './footer/index.vue'
 import SettingDrawer from './preference/index.vue'
 // import { checkUpdate } from './widget'
-import { usePreferenceStore,useLockStore, useUserStore } from '@/store/modules';
+import { usePreferenceStore,useLockStore } from '@/store/modules';
 import {SCROLL_ID} from '@/constants/consts'
 import { useLockPage } from '@/components/lockscreen/useLockPage';
-import { useEventSource } from '@/hooks/event/sse';
 
 defineOptions({ name: 'BasicLayout' });
 

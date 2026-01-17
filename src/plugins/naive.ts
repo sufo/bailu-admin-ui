@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-11-06 10:13:28
- * @Desc: 
- */
 import type { App } from 'vue';
 import {
   create,

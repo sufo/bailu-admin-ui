@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-03-11 15:29:32
- * @Desc: 
- */
 
 // import { useUserStore } from "@/store/modules"; //这样导入会造成循环引用问题
 import { useUserStore } from "@/store/modules/user";

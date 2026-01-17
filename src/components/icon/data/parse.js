@@ -1,12 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-11-16 16:37:58
- * @Desc: node.js
- * @Exec: node data/parse.js
- */
 
 /**解析原始json文件 */
 // import icons from './icons.data.js'

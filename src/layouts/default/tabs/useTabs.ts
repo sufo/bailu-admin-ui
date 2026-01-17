@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-18 18:00:05
- * @Desc: 
- */
 
 import { toRaw, ref, nextTick } from 'vue';
 import type { RouteLocationNormalized } from 'vue-router';

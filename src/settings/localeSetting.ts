@@ -1,12 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-05-17 12:18:59
- * @Desc: 
- */
-
 
 export const LOCALE: { [key: string]: LocaleType } = {
   ZH_CN: 'zh-CN',

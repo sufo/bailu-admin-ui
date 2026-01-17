@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-10-11 19:45:38
- * @Desc: 
- */
 /**
  * Multi-language related operations
  */

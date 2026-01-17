@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-21 09:37:45
- * @Desc: 
--->
 <template>
   <SvgIcon v-if="isSvgIcon"
    :name="getSvgIcon" 

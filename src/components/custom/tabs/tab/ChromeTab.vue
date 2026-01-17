@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-18 16:17:57
- * @Desc: 
--->
 <template>
   <!--gap-8px px-24px-->
   <div @click="e=>emit('click',name,e)"

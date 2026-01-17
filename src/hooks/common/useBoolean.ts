@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-05-17 11:53:40
- * @Desc: 
- */
 /**
  * 加载状态
 */

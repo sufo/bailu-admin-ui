@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-18 16:37:20
- * @Desc: 
--->
 <!---左侧菜单模式-->
 <template>
   <dark-mode-container v-bind="$attrs" :class="prefixCls" class="flex-col-stretch h-full" :inverted="preference.menu.inverted">

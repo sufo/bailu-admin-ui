@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-18 11:33:51
- * @Desc: 
- */
 type StyleClsProps = {
   style?: CSSStyleDeclaration,
   class?: string | (string | Record<string, boolean> | undefined)[];

@@ -92,7 +92,7 @@ const {prefixCls} = useDesign('layout-tabs')
 const { useLayoutCls } = useBasicLayout()
 const { darkWrapCls } = useDarkStyle()
 const classNames = computed(()=>[...useLayoutCls(prefixCls, preference.header.fixed&&preference.header.visible, preference.isDark),
-   unref(darkWrapCls), {'top-0!':app.fullContent},'pl-16 flex-y-center w-full',
+   unref(darkWrapCls), {'top-0!':app.fullContent},'flex-y-center w-full',
   ])
 
 

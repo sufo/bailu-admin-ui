@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-06-05 16:21:58
- * @Desc: 
- */
 import MenuCollapse from './MenuCollapse.vue'
 import MessageList from './MessageList.vue'
 import Message from './Message.vue'

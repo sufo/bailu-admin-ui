@@ -1,11 +1,4 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-21 10:14:47
- * @Desc: 
- */
+
 //在env.d.ts中加入 /// <reference types=“vite-plugin-pages/client” />来提供typescript支持
 // /  <reference types="vite-plugin-pages/client" />
 

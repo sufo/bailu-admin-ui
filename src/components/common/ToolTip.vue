@@ -1,12 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-11-21 18:15:14
- * @Desc: 
--->
-
 <template>
   <div v-if="showTooltip">
     <n-tooltip :placement="placement" :trigger="trigger">

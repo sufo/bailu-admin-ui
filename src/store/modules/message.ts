@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-19 08:54:10
- * @Desc: 
- */
 import { msgApi } from '@/api/admin'
 
 export interface MsgList<T = Recordable> {

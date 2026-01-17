@@ -56,7 +56,7 @@
         <n-button text type="primary" @click="onReset">{{$t('button.resetText')}}</n-button>
       </div>
     </template>
-    <div class="grid gap-x-[4 grid-cols-[auto_minmax(150px,1fr)_repeat(2,auto)] items-center" v-for="col in colsData" :key="col.key" :class="{'col-draggble':!col.fixed}">
+    <div class="grid gap-x-[4px] grid-cols-[auto_minmax(150px,1fr)_repeat(2,auto)] items-center" v-for="col in colsData" :key="col.key" :class="{'col-draggble':!col.fixed}">
       <icon class="cursor-pointer" icon="clarity:drag-handle-line" size="20"/>
       <n-checkbox :checked="!col.hide" @update:checked="handlerCheckColumn(col)" :label="(col.title as string)" />
       <icon :class="[`${prefixCls}__fixed-left`,{active:col.fixed==='left',disabled: col.hide}]" icon="radix-icons:pin-left" @click="pin('left',col)"/>

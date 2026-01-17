@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-09-25 09:51:22
- * @Desc: 
- */
 
 import { isBoolean } from 'lodash-es';
 import { PaginationProps } from 'naive-ui';

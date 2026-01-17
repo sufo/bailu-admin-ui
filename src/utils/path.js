@@ -1,7 +1,6 @@
 /*
  * @version: 
  * 
- * @LastEditTime: 2024-11-19 14:30:12
  * @Desc:  https://github.com/browserify/path-browserify/blob/master/index.js
  */
 

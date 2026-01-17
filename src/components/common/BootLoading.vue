@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-21 12:27:20
- * @Desc: 
--->
 <template>
   <div class="fixed-center flex-col">
     <img class="cursor-pointer w-64px h-64px" src="@/assets/logo.png"/>

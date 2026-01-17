@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2023-11-06 15:12:03
- * @Desc: 
- */
 export * from './src/types'
 import { IconProps } from './src/types'
 import Icon from './src/Icon.vue'

@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-21 14:08:46
- * @Desc: 
- */
 import type { PluginOption } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
 

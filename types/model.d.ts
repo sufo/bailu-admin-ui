@@ -1,11 +1,3 @@
-/*
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-11-06 18:18:58
- * @Desc: 
- */
 declare interface Base {
   status: boolean;
   createdAt: string;

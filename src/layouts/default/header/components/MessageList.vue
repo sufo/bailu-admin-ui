@@ -1,11 +1,3 @@
-<!--
- * @Author: sufo
- * @version: 
- * 
- * @Email: ouamour@Gmail.com
- * @LastEditTime: 2024-09-25 17:20:55
- * @Desc: 
--->
 <template>
   <n-scrollbar class="max-h-360px">
     <n-list>

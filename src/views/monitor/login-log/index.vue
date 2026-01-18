@@ -20,7 +20,7 @@
           <template #icon><icon icon="ant-design:delete-outlined"/></template>
           {{$t('button.del')}}</n-button>
         <n-button ghost type="error" size="small"
-          v-permission="{value:'monitor:loginlog:remove'}"
+          v-permission="{value:'monitor:loginlog:clear'}"
           @click="openDialog('CLEAR')">
           <template #icon><icon icon="ant-design:delete-outlined"/></template>
           {{$t('button.clear')}}</n-button>

@@ -110,3 +110,21 @@ const bgUrl = computedAsync(
 },null)
 
 </script>
+
+<style>
+  .dark .bailu-login{
+    .vue-tel-input {
+      --vti-bg-main: #1a1a1a;        /* 输入框背景 */
+      --vti-text-color: #ffffff;     /* 文字颜色 */
+      --vti-border-color: #333333;   /* 边框颜色 */
+      --vti-dropdown-bg: #2d2d2d;    /* 下拉菜单背景 */
+      --vti-dropdown-item-hover-bg: #3e3e3e; /* 悬浮背景 */
+    }
+
+    /* 适配边框聚焦颜色 */
+    .vue-tel-input:focus-within {
+      box-shadow: 0 0 0 1px #646cff;
+      border-color: #646cff;
+    }
+  }
+</style>

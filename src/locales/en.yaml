@@ -146,7 +146,8 @@ tips:
   menu-status: 'If you choose to disable it, the route will not appear in the sidebar and will not be accessible.'
   external-link: 'If you choose an external link, the route address must begin with `http(s)://`.'
   keep-alive: 'If you select "yes", it will be cached by `keep-alive`.'
-
+  sort-not-empty: 'Sort cannot be empty!'
+  development: 'Development...'
 countdown: 
   normalText: 'Get SMS code'
   sendText: 'Reacquire in {0}s'
@@ -367,6 +368,10 @@ page:
     isExternal: 'External link'
     isCache: 'Cache'
     bind-api: 'Binding API'
+    name-not-empty: 'Name must be nonempty'
+    icon-not-empty: 'Icon must be nonempty'
+    path-not-empty: 'Path must be nonempty'
+    bind-api-not-empty: 'Bind API must be nonempty'
   dept:
     dept: 'Department'
     name: 'Department Name'

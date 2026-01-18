@@ -86,7 +86,7 @@ export function useRole(tableRef: Ref, formModel: Ref<Recordable>) {
                   inverted: preference.isDark,
                   onSelect: (key: string | number) => handler(key as ActionType, row),  //key=DATA_SCOPE或者ASSIGN
                   options: [
-                    { permission: 'sys:role:edit', label: t('page.role.dataScope'), key: "DATA_SCOPE", icon: iconRender({ icon: 'ant-design:check-circle-outlined' }) },
+                    { permission: 'sys:role:scope', label: t('page.role.dataScope'), key: "DATA_SCOPE", icon: iconRender({ icon: 'ant-design:check-circle-outlined' }) },
                     { permission: 'sys:role:edit', label: t('page.role.assign'), key: "ASSIGN", icon: iconRender({ icon: 'ant-design:user-outlined' }) },
                   ]
                 }
@@ -167,7 +167,7 @@ export function useRole(tableRef: Ref, formModel: Ref<Recordable>) {
       scopeModalProps.value.show = true
     } else if (operType === 'ASSIGN') {//分配用户
       //TODO
-      window.$message?.info("开发中...")
+      window.$message?.info(t('tips.development'))
     }
   }
 

@@ -39,7 +39,7 @@ const depts:Ref<Dept[]> = ref([])
 const formItems:ComputedRef<FormItemProps[]> = computed(()=>{
   const data = props.data;
   return [
-    {field: 'pid', component: 'NTreeSelect',label: t('page.dept.parentLevel'), defaultValue:data?.['pid'], comProps:{options:unref(depts), labelField:'name', keyField:'id'}},
+    {field: 'pid', component: 'NTreeSelect',label: t('page.dept.parentLevel'), defaultValue:data?.['pid'], comProps:{options:unref(depts), labelField:'name', keyField:'id', clearable:true}},
     {field: 'name', component: 'NInput',label: t('page.dept.name'), defaultValue:data?.['name']},
     {field: 'sort', component: 'NInputNumber',label: t('common.showSort'), defaultValue:data?.['sort']},
     {field: 'leader', component: 'NInput',label: t('page.dept.leader'), defaultValue:data?.['leader']},
@@ -86,7 +86,7 @@ const bindProps:ComputedRef<BaseFormProps> = computed(()=>({
 } as BaseFormProps))
 
 async function fetchDepts(){
-  const res = await deptApi.index<Dept[]>({})
+  const res = await deptApi.index({})
   depts.value = res
 }
 

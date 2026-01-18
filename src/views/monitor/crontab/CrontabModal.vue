@@ -53,7 +53,7 @@ const formItems:ComputedRef<FormItemProps[]> = computed(()=>{
   return [
     {field: 'name', component: 'NInput',label: t('page.task.name'), defaultValue:data?.['name']},
     {field: 'group', component: 'NInput',label: t('page.task.group'), defaultValue:data?.['group']},
-    {field: 'protocol', component: 'NSelect',label: t('page.task.invokeType'), defaultValue:data?.['protocol']||'FUNC', comProps:{ options:invokeTypeOpts, 'onUpdate:value':()=>{model.value['invokeTarget']=''}}},
+    {field: 'protocol', component: 'NSelect',label: t('page.task.invokeType'), defaultValue:data?.['protocol']||'FUNC', comProps:{ options:invokeTypeOpts(t), 'onUpdate:value':()=>{model.value['invokeTarget']=''}}},
     {field: 'invokeTarget', component: (formData:Recordable)=>formData['protocol']=='FUNC'?'NSelect':'NInput',label: t('page.task.invokeTarget'), comProps:{options:jobs.value}, defaultValue:data?.['invokeTarget']},
     {field: 'args', component: 'NInput',label: t('page.task.parameter'), defaultValue:data?.['args']},
     {field: 'httpMethod', component: 'NSelect',label: t('page.task.http-method'),hide:v=>v.protocol!='HTTP' ,comProps:{options:httpMethods}, defaultValue:data?.['httpMethod']},

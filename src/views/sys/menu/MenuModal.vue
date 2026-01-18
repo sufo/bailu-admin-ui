@@ -58,8 +58,7 @@ watch(show,(val:boolean)=>{
 })
 
 const menuFormRef = ref<null|InstanceType<typeof BaseForm>>(null)
-
-const title = props.isEdit?t('page.menu.edit'):t('page.menu.add')
+const title = computed(()=>props.isEdit?t('page.menu.edit'):t('page.menu.add'))
 const menus:Ref<MenuVo[]> = ref([])
 const formItems:ComputedRef<FormItemProps[]> = computed(()=>{
   const data = props.data;
@@ -67,15 +66,15 @@ const formItems:ComputedRef<FormItemProps[]> = computed(()=>{
     {field: 'type', component: 'NRadioButton',label: t('page.menu.type'), defaultValue:data?.['type']||'M', comProps:{options:menuType(t),},span:24},
     {field: 'name', component: 'NInput',label: t('page.menu.name'), defaultValue:data?.['name']},
     {field: 'icon', component: IconPicker,label: t('page.menu.icon'), defaultValue:data?.['icon'], hide: opt=>opt.type==='F'},
-    {field: 'pid', component: 'NTreeSelect',label: t('page.menu.parent'), defaultValue:data?.['pid'], comProps:{options:unref(menus), labelField:'name', keyField:'id',to:"body"}},
+    {field: 'pid', component: 'NTreeSelect',label: t('page.menu.parent'), defaultValue:data?.['pid'], comProps:{options:unref(menus), labelField:'name', keyField:'id',to:"body",clearable:true}},
     {field: 'sort', component: 'NInputNumber',label: t('common.showSort'), defaultValue:data?.['sort']||1},
     {field: 'path', component: 'NInput',label: t('page.menu.routerPath'), defaultValue:data?.['path'], hide: opt=>opt.type==='F', labelTip:t('tips.route-path')},
     {field: 'component', component: 'NInput',label: t('page.menu.comPath'), defaultValue:data?.['component'], hide: opt=>opt.type!=='C', labelTip: t('tips.component-path')},
     {field: 'permission', component: 'NInput',label: t('page.menu.authTag'), defaultValue:data?.['permission'], hide: opt=>opt.type==='M', labelTip:`${t("tips.auth-id")}@PreAuthorize(\`@ss.hasPermi('sys:user:list')\`)`},
     {field: 'i18nKey', component: 'NInput',label: t('page.menu.i18nKey'), defaultValue:data?.['i18nKey']},
     {field: 'status', component: 'NRadioButton',label: t('common.status'), defaultValue:data?.['status']||1, comProps:{options:enableOrDisableOpt(t)}, labelTip: t("tips.menu-status")},
-    {field: 'isFrame', component: 'NRadioButton',label: t('page.menu.isExternal'), defaultValue:data?.['isFrame']??false,hide: opt=>opt.type==='F', comProps:{options:whetherOptions}, labelTip:t('tips.external-link')},
-    {field: 'keepAlive', component: 'NRadioButton',label: t('page.menu.isCache'), defaultValue:data?.['keepAlive']??true,hide: opt=>opt.type!=='C', comProps:{options:whetherOptions}, labelTip:t('tips.keep-alive')},
+    {field: 'isFrame', component: 'NRadioButton',label: t('page.menu.isExternal'), defaultValue:data?.['isFrame']??false,hide: opt=>opt.type==='F', comProps:{options:whetherOptions(t)}, labelTip:t('tips.external-link')},
+    {field: 'keepAlive', component: 'NRadioButton',label: t('page.menu.isCache'), defaultValue:data?.['keepAlive']??true,hide: opt=>opt.type!=='C', comProps:{options:whetherOptions(t)}, labelTip:t('tips.keep-alive')},
     {field: 'hide', component: 'NRadioButton',label: t('common.visibleStatus'), defaultValue:data?.['hide']??false,hide: opt=>opt.type==='F', comProps:{options:[{value: false, label: t('status.show')},{value: true, label: t('status.hide')}]}},
     // {field: 'bindApi', component: 'NTreeSelect', label: t('page.menu.bind-api'), defaultValue:data?.apis?.map(a=>`${a.method}_${a.path}`), hide:opt=>opt.type!=='F', comProps:{options:unref(apiList)}}
     {field: 'bindApi', slot:"bindApi",span:2, defaultValue:data?.apis?.map(a=>`${a.method}_${a.path}`), label: t('page.menu.bind-api'), hide:opt=>opt.type!=='F'}
@@ -93,13 +92,14 @@ const bindProps:ComputedRef<BaseFormProps> = computed(()=>({
   formItems: unref(formItems),
   grid: {cols:2, xGap:30},
   rules:{
-    name:[{required: true,message: '菜单名称不能为空！'}],
-    icon:[{required: true,message:'菜单图标不能为空！'}],
-    sort:[{required: true,message:'显示排序不能为空！'}],
-    path:[{required:true, message:'路由地址不能为空！'}]
+    name:[{required: true,message: t('page.menu.name-not-empty')}],
+    icon:[{required: true,message:t('page.menu.icon-not-empty')}],
+    sort:[{required: true,message:t('tips.sort-not-empty')}],
+    path:[{required:true, message:t('page.menu.path-not-empty')}],
+    // bindApi: [{required:true, message:t('page.menu.bind-api-not-empty')}]
   },
-  submitButtonOptions:{label:'确认', icon:''},
-  resetButtonOptions:{label:'取消', icon:''},
+  submitButtonOptions:{label:t('button.okText'), icon:''},
+  resetButtonOptions:{label:t('button.cancelText'), icon:''},
   submitOnReset: false,
   action:{
     offset: isMobile.value?0:1

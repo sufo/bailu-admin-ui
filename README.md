@@ -22,7 +22,7 @@
 - **Rich Theme Configuration**: Built-in diverse theme configurations, seamlessly integrated with UnoCSS.
 - **Internationalization**: Built-in i18n solution to easily support multiple languages.
 - **Flexible Routing**: Supports both front-end static routing and back-end dynamic routing with permission controls.
-- **Rich Components**: Includes various built-in pages and components such as 403, 404, 500 pages, layout components, and more.
+- **Rich Components**: Includes various built-in pages and components such as 403, 404, 500 pages, layout, tag, theme configurations, forms, table components, and more.
 - **Mobile Adaptation**: Fully responsive design with perfect support for mobile devices.
 
 ## Usage

@@ -68,7 +68,7 @@ const bindProps:ComputedRef<BaseFormProps> = computed(()=>({
   onSubmit: async (formModel:Recordable|boolean,done)=>{
     if(isBoolean(formModel)) return
     try{
-      formModel.code = props.data?.code
+      formModel.code = props.options?.code
       if(props.isEdit){
         formModel.id = props.data?.id
         await dictApi.itemEdit(formModel as Recordable)

@@ -146,8 +146,8 @@ tips:
   menu-status: '选择停用则路由将不会出现在侧边栏，也不能被访问'
   external-link: '选择是外链则路由地址需要以`http(s)://`开头'
   keep-alive: '选择是则会被`keep-alive`缓存'
-
-
+  sort-not-empty: '显示排序不能为空！'
+  development: '开发中...'
 ############################################
 countdown:
   normalText: '获取验证码'
@@ -365,6 +365,11 @@ page:
     isExternal: 是否外链
     isCache: 是否缓存
     bind-api: 绑定接口
+    name-not-empty: 菜单名称不能为空
+    icon-not-empty: 菜单图标不能为空
+    path-not-empty: 路由地址不能为空
+    bind-api-not-empty: 绑定接口不能为空
+   
   dept:
     dept: 部门
     name: 部门名称
@@ -373,7 +378,7 @@ page:
     edit: 编辑部门
     deptList: 部门列表
     nameNotEmpty: 部门名称不能为空
-    parentLevel: 上级菜单
+    parentLevel: 上级部门
     leader: 负责人
     telephone: 部门电话
 

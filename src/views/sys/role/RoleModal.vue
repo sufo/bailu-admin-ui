@@ -8,7 +8,11 @@
     :title="title">
     <base-form v-bind="bindProps">
       <template #menus>
-        <div class="acts"><n-checkbox :on-update:checked="onExpand">展开/折叠</n-checkbox><n-checkbox :on-update:checked="checkAll">全选/全不选</n-checkbox></div>
+        <div class="acts">
+          <n-checkbox :on-update:checked="onExpand">展开/折叠</n-checkbox>
+          <n-checkbox :on-update:checked="checkAll">全选/全不选</n-checkbox>
+          <n-checkbox v-model:checked="cascade">级联选择</n-checkbox>
+        </div>
         <n-tree
           block-line
           :data="menus"
@@ -16,7 +20,7 @@
           :default-expand-all="expandAll"
           :default-checked-keys="defaultCheckedKeys"
           expand-on-click
-          checkable cascade/>
+          checkable :cascade="cascade"/>
       </template>
     </base-form>
   </full-modal>
@@ -36,6 +40,7 @@ const { t } = useI18n()
 const props = defineProps<ModalProps<Role>>()
 const locale = useLocale()
 const expandAll = ref(false)
+const cascade = ref(true)
 
 const defaultCheckedKeys = ref()
   // ref((unref(props).options as Recordable)?.["checkedIds"])

@@ -5,7 +5,7 @@
     :mask-closable="false"
     preset="card"
     :title="title">
-    <base-form v-bind="bindProps" @fill-model="getModel">
+    <base-form v-bind="bindProps" @filled-model="getModel">
       <template #cronExpression="scopeSlot">
         <n-input-group>
           <!-- <n-input :style="{ width: '75%' }" v-model:value="scopeSlot.value"/> -->
@@ -58,7 +58,7 @@ const formItems:ComputedRef<FormItemProps[]> = computed(()=>{
     {field: 'args', component: 'NInput',label: t('page.task.parameter'), defaultValue:data?.['args']},
     {field: 'httpMethod', component: 'NSelect',label: t('page.task.http-method'),hide:v=>v.protocol!='HTTP' ,comProps:{options:httpMethods}, defaultValue:data?.['httpMethod']},
     {field: 'cronExpression', slot: "cronExpression", label: t('page.task.cron'), defaultValue:data?.['cronExpression']},
-    {field: 'notifyStrategy', component: 'NSelect',label: t('page.task.notify-strategy'), defaultValue:data?.['notifyStrategy']||"1", comProps:{options:notifyStrategies.value}},
+    {field: 'notifyStrategy', component: 'NSelect',label: t('page.task.notify-strategy'), defaultValue:data?.['notifyStrategy']||1, comProps:{options:notifyStrategies.value}},
     //通知 TODO
     {field: 'status', component: 'NRadioButton',label: t('common.status'), defaultValue:data?.['status']||1, comProps:{options:enableOrDisableOpt(t)}},
     {field: 'remark', component: 'NInput',label: t('common.remark'), comProps:{type:"textarea"}, defaultValue:data?.['remark']},
@@ -131,15 +131,17 @@ async function fetchOptions(code:string){
 }
 
 function getModel(_model:Ref<Recordable>){
-  // console.log("getModel", getModel)
-  model = _model
-}
+  // console.log("getModel", _model.value)
+  model.value = _model.value
+} 
 
 function onExSelect(key:string){
   if(key=='custom'){
     openCronModel(model.value['cronExpression']||'')
   }
   else model.value['cronExpression'] = key
+
+  console.log("model:", model.value)
 }
 
 const showCron = ref(false)

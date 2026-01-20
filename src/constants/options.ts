@@ -108,54 +108,54 @@ export const chargeStatus = (t: ComposerTranslation): String[] => [
 
 
 export const densityOptions = (t: ComposerTranslation): OptionWithKey<string>[] => [
-  {value: 'large', label: t('layout.table.loose')},
-  {value: 'medium', label: t('layout.table.default')},
-  {value: 'small', label: t('layout.table.compact')},
+  { value: 'large', label: t('layout.table.loose') },
+  { value: 'medium', label: t('layout.table.default') },
+  { value: 'small', label: t('layout.table.compact') },
 ]
 
 export const menuType = (t: ComposerTranslation): OptionWithKey<MenuType>[] => [
-  {value: "M", label: t('page.menu.dir')},
-  {value: "C", label: t('page.menu.menu')},
-  {value: "F", label: t('page.menu.button')},
+  { value: "M", label: t('page.menu.dir') },
+  { value: "C", label: t('page.menu.menu') },
+  { value: "F", label: t('page.menu.button') },
 ]
 
-export const whetherOptions = (t: ComposerTranslation):{value:boolean,label:string}[] => [
-  {value: true, label: t('status.yes')},
-  {value: false, label: t('status.no')},
+export const whetherOptions = (t: ComposerTranslation): { value: boolean, label: string }[] => [
+  { value: true, label: t('status.yes') },
+  { value: false, label: t('status.no') },
 ]
 
-export const ifOptions = (t: ComposerTranslation):{value:number,label:string}[] => [
-  {value: 1, label: t('status.yes')},
-  {value: 2, label: t('status.no')},
+export const ifOptions = (t: ComposerTranslation): { value: number, label: string }[] => [
+  { value: 1, label: t('status.yes') },
+  { value: 2, label: t('status.no') },
 ]
 
-export const enableOrDisableOpt = (t: ComposerTranslation):{value:number,label:string}[] => [
-  {value: 1, label: t('common.enable')},
-  {value: 2, label: t('common.disable')},
+export const enableOrDisableOpt = (t: ComposerTranslation): { value: number, label: string }[] => [
+  { value: 1, label: t('common.enable') },
+  { value: 2, label: t('common.disable') },
 ]
 
-export const visibleOpts = (t: ComposerTranslation):{value:boolean,label:string}[] => [
-  {value: true, label: t('status.show')},
-  {value: false, label: t('status.hide')},
+export const visibleOpts = (t: ComposerTranslation): { value: boolean, label: string }[] => [
+  { value: true, label: t('status.show') },
+  { value: false, label: t('status.hide') },
 ]
 
 export const sexOptions = (t: ComposerTranslation): OptionWithKey<number>[] => [
-  {value: 1, label: t('common.male')},
-  {value: 2, label: t('common.female')},
-  {value: 0, label: t('common.secret')},
+  { value: 1, label: t('common.male') },
+  { value: 2, label: t('common.female') },
+  { value: 0, label: t('common.secret') },
 ]
 
 
 export const httpMethods: OptionWithKey<string>[] = [
-  {value: "GET", label: "GET"},
-  {value: "POST", label: "POST"},
-  {value: "PUT", label: "PUT"},
-  {value: "PATCH", label: "PATCH"},
-  {value: "DELETE", "label": "DELETE"},
+  { value: "GET", label: "GET" },
+  { value: "POST", label: "POST" },
+  { value: "PUT", label: "PUT" },
+  { value: "PATCH", label: "PATCH" },
+  { value: "DELETE", "label": "DELETE" },
 ]
 
 // 数据范围选项
-export const dataScopeOpts = (t: ComposerTranslation):{value:string,label:string}[] =>  [
+export const dataScopeOpts = (t: ComposerTranslation): { value: string, label: string }[] => [
   {
     value: "1",
     label: t("data-scope.all")
@@ -180,18 +180,18 @@ export const dataScopeOpts = (t: ComposerTranslation):{value:string,label:string
 
 //task 调用类型
 export const invokeTypeOpts = (t: ComposerTranslation): OptionWithKey<string>[] => [
-  {value: 'FUNC', label: t('common.func')},
-  {value: 'HTTP', label: "HTTP"},
-  {value: 'SHELL', label: "Shell"},
+  { value: 'FUNC', label: t('common.func') },
+  { value: 'HTTP', label: "HTTP" },
+  { value: 'SHELL', label: "Shell" },
 ]
 
 export const getSendStatusOpts = (t: ComposerTranslation): OptionWithKey<string>[] => [
-  {value: "0", label: t('page.notice.published')},
-  {value: "1", label: t('page.notice.unpublished')},
-  {value: "2", label: t('page.notice.revoked')},
+  { value: "0", label: t('page.notice.published') },
+  { value: "1", label: t('page.notice.unpublished') },
+  { value: "2", label: t('page.notice.revoked') },
 ]
 
 export const getNoticeOpts = (t: ComposerTranslation): OptionWithKey<number>[] => [
-  {label:t('page.notice.notice'),value:1},
-  {label:t('page.notice.announcement'),value:2}
+  { label: t('page.notice.notice'), value: 1 },
+  { label: t('page.notice.announcement'), value: 2 }
 ]

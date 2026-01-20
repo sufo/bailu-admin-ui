@@ -107,7 +107,6 @@ function phoneExtValidator(phone: string, dialCode: Ref<string> = ref('86')): Er
   }
   let v = phone
   let reg = REGEXP_PHONE_INTEl
-  debugger
   //如果是国内号码
   if (dialCode.value === '86') {
     reg = REGEXP_PHONE

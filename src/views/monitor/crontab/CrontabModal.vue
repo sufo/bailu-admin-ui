@@ -141,7 +141,7 @@ function onExSelect(key:string){
   }
   else model.value['cronExpression'] = key
 
-  console.log("model:", model.value)
+  // console.log("model:", model.value)
 }
 
 const showCron = ref(false)

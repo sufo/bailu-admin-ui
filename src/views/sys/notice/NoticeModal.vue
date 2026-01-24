@@ -110,7 +110,7 @@ const bindProps:ComputedRef<BaseFormProps> = computed(()=>({
   onSubmit: async (formModel:Notice|boolean,done)=>{
     if(isBoolean(formModel)) return
     try{
-      console.log("formModel",formModel);
+      // console.log("formModel",formModel);
       formModel.receivers = formModel.receiverArr?.join(",")
       if(props.isEdit){
         formModel.id = props.data!.id
@@ -131,7 +131,7 @@ const bindProps:ComputedRef<BaseFormProps> = computed(()=>({
 
 function onFillModel(model:Ref<Recordable>){
   formModel.value = model.value
-  console.log("formModel.value",formModel.value)
+  // console.log("formModel.value",formModel.value)
 }
 
 async function fetchSendScopeOpts(code:string){
@@ -173,7 +173,7 @@ watch(
 )
 
 function onUserSelect(selected: Array<string|number>){
-  console.log("selected", selected)
+  // console.log("selected", selected)
   formModel.value.receiverArr = selected
 }
 

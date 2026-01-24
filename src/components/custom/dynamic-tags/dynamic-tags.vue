@@ -144,7 +144,6 @@
   }
   
   function showContextMenu(e:MouseEvent){
-    console.log("eeee",e)
     menuProps.value!.e = e
     showMenu.value = true;
   }

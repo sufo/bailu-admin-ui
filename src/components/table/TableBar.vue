@@ -153,7 +153,7 @@ const pin = (direction: 'left'|'right', col:TableColumn)=>{
   if (isFixed && !col.width) {
     col.width = 100;
   }
-  console.log("colsData", colsData.value)
+  // console.log("colsData", colsData.value)
   emit('update:columns', unref(dynamicColumns))
 }
 

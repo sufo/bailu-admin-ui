@@ -120,7 +120,7 @@ export const useAsyncRouteStore = defineStore("app-async-route", {
       if (!this.isDynamicAddedRoute) {
         const { router } = await import('@/router');
         const routes = await this.buildRoutes(homePath)
-        console.log("routes", routes)
+        // console.log("routes", routes)
         //@ts-ignore
         routes.forEach(r => {
           if (!r.meta.isFrame) {

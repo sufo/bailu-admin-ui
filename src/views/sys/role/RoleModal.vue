@@ -40,7 +40,7 @@ const { t } = useI18n()
 const props = defineProps<ModalProps<Role>>()
 const locale = useLocale()
 const expandAll = ref(false)
-const cascade = ref(true)
+const cascade = ref(props.data?.menuCheckStrictly===false)
 
 const defaultCheckedKeys = ref()
   // ref((unref(props).options as Recordable)?.["checkedIds"])
@@ -100,6 +100,7 @@ const bindProps:ComputedRef<BaseFormProps> = computed(()=>({
     if(isBoolean(formModel)) return
     try{
       formModel.menus = checkedKeys.value;
+      formModel.menuCheckStrictly = !cascade.value;
       if(props.isEdit){
         formModel.id = props.data?.id
         const checkIds = (props.options as Recordable)?.["checkedIds"]

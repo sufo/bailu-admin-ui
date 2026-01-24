@@ -18,7 +18,6 @@ export default function setupPermissionDirective(app: App) {
     if (!value) {
       throw new Error(`need permission: like v-permission="{value:'sys:menu:list'}", v-permission="{value:['xxxx', 'xxxx]}"`);
     }
-
     if (!hasPermission(value)) {
       if (effect == 'disabled' && el.tagName.toUpperCase() === 'BUTTON') {
         const btn = el as HTMLButtonElement

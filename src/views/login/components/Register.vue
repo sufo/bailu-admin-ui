@@ -33,7 +33,7 @@
       <n-button :text="true" type="primary">《隐私权政策》</n-button>
     </div>
     <n-button type="primary" size="large" :block="true" :round="true" :loading="loading" @click="handleSubmit">{{ $t('login.loginButton') }}</n-button>
-    <n-button class="mt-12" size="large" :block="true" :round="true" @click="$emit('update:active','LOGIN')">{{$t('login.backSignIn') }}</n-button>
+    <n-button class="mt-[12px]" size="large" :block="true" :round="true" @click="$emit('update:active','LOGIN')">{{$t('login.backSignIn') }}</n-button>
     </n-space>
   </n-form>
 </template>

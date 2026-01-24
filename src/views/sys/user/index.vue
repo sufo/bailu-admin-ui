@@ -1,6 +1,6 @@
 <template>
   <div :class="prefixCls">
-    <dark-mode-container class="user-dept-wrap" v-if="!isMobile">
+    <dark-mode-container class="user-dept-wrap" v-if="!isMobile" v-permission="{value:'sys:dept:list'}">
       <n-input v-model:value="deptName" :placeholder="$t('page.dept.namePlaceholder')">
         <template #suffix><icon icon="ant-design:search-outlined"/></template>
       </n-input>

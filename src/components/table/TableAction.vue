@@ -3,7 +3,7 @@
     <!--默认前置插槽-->
     <slot name="prefix"></slot>
     <n-divider vertical class="action-divider"
-        v-if="$slots.prefix"/>
+        v-if="$slots.prefix && $slots.prefix.length > 0"/>
     <template v-for="(action,index) in actions" :key="`${index}-${action.label}`">
       <template v-if="action.tooltip">
       <tool-tip v-bind="getTooltip(action.tooltip)">

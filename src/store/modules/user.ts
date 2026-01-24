@@ -67,7 +67,7 @@ export const useUserStore = defineStore('app-user', {
     // 页面刷新获取为空
     // permissionList: state =>  //state.userInfo?.permissions||[]
     permissionList(): string[] {
-      return this.getUserInfo.permissions || []
+      return this.getUserInfo?.permissions.filter(item => !!item) || []
     }
   },
 

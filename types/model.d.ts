@@ -115,6 +115,8 @@ declare interface Role {
   name: string;
   roleKey?: string;
   dataScope?: string;
+  menuCheckStrictly: boolean;
+  deptCheckStrictly: boolean;
   email?: string;
   sort: number;
   status: number;

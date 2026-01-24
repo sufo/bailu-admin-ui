@@ -1,6 +1,6 @@
 <template>
   <StateDropdown :options="options" trigger="click" :state="state" @select="select">
-    <span class="cursor-pointer flex items-center ml-8 dark:color-#fff">
+    <span class="cursor-pointer flex items-center ml-[8px] dark:color-#fff">
       <icon icon="ion:language" />
       <span v-if="showText" class="ml-1">{{ getLocaleText }}</span>
     </span>

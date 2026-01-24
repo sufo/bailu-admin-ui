@@ -9,7 +9,7 @@
   <n-form-item path="smsCode">
     <n-input v-model:value="registerForm.smsCode" :input-props="{ type: 'number' }" :show-button="false" :placeholder="$t('login.smsCode')">
         <template #prefix><icon icon="ri:shield-keyhole-line"/></template></n-input>
-      <n-button class="ml-8" size="large" :disabled="isCounting" :loading="smsLoading" @click="sendSMS">{{label}}</n-button>
+      <n-button class="ml-[8px] w-[111px]" size="large" :disabled="isCounting" :loading="smsLoading" @click="sendSMS">{{label}}</n-button>
   </n-form-item>
   <n-form-item path="password">
     <n-input  v-model:value="registerForm.password" type="password" show-password-on="click" clearable :placeholder="$t('login.password')">

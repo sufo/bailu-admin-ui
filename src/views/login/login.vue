@@ -15,8 +15,8 @@
               <AppLogo class="w-64px h-64px" v-if="showLogo"/>
               <n-gradient-text type="primary" :size="28">{{ title }}</n-gradient-text>
             </header>
-            <main class="pt-24px">
-              <h3 class="text-18px mb-16 text-primary font-medium">{{ $t(activeModule.label) }}</h3>
+            <main class="pt-[24px]">
+              <h3 class="text-[18px] mb-[16px] text-primary font-medium">{{ $t(activeModule.label) }}</h3>
               <transition name="fade-slide" mode="out-in" appear>
                 <component :is="activeModule.component" @update:active="moduleChange"/>
               </transition>

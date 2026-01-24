@@ -45,6 +45,9 @@ export function findNode<T = any>(
   func: Fn,
   config: Partial<TreeHelperConfig> = {},
 ): T | null {
+  if (tree == null) {
+    return null
+  }
   config = getConfig(config);
   const { children } = config;
   const list = [...tree];

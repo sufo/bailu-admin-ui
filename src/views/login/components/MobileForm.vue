@@ -7,11 +7,11 @@
     <n-form-item path="smsCode">
       <n-input-number v-model="loginForm.smsCode" :show-button="false" :placeholder="$t('login.smsCode')">
         <template #prefix><icon icon="ri:shield-keyhole-line"/></template></n-input-number>
-      <n-button class="ml-8 w-111" size="large" :disabled="isCounting" :loading="smsLoading" @click="sendSMS">{{label}}</n-button>
+      <n-button class="ml-[8px] w-[111px]" size="large" :disabled="isCounting" :loading="smsLoading" @click="sendSMS">{{label}}</n-button>
     </n-form-item>
   
     <n-button type="primary" size="large" :block="true" :round="true" :loading="loading" @click="handleSubmit">{{ $t('login.loginButton') }}</n-button>
-    <n-button class="mt-12" size="large" :block="true" :round="true" @click="$emit('update:active','LOGIN')">{{$t('login.backSignIn') }}</n-button>
+    <n-button class="mt-[12px]" size="large" :block="true" :round="true" @click="$emit('update:active','LOGIN')">{{$t('login.backSignIn') }}</n-button>
   </n-form>
 </template>
 

@@ -102,7 +102,7 @@ export function useUser(tableRef: Ref, formModel: Ref<Recordable>, depts: Ref, i
                   // }, 
                   //修改
                   {
-                    permission: 'sys:user:edit', icon: 'bx:edit', type: 'info',
+                    permission: '', icon: 'bx:edit', type: 'info',
                     label: t('button.edit'),
                     onClick: handler.bind(null, "UPDATE", row)
                   },

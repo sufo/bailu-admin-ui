@@ -5,7 +5,7 @@
         <div class="flex-1 space-y-[16px] w-full">
             <div class="flex-y-center space-x-[16px]">
                 <div class="relative">
-                    <img :src="userInfo.avatar" class="w-[64px] h-[64px] rounded-2xl shadow-inner" alt="Avatar">
+                    <img :src="userInfo?.avatar??''" class="w-[64px] h-[64px] rounded-2xl shadow-inner" alt="Avatar">
                     <span class="absolute -bottom-[1px] -right-[1px] w-[5px] h-[5px] bg-success border-[4px] border-white dark:border-success rounded-full"></span>
                 </div>
                 <div>

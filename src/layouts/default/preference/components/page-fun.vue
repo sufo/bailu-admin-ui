@@ -13,7 +13,7 @@
       固定底部
       底部居右
     -->
-    <setting-item :label="$t('preference.scrollMode')">
+    <!-- <setting-item :label="$t('preference.scrollMode')">
       <n-select
         class="w-120px"
         size="small"
@@ -21,7 +21,7 @@
         :options="scrollModeOptions($t)"
         @update:value="val=>theme.setAppPreference({scrollMode:val})"
       />
-    </setting-item>
+    </setting-item> -->
     <setting-item :label="$t('preference.fixedHeader')">
       <n-switch :value="theme.header.fixed" @update:value="val=>theme.setProjectSetting({header:{fixed:val}})" />
     </setting-item>

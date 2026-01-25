@@ -1,10 +1,10 @@
 <template>
   <div :class="prefixCls" class="relative flex-center wh-full">
     <img :src="bgUrl" class="fixed wh-full z--1 left-0 bottom-0 lt-lg:hidden bg-cover"/>
-    <div class="absolute right-16 top-24px z-3 i-flex-y-center">
+    <div class="absolute right-[16px] top-[24px] z-3 i-flex-y-center">
       <DarkModeSwitch class="text-20px" v-if="showDarkSwitch"
         @update:dark="preference.setIsDark" :dark="preference.isDark"/>
-      <LocalePicker :show-text="false" class="ml-8" v-if="showLocale"></LocalePicker>
+      <LocalePicker :show-text="false" class="ml-[8px]" v-if="showLocale"></LocalePicker>
     </div>
     
     <div class="grid  items-center justify-center wh-full pl-32 pr-32 lg:grid-cols-2 lg:gap-18 md:grid-cols-1 md:gap-9" >
@@ -15,8 +15,8 @@
               <AppLogo class="w-64px h-64px" v-if="showLogo"/>
               <n-gradient-text type="primary" :size="28">{{ title }}</n-gradient-text>
             </header>
-            <main class="pt-[24px]">
-              <h3 class="text-[18px] mb-[16px] text-primary font-medium">{{ $t(activeModule.label) }}</h3>
+            <main class="pt-24px">
+              <h3 class="text-18px mb-[16px] text-primary font-medium">{{ $t(activeModule.label) }}</h3>
               <transition name="fade-slide" mode="out-in" appear>
                 <component :is="activeModule.component" @update:active="moduleChange"/>
               </transition>

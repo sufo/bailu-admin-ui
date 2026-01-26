@@ -88,9 +88,9 @@ function bindApiNotChange(newApi: string[], oldApi: MenuApi[]) {
 
 const bindProps:ComputedRef<BaseFormProps> = computed(()=>({
   labelPlacement:"left",
-  labelWidth:140, labelAlign:'right',
+  labelWidth:120, labelAlign:'right',
   formItems: unref(formItems),
-  grid: {cols:2, xGap:30},
+  grid: {cols:"1 m:2", xGap:30},
   rules:{
     name:[{required: true,message: t('page.menu.name-not-empty')}],
     icon:[{required: true,message:t('page.menu.icon-not-empty')}],

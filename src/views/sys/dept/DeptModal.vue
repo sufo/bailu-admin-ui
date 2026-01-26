@@ -14,8 +14,10 @@ import { FormItemProps,BaseFormProps } from '@/components/form/types';
 import { enableOrDisableOpt} from '@/constants/options' 
 import {deptApi} from '@/api/admin'
 import {isBoolean} from 'lodash-es'
+import { useLocale } from '@/locales/useLocale';
 
 const { t } = useI18n()
+const {getLocale} = useLocale()
 const props = defineProps<ModalProps<Dept>>()
 
 const emit = defineEmits(["update:show", 'success'])
@@ -51,7 +53,8 @@ const formItems:ComputedRef<FormItemProps[]> = computed(()=>{
 
 const bindProps:ComputedRef<BaseFormProps> = computed(()=>({
   labelPlacement:"left",
-  labelWidth:160, labelAlign:'right',
+  labelWidth: getLocale.value === 'zh-CN' ? 120 : 160, 
+  labelAlign:'right',
   formItems: unref(formItems),
   grid: {cols:"1 m:2", xGap:30},
   rules:{

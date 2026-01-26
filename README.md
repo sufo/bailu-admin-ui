@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/favicon.svg" width="160" />
+  <img src="./src/assets/logo.png" width="160" />
   <h1>Bailu Admin</h1>
   <span>English | <a href="./README.zh-CN.md">中文</a></span>
 </div>

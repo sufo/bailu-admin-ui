@@ -25,6 +25,14 @@
 - **Rich Components**: Includes various built-in pages and components such as 403, 404, 500 pages, layout, tag, theme configurations, forms, table components, and more.
 - **Mobile Adaptation**: Fully responsive design with perfect support for mobile devices.
 
+## Project Preview
+
+| | |
+| :---: | :---: |
+| ![login](./docs/images/login.webp) | ![dashboard](./docs/images/dashboard.webp) |
+| ![user](./docs/images/user.webp) | ![role_add](./docs/images/role_add.webp) |
+| ![mobile_dashboard](./docs/images/mobile_dashboard.webp) | ![mobile_menu](./docs/images/mobile_menu.webp) |
+
 ## Usage
 
 **Prerequisites**
@@ -68,9 +76,6 @@ Recommended to use the latest version of Chrome for the best development experie
 | --- | --- | --- | --- |
 | Last 2 versions | Last 2 versions | Last 2 versions | Last 2 versions |
 
-## Author
-
-[sufo](https://github.com/sufo)
 
 ## License
 

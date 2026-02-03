@@ -18,7 +18,6 @@ defineOptions({ name: 'ThemeAction' });
 
 const theme = usePreferenceStore();
 const {t} = useI18n()
-const copyRef = ref<HTMLElement>();
 
 const dataClipboardText = ref(getClipboardText());
 const { text, copy, isSupported } = useClipboard({ source: dataClipboardText.value })

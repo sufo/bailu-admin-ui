@@ -4,7 +4,7 @@
       <template #prefix>
         <span>热门商品排名</span>
       </template>
-      <n-tab-pane :name="item.value" :tab="item.label" v-for="(item, index) in options.type">
+      <n-tab-pane :name="item.value" :tab="item.label" v-for="item in options.type">
         <n-table striped>
           <thead>
             <tr>

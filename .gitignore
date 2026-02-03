@@ -37,6 +37,7 @@ pnpm-lock.yaml
 
 **/__*
 **/__*/
+__*.*
 
 components.d.ts
 auto-imports.d.ts

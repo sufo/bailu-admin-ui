@@ -57,7 +57,7 @@ watch(show,(val:boolean)=>{
   emit('update:show', val)
 })
 
-const menuFormRef = ref<null|InstanceType<typeof BaseForm>>(null)
+// const menuFormRef = ref<null|InstanceType<typeof BaseForm>>(null)
 const title = computed(()=>props.isEdit?t('page.menu.edit'):t('page.menu.add'))
 const menus:Ref<MenuVo[]> = ref([])
 const formItems:ComputedRef<FormItemProps[]> = computed(()=>{

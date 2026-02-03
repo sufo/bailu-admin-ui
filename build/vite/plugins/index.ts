@@ -12,7 +12,7 @@ import { configSvgIconPlugin } from './svgSprite'
 
 import svgLoader from 'vite-svg-loader'
 import { appLoadingPlugin } from './app-loading'
-import hmrPlugin from './hmr'
+// import hmrPlugin from './hmr'
 
 
 export function setupVitePlugins(metaEnv: ImportMetaEnv, isBuild: boolean): PluginOption[] {

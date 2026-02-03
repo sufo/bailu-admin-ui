@@ -27,7 +27,7 @@ import {usePreferenceStore,useAppStore} from '@/store/modules'
 defineOptions({name:'SettingDrawer'})
 const preference = usePreferenceStore()
 const app = useAppStore()
-const mode = toRef(preference.theme,'mode')
+// const mode = toRef(preference.theme,'mode')
 
 const showBtn = computed(()=>!preference.header.visible||app.fullContent || app.settingDrawerVisible)
 </script>

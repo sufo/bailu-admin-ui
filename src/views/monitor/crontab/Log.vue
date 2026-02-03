@@ -92,7 +92,7 @@ const columns: ComputedRef<Array<TableColumn<TaskLog>>> = computed(()=>[
 
   ]); 
 
-async function request<T>(params: Recordable):Promise<void|TaskLog[]>{
+async function request<T>(params: Recordable):Promise<void|PagesResult<TaskLog[]>>{
   try{
     const {dateRange, ...rest} = params
     if(dateRange&&dateRange.length==2){

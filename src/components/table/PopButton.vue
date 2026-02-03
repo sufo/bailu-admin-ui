@@ -15,9 +15,9 @@
       <slot :name="name" v-bind="scope||{}"/>
     </template> -->
 
-    <template #action="scope"><slot name="popAction" v-bind="scope||{}"/></template>
-    <template #icon="scope"><slot name="popIcon" v-bind="scope||{}"/></template>
-    <template #default="scope"><slot name="popContent" v-bind="scope||{}">{{bindProps.message}}</slot></template>
+    <template #action><slot name="popAction" /></template>
+    <template #icon><slot name="popIcon" /></template>
+    <template #default><slot name="popContent" >{{bindProps.message}}</slot></template>
     <template #trigger>
       <n-button v-bind="action">
         <template #icon v-if="action.icon">
@@ -44,9 +44,9 @@ const attrs = useAttrs()
 const action = defineProps(actionItem);
 //定义slot
 const slots = defineSlots<{
-  ['popContent']: (props?: Recordable)=>any,
-  ['popAction']: (props?: Recordable)=>any,
-  ['popIcon']: (props?: Recordable)=>any,
+  ['popContent']: (props: Recordable)=>any,
+  ['popAction']: (props: Recordable)=>any,
+  ['popIcon']: (props: Recordable)=>any,
 }>()
 
 const bindProps = computed(()=>{

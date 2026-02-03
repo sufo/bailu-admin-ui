@@ -133,7 +133,7 @@ export function useDictItem(tableRef: Ref, dictCode: Ref<string>) {
   };
 
 
-  async function request<T>(formModel: Recordable): Promise<void | DictItem[]> {
+  async function request<T>(formModel: Recordable): Promise<void | PagesResult<DictItem[]>> {
     try {
       return await dictApi.dictItems(dictCode.value, formModel)
     } catch (e) {

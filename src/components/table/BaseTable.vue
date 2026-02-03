@@ -19,7 +19,7 @@
     </table-bar>
     <!-- </template> -->
     
-    <n-data-table :ref="(el:Ref)=>tablesRef[tbKey]=el" 
+    <n-data-table :ref="(el: any) => { if (el) tablesRef[tbKey] = el }" 
       class="px-16px pb-12px flex flex-1 h-0"
       v-bind="bindProps"
       :pagination="getPagination">
@@ -72,7 +72,8 @@ function initSection(){
 }
 
 // const tableRef = ref(null)
-const tablesRef:Ref<{[x:string|number]:any}> = ref({})
+//仅存储引用，不需要深度监听
+const tablesRef = shallowRef<Record<string | number, any>>({})
 const size:Ref<Density> = ref('medium')
 const {isMobile} = storeToRefs(useContext())
 interface Emits {

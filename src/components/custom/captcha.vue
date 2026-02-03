@@ -19,7 +19,7 @@ interface Emits{
 
 const emit = defineEmits<Emits>()
 
-const {domRef, captcha, getCaptcha, setCaptcha} = useCaptcha()
+const {captcha, getCaptcha, setCaptcha} = useCaptcha()
 
 //
 watch(()=>props.code,newVal=>{setCaptcha(newVal)})

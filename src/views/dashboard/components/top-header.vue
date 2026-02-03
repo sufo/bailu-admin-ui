@@ -71,7 +71,7 @@ import { computed, ref, onMounted, onUnmounted } from 'vue';
 import { useUserStore } from '@/store/modules';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import { getWeather } from '@/api/weather';
+// import { getWeather } from '@/api/weather';
 import { loginLogApi } from '@/api/admin';
 import { LunarUtils } from '@/utils/lunar';
 import {usePreferenceStore} from '@/store/modules'
@@ -125,34 +125,34 @@ const weatherUrl = computed(() => {
 let timer: NodeJS.Timeout;
 
 // Weather State
-const weatherInfo = ref<{
-  todayTemp: string;
-  tomorrowTemp: string;
-  todayIcon: string; 
-  tomorrowIcon: string;
-} | null>(null);
+// const weatherInfo = ref<{
+//   todayTemp: string;
+//   tomorrowTemp: string;
+//   todayIcon: string; 
+//   tomorrowIcon: string;
+// } | null>(null);
 
 const updateTime = () => {
   currentDate.value = dayjs();
 };
 
-const fetchWeather = async () => {
-    const data = await getWeather('Nanjing'); // Default to Nanjing or user loc
-    if (data) {
-        // const today = data.current_condition[0]; // Unused, using forecast for range
-        const tomorrow = data.weather[1]; // Index 1 is tomorrow in wttr.in j1 format (0 is today's forecast)
+// const fetchWeather = async () => {
+//     const data = await getWeather('xxx'); // Default to Nanjing or user loc
+//     if (data) {
+//         // const today = data.current_condition[0]; // Unused, using forecast for range
+//         const tomorrow = data.weather[1]; // Index 1 is tomorrow in wttr.in j1 format (0 is today's forecast)
         
-        // Simple temperature range for today (using forecast[0] might be better for range)
-        const todayForecast = data.weather[0];
+//         // Simple temperature range for today (using forecast[0] might be better for range)
+//         const todayForecast = data.weather[0];
         
-        weatherInfo.value = {
-            todayTemp: `${todayForecast.mintempC}~${todayForecast.maxtempC}°`,
-            tomorrowTemp: `${tomorrow.mintempC}~${tomorrow.maxtempC}°`,
-            todayIcon: '', 
-            tomorrowIcon: ''
-        };
-    }
-};
+//         weatherInfo.value = {
+//             todayTemp: `${todayForecast.mintempC}~${todayForecast.maxtempC}°`,
+//             tomorrowTemp: `${tomorrow.mintempC}~${tomorrow.maxtempC}°`,
+//             todayIcon: '', 
+//             tomorrowIcon: ''
+//         };
+//     }
+// };
 
 async function getLoginInfo() {
     // Map codes to ic

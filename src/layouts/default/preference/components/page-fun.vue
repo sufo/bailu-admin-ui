@@ -71,7 +71,8 @@
 <script lang="ts" setup>
 import { usePreferenceStore } from '@/store/modules';
 import SettingItem from './setting-item.vue';
-import {scrollModeOptions, topMenuAlignOptions} from '@/constants/options'
+// import {scrollModeOptions, topMenuAlignOptions} from '@/constants/options'
+import {topMenuAlignOptions} from '@/constants/options'
 defineOptions({ name: 'PageFunc' });
 
 const theme = usePreferenceStore();

@@ -1,7 +1,8 @@
 import { PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import viteImagemin from './imagemin'
+// import viteImagemin from './imagemin'
+import viteImagemin from './img-optimizer'
 import pwaPlugin from './pwa'
 import visualizer from './visualizer'
 import unocss from 'unocss/vite';
@@ -70,7 +71,7 @@ export function setupVitePlugins(metaEnv: ImportMetaEnv, isBuild: boolean): Plug
 
   // The following plugins only work in the production environment
   if (isBuild) {
-    //vite-plugin-imagemin
+    //vite-plugin-image-optimizer
     VITE_USE_IMAGEMIN && vitePlugins.push(viteImagemin);
 
     // rollup-plugin-gzip

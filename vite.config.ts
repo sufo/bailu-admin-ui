@@ -26,7 +26,7 @@ export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, root)
 
   const metaEnv = modifyEnv(env)
-
+  /* @vite-ignore */
   const rootPath = fileURLToPath(new URL('./', import.meta.url))
 
   // const srcPath = `${rootPath}src`

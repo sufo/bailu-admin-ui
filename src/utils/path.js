@@ -91,6 +91,7 @@ export const resolve = function () {
     else {
       if (cwd === undefined)
         // cwd = process.cwd();
+        /* @vite-ignore */
         cwd = new URL('./', import.meta.url).href
       console.log("cwd", cwd)
       path = cwd;

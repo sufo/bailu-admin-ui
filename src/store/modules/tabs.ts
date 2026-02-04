@@ -5,7 +5,7 @@ import { ThemeCacheKey } from '@/constants/enum';
 import { toTabRoute } from '@/router/helper/helpers';
 import { Page } from '@/constants/enum';
 import { PAGE_EXCEPT_NAME, REDIRECT_NAME, PAGE_NOT_FOUND_NAME } from '@/router/routes';
-
+import { useUserStore } from '@/store/modules/user';
 import { useGo, useRouterPush } from '@/hooks/common/usePage';
 
 function handleGotoPage(router: Router) {
@@ -249,7 +249,7 @@ export const useTabStore = defineStore("app-tabs-store", {
       if (index === 0) {
         // There is only one tab, then jump to the homepage, otherwise jump to the right tab
         if (this.tabs.length === 1) {
-          const { useUserStore } = await import('@/store/modules/user');
+          // const { useUserStore } = await import('@/store/modules/user');
           const { getUserInfo } = useUserStore();
           toTarget = getUserInfo?.homePath || Page.BASE_HOME;
           activePath = toTarget as string

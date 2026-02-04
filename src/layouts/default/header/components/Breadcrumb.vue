@@ -36,7 +36,7 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useAsyncRouteStore, usePreferenceStore } from '@/store/modules';
-import { useRouterPush } from '@/hooks';
+import { useRouterPush } from '@/hooks/common/usePage';
 import { getBreadcrumbByRoute } from '@/utils/breadcrumb';
 
 defineOptions({ name: 'Breadcrumb' });

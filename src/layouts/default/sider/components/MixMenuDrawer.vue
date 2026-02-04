@@ -32,7 +32,8 @@ import { useRoute } from 'vue-router';
 import type { MenuOption } from 'naive-ui';
 import { useAppStore, usePreferenceStore } from '@/store/modules';
 // import { getActiveKeyPathsOfMenus } from '../useSider';
-import {useDesign, useRouterPush} from '@/hooks'
+import {useDesign} from '@/hooks'
+import {useRouterPush} from '@/hooks/common/usePage'
 import type {CSSProperties} from 'vue'
 
 defineOptions({ name: 'MixMenuDrawer' });

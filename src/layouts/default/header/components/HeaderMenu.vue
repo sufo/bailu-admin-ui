@@ -22,7 +22,7 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePreferenceStore, useAsyncRouteStore } from '@/store/modules';
-import { useRouterPush } from '@/hooks';
+import { useRouterPush } from '@/hooks/common/usePage';
 
 defineOptions({ name: 'HeaderMenu' });
 

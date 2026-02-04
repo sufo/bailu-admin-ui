@@ -29,7 +29,8 @@
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useAppStore,useAsyncRouteStore,usePreferenceStore } from '@/store/modules';
-import { useBoolean,useDesign,useRouterPush} from '@/hooks';
+import { useBoolean,useDesign} from '@/hooks';
+import { useRouterPush} from '@/hooks/common/usePage';
 import MixMenuDrawer from './MixMenuDrawer.vue'
 import MixMenuItem from './MixMenuItem.vue';
 defineOptions({ name: 'VerticalMixSider' });

@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import { Page } from '@/constants/enum';
 import {useDesign} from '@/hooks'
-import {useGo} from '@/hooks'
+import {useGo} from '@/hooks/common/usePage'
 import { useUserStore } from '@/store/modules/user';
 // defineOptions({name:'AppLogo',inheritAttrs:false})
 defineOptions({name:'AppLogo'})

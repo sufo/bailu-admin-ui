@@ -22,7 +22,8 @@
     :left="preference.menu.width" :mobile="isMobile"/>
 </template>
 <script lang="ts" setup>
-import { useDesign,useRouterPush} from '@/hooks';
+import { useDesign} from '@/hooks';
+import { useRouterPush} from '@/hooks/common/usePage';
 import { useAppStore, usePreferenceStore,useAsyncRouteStore } from '@/store/modules';
 import { useContext } from '@/store/useContext'
 // import { getActiveKeyPathsOfMenus } from '../useSider';

@@ -78,7 +78,7 @@ function handleDropdown(optionKey: string) {
       positiveText: t('button.okText'),
       negativeText: t('button.cancelText'),
       onPositiveClick: () => {
-        user.logout(true);
+        user.logout();
       }
     });
   }else if(key==='lockScreen'){

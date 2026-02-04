@@ -209,7 +209,7 @@ export function createPermissionGuard(router: Router) {
 
     //初始化路由
     try {
-      await asyncRouteStore.initRoute(userStore.getUserInfo?.homePath || Page.BASE_HOME)
+      await asyncRouteStore.initRoute(router, userStore.getUserInfo?.homePath || Page.BASE_HOME)
     } catch (err) {
       console.warn('initRoute failed', err)
       // If initRoute fails, we proceed. It might result in 404.

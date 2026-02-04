@@ -6,7 +6,7 @@ import { Page } from '@/constants/enum'
 import { menuApi } from "@/api/admin";
 import { AppRouteRecordRaw } from "~/types/route";
 import { asyncImportRoute, transformRouteToMenu, flatAsyncRoutes } from "@/router/helper/helpers";
-import { RouteRecordRaw } from 'vue-router';
+import { RouteRecordRaw, Router } from 'vue-router';
 
 import { NOT_FOUND } from "@/router/routes";
 
@@ -115,10 +115,10 @@ export const useAsyncRouteStore = defineStore("app-async-route", {
     },
 
     //route处理
-    async initRoute(homePath: string = Page.BASE_HOME) {
+    async initRoute(router: Router, homePath: string = Page.BASE_HOME) {
 
       if (!this.isDynamicAddedRoute) {
-        const { router } = await import('@/router');
+        // const { router } = await import('@/router');
         const routes = await this.buildRoutes(homePath)
         // console.log("routes", routes)
         //@ts-ignore

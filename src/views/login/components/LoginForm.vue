@@ -45,16 +45,18 @@
 
 <script lang="ts" setup>
 import {useFormRule} from '@/hooks/'
+import { useUserAction } from '@/hooks/business/useUserAction'
 import { useI18n } from 'vue-i18n';
 import type {FormInst,FormRules} from 'naive-ui'
-import { useUserStore } from '@/store/modules/user';
+
 import { getCaptcha } from '@/api/admin';
 import { useDesign } from '@/hooks';
 import { onKeyStroke } from '@vueuse/core';
 import webStorage from '@/utils/storage';
 
 const {t} = useI18n()
-const {doLogin} = useUserStore()
+
+const { login } = useUserAction()
 
 const formRules = useFormRule()
 const loginForm = reactive({
@@ -84,7 +86,7 @@ async function handleSubmit(){
   loading.value = true
   const params = Object.assign({}, loginForm)
 
-  await doLogin(params).then(()=>{
+  await login(params).then(()=>{
     //处理记住用户
     if(rememeberMe.value)
      setCookie()

@@ -19,7 +19,7 @@ import { useCheckUpdateNotify } from './plugins/check-update';
 import {addThemeColorCssVars} from '@/store/modules/preference'
 import { emitter } from '@/utils/emitter'
 import { EventEnum } from '@/constants/enum'
-import { useUserStore } from '@/store/modules/user'
+import { useUserAction } from '@/hooks/business/useUserAction'
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 const localeInfo = useLocaleStore()
@@ -50,10 +50,14 @@ const dateLocale = computed(() => {
 //添加css变量
 addThemeColorCssVars();
 
+
+// ...
+const { logout } = useUserAction();
+
 function bindEvents() {
-  emitter.on(EventEnum.AUTH_ERROR, (force) => {
-    const userStore = useUserStore();
-    userStore.logout(force as boolean);
+  emitter.on(EventEnum.AUTH_ERROR, async (force) => {
+    // const userStore = useUserStore();
+    await logout(force as boolean);
   });
 }
 bindEvents();

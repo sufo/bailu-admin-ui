@@ -6,10 +6,10 @@ import { defineStore } from 'pinia';
 import { store } from "@/store"
 import { getUserInfo, login, smsLogin, logoutApi, register } from '@/api/admin'
 
-import { Page } from '@/constants/enum';
+
 
 import { rsa } from '@/utils/rsa'
-import { i18n } from '@/locales/i18n'
+
 
 
 
@@ -92,25 +92,20 @@ export const useUserStore = defineStore('app-user', {
       storage.set(ACCESS_TOKEN, token, this.expires)
     },
 
-    async logout(toLogin = false) {
+    async logout() {
       // if (this.getToken) { //没有响应式
       if (this.token || storage.get<string>(ACCESS_TOKEN)) {
         //注销操作
         try {
           await logoutApi();
         } catch {
-          const t = i18n.global.t
-          console.log(t('tips.destoryTokenFailure'));
-          toLogin = true
+          // const t = i18n.global.t
+          console.log('logout error');
         }
       }
       this.setToken('');
       this.setUserInfo(null);
       storage.removes(ACCESS_TOKEN, USER_INFO)
-      if (toLogin) {
-        const { router } = await import('@/router');
-        router.replace(Page.BASE_LOGIN)
-      }
     },
 
     //登录
@@ -122,31 +117,9 @@ export const useUserStore = defineStore('app-user', {
         this.expires = expires
         this.setToken(token!);
         this.setUserInfo(userInfo);
-        this.afterLogin()
       } catch (error) {
         return Promise.reject(error)
       }
-    },
-
-    async afterLogin() {
-      const { useAsyncRouteStore } = await import('./route');
-      const asyncRouteStore = useAsyncRouteStore()
-      // console.log(this.userInfo)
-      // 登录成功弹出欢迎提示
-      window.$notification?.success({
-        title: i18n.global.t('login.loginSuccessTitle'),
-        content: `${i18n.global.t('login.loginSuccessDesc')}，${this.userInfo?.username}!`,
-        duration: 3000
-      });
-      const { router } = await import('@/router');
-      let path = this.userInfo?.homePath || Page.BASE_HOME
-      const { query } = router.currentRoute.value;
-      if (query?.redirect) {
-        path = (query.redirect as string);
-      }
-      //这个要加await，否则跳转会找不到页面，因为路由还没加进去
-      await asyncRouteStore.initRoute(this.userInfo?.homePath || Page.BASE_HOME)
-      await router.replace(path)
     },
 
 
@@ -159,14 +132,13 @@ export const useUserStore = defineStore('app-user', {
     },
 
     //登录
-    async smsLogin(phone: string, smsCode: string, goHome?: boolean): Promise<UserInfo | null> {
+    async smsLogin(phone: string, smsCode: string): Promise<UserInfo | null> {
       try {
         //网络请求 获取userinfo和token
         const { token, userInfo, expires } = await smsLogin(phone, smsCode)
         this.expires = expires
         this.setToken(token!);
         this.setUserInfo(userInfo);
-        this.afterLogin()
         return userInfo
       } catch (error) {
         return Promise.reject(error)

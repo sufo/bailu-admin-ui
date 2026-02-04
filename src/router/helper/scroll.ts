@@ -1,9 +1,11 @@
 import type { RouterScrollBehavior } from 'vue-router';
+import { useAppStore } from '@/store/modules/app';
+import { useTabStore } from '@/store/modules/tabs';
 
 export const scrollBehavior: RouterScrollBehavior = (to, from) => {
   return new Promise(async resolve => {
-    const { useAppStore } = await import('@/store/modules/app');
-    const { useTabStore } = await import('@/store/modules/tabs');
+
+
     const app = useAppStore();
     const tab = useTabStore();
 

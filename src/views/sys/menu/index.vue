@@ -24,6 +24,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import {useDesign} from '@/hooks'
 import { BailuTable } from '@/components/table';
 import { useMenu } from './use-menu';
@@ -35,6 +36,7 @@ defineOptions({name:"Menu"})
 const { prefixCls } = useDesign('menu')
 const tableRef = ref()
 const { formItems, columns, request, afterRequest, handler, menuModalProps, fetchApis} = useMenu(tableRef)
+const router = useRouter()
 
 const onSearch = async (formModel:Recordable, done: ()=>void)=>{
   await tableRef.value.loadData({...formModel})
@@ -51,7 +53,7 @@ const routeStore = useAsyncRouteStore()
 async function onSuccess(){
   //刷新路由和menus
   routeStore.setDynamicAddedRoute(false)
-  await routeStore.initRoute()
+  await routeStore.initRoute(router)
   tableRef.value.loadData()
 }
 

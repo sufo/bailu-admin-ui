@@ -18,12 +18,14 @@
 <script lang="ts" setup>
 import {useFormRule,useSMSCode, useDesign} from '@/hooks'
 import type {FormInst,FormRules} from 'naive-ui'
-import { useUserStore } from '@/store/modules/user';
 
+
+
+import { useUserAction } from '@/hooks/business/useUserAction'
 
 defineOptions({name: 'MobileForm'})
 
-const {smsLogin} = useUserStore()
+const {smsLogin} = useUserAction()
 const loading = ref(false)
 const formRules = useFormRule()
 const loginForm = reactive({

@@ -6,6 +6,7 @@ import { useRouter, useRoute } from 'vue-router';
 
 import { PAGE_ROOT_NAME } from "@/router/routes";
 import { PAGE_LOGIN_NAME } from "@/router/routes";
+import { router as routerInstance } from '@/router';
 
 function handleError(e: Error) {
   console.error(e);
@@ -34,28 +35,24 @@ export function useGo(_router?: Router) {
  * 路由跳转
  * @param inSetup - 是否在vue页面/组件的setup里面调用，在axios里面无法使用useRouter和useRoute
  */
-/**
- * 路由跳转
- * @param inSetup - 是否在vue页面/组件的setup里面调用，在axios里面无法使用useRouter和useRoute
- */
 export function useRouterPush(inSetup = true) {
   const setupRouter = inSetup ? useRouter() : undefined;
   const setupRoute = inSetup ? useRoute() : undefined;
 
-  async function getRouter() {
+
+
+  function getRouter() {
     if (inSetup) {
       return setupRouter;
     }
-    const { router } = await import('@/router');
-    return router;
+    return routerInstance;
   }
 
-  async function getRoute() {
+  function getRoute() {
     if (inSetup) {
       return setupRoute;
     }
-    const { router } = await import('@/router');
-    return router.currentRoute.value;
+    return routerInstance.currentRoute.value;
   }
 
   // Rewrite to async to handle dynamic import

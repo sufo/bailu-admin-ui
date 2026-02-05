@@ -13,6 +13,10 @@
 [Back-end](https://github.com/sufo/bailu-admin).
 
 
+## Online Demo
+
+[https://bailu-admin.vercel.app/](https://bailu-admin.vercel.app/)
+
 ## Features
 
 - **Cutting-edge Technology**: Built with the latest popular tech stack: Vue3, Vite7, TypeScript, Pinia, UnoCSS, and Naive UI.

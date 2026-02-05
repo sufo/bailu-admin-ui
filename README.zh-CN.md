@@ -14,6 +14,10 @@
 
 [后端项目](https://github.com/sufo/bailu-admin)。
 
+## 在线演示
+
+[https://bailu-admin.vercel.app/](https://bailu-admin.vercel.app/)
+
 ## 特性
 
 - **前沿技术应用**：采用 Vue3, Vite7, TypeScript, Pinia, UnoCSS 和 Naive UI 等最新流行的技术栈。

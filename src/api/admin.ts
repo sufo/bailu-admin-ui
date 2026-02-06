@@ -370,7 +370,7 @@ export const taskApi = {
 /** mine */
 export const msgApi = {
   unreadList: (params: Recordable) => {
-    return http.get<PagesResult<Message[]>>({ url: "/mine/message/unread", params })
+    return http.get<Message[]>({ url: "/mine/message/unread", params })
   },
   remove: (msgType: MessageType, ids: string) => {
     return http.delete({ url: `/mine/${msgType}/${ids}` })

@@ -137,8 +137,7 @@ function loadData(msgType: MessageType){
   msgApi.unreadList({type:msgType}).then((res)=>{
     const index = ['notice','event','chat'].indexOf(msgType)
     // console.log("res",res)
-    const result = res as (PagesResult<Message[]>)
-    tabData.value[index].list = result.data
+    tabData.value[index].list = res
   })
 }
 

@@ -6,15 +6,15 @@
       <div class="px-20px pt-15px pb-20px">
         <bailu-avatar />
         <n-divider />
-        <div class="cell"><icon icon="carbon:user-filled"/>用户名<span>{{ userInfo.username }}</span></div>
-        <div class="cell"><icon icon="carbon:mobile"/>手机号<span>{{ userInfo.phone }}</span></div>
-        <div class="cell"><icon icon="carbon:email"/>邮&emsp;箱<span>{{ userInfo.email }}</span></div>
-        <div class="cell"><icon icon="carbon:container-services"/>部&emsp;门<span>{{ userInfo.deptName }}</span></div>
-        <div class="cell"><icon icon="mdi:account-tie"/>职&emsp;位<span>{{ userInfo.posts.map(e=>e.label).join() }}</span></div>
-        <div class="cell"><icon icon="carbon:user-multiple"/>角&emsp;色<span>{{ userInfo.roles.map(e=>e.label).join() }}</span></div>
+        <div class="cell"><icon icon="carbon:user-filled"/>用户名<span>{{ userInfo?.username }}</span></div>
+        <div class="cell"><icon icon="carbon:mobile"/>手机号<span>{{ userInfo?.phone }}</span></div>
+        <div class="cell"><icon icon="carbon:email"/>邮&emsp;箱<span>{{ userInfo?.email }}</span></div>
+        <div class="cell"><icon icon="carbon:container-services"/>部&emsp;门<span>{{ userInfo?.deptName }}</span></div>
+        <div class="cell"><icon icon="mdi:account-tie"/>职&emsp;位<span>{{ userInfo?.posts.map(e=>e.label).join() }}</span></div>
+        <div class="cell"><icon icon="carbon:user-multiple"/>角&emsp;色<span>{{ userInfo?.roles.map(e=>e.label).join() }}</span></div>
         <!-- <div class="cell"><icon icon=""/>创建日期<span>{{ }}</span></div> -->
-        <div class="cell" v-if="userInfo.profile">{{ userInfo.profile }}</div>
-      </div>
+        <div class="cell" v-if="userInfo?.profile">{{ userInfo?.profile }}</div>
+      </div>  
     </dark-mode-container>
     <n-tabs class="right bg-white dark:bg-transparent" type="line" :tabs-padding="15" tab-style="font-size:16px;" animated>
       <n-tab-pane :name="$t('page.profile.general')" :tab="$t('page.profile.general')">

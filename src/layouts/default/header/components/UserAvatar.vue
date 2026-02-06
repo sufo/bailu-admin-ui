@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
 import { useUserStore, usePreferenceStore, useLockStore} from '@/store/modules';
+import { useUserAction } from '@/hooks/business/useUserAction';
 import { useI18n } from 'vue-i18n'
 import { useDesign } from '@/hooks'
 import { useIconRender } from '@/components/icon'
@@ -20,6 +21,7 @@ import headerImg from '@/assets/imgs/header.jpg'
 
 defineOptions({ name: 'UserAvatar' });
 
+const { logout } = useUserAction();
 const user = useUserStore();
 const theme = usePreferenceStore();
 const router = useRouter();
@@ -78,7 +80,7 @@ function handleDropdown(optionKey: string) {
       positiveText: t('button.okText'),
       negativeText: t('button.cancelText'),
       onPositiveClick: () => {
-        user.logout();
+        logout(true);
       }
     });
   }else if(key==='lockScreen'){

@@ -82,12 +82,12 @@ export function getNaiveThemeOverrides(colors: Record<ColorType, string>): Globa
 
 /** 获取缓存中的主题配置 */
 export function getThemeSettings() {
-  return storage.get<Settings>(ThemeCacheKey.THEME_SETTINGS);
+  return storage.get<Settings>(ThemeCacheKey.THEME_SETTINGS, null, false);
 }
 
 /** 获取缓存中的主题配置 */
 export function setThemeSettings(settings: Settings) {
-  return storage.set(ThemeCacheKey.THEME_SETTINGS, settings);
+  return storage.set(ThemeCacheKey.THEME_SETTINGS, settings, null, false);
 }
 
 /** 清除缓存配置 */

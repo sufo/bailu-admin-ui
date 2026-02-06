@@ -10,7 +10,7 @@
                 </div>
                 <div>
                     <div class="flex-y-center gap-[16px]">
-                        <h1 class="text-2xl font-bold text-slate-800 dark:text-gray-100">{{ greeting }}，{{ userInfo.username }}</h1>
+                        <h1 class="text-2xl font-bold text-slate-800 dark:text-gray-100">{{ greeting }}，{{ userInfo?.username }}</h1>
                         <span class="px-[8px] py-[2px] bg-blue-50 dark:bg-blue-900/30 text-primary text-xs font-bold rounded-lg tracking-wide uppercase">bailu</span>
                     </div>
                     <div class="flex-y-center mt-[16px] text-slate-400 dark:text-gray-400 text-xs space-x-[3px]">
@@ -79,7 +79,7 @@ import {usePreferenceStore} from '@/store/modules'
 const {t} = useI18n();
 const userStore = useUserStore();
 const userInfo = computed(() => userStore.getUserInfo);
-const brief = computed(() => userInfo.value.profile || '“ 日子像一条缓慢流淌的河，情绪偶尔泛起，却很快归于平稳。回头看时才发现，那些真正留下痕迹的，并不是某个耀眼的时刻，而是无数个平凡却被认真度过的瞬间。 ”');
+const brief = computed(() => userInfo.value?.profile || '“ 日子像一条缓慢流淌的河，情绪偶尔泛起，却很快归于平稳。回头看时才发现，那些真正留下痕迹的，并不是某个耀眼的时刻，而是无数个平凡却被认真度过的瞬间。 ”');
 const loginLog = ref<LoginLog | null>(null);
 
 // Date & Time State

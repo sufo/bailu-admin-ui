@@ -65,25 +65,25 @@ export class WebStorage {
    * @param value 
    * @param expire 
    */
-  set(key: string, value: unknown, expire: number | null = DEFAULT_CACHE_TIME) {
+  set(key: string, value: unknown, expire: number | null = DEFAULT_CACHE_TIME, isEncrypt: boolean = this.hasEncrypt) {
     const stringData = JSON.stringify({
       value,
       time: Date.now(),
       expire: !isNullOrUnDef(expire) ? new Date().getTime() + expire * 1000 : null,
     });
-    const stringifyValue = this.hasEncrypt
+    const stringifyValue = isEncrypt
       ? this.encryption?.encryptByAES(stringData)
       : stringData;
     this.storage.setItem(this.getKey(key), stringifyValue as string);
   }
 
 
-  get<T = any>(key: string, defaultVal: T | null = null): T {
+  get<T = any>(key: string, defaultVal: T | null = null, isEncrypt: boolean = this.hasEncrypt): T {
     const rawVal = this.storage.getItem(this.getKey(key));
     if (!rawVal) return defaultVal as T;
 
     try {
-      const val = this.hasEncrypt ? this.encryption?.decryptByAES(rawVal) : rawVal;
+      const val = isEncrypt ? this.encryption?.decryptByAES(rawVal) : rawVal;
       const data = JSON.parse(val!);
       const { value, expire } = data
       if (isNullOrUnDef(expire) || expire >= Date.now()) {
@@ -206,5 +206,5 @@ const { storageModel } = setting.app;
 const isLocal = storageModel === 'LOCAL';
 
 const prefixKey = import.meta.env.VITE_APP_NAMESPACE
-export const storage = isLocal ? createLocalStorage({prefixKey}) : createSessionStorage({prefixKey})
+export const storage = isLocal ? createLocalStorage({ prefixKey }) : createSessionStorage({ prefixKey })
 export default storage
